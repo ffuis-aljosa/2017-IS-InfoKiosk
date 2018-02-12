@@ -17,6 +17,7 @@ namespace InfoKioskProject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new welcomeForm());
+            //Application.Run(new adminLoginForm());
         }
     }
 }

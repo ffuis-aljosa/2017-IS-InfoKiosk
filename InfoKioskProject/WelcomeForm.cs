@@ -16,5 +16,22 @@ namespace InfoKioskProject
         {
             InitializeComponent();
         }
+
+        private void adminLoginButton_Click(object sender, EventArgs e)
+        {
+            welcomeForm welcome = new welcomeForm();
+
+            adminLoginForm adminLogin = new adminLoginForm();
+            adminLogin.Show();
+
+            adminLogin.FormClosed += AdminLoginForm_FormClosed;
+
+            Hide();
+        }
+
+        private void AdminLoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Show();
+        }
     }
 }
