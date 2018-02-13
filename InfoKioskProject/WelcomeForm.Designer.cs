@@ -42,10 +42,9 @@
             // 
             this.welcomeLabel.AutoSize = true;
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLabel.Location = new System.Drawing.Point(164, 16);
-            this.welcomeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.welcomeLabel.Location = new System.Drawing.Point(123, 13);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(334, 100);
+            this.welcomeLabel.Size = new System.Drawing.Size(268, 80);
             this.welcomeLabel.TabIndex = 2;
             this.welcomeLabel.Text = "Добро дошли на Инфо киоск!\r\n\r\nУниверзитет у Источном Сарајеву\r\nФилозофски факулте" +
     "т Пале";
@@ -53,10 +52,9 @@
             // adminLoginButton
             // 
             this.adminLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminLoginButton.Location = new System.Drawing.Point(16, 158);
-            this.adminLoginButton.Margin = new System.Windows.Forms.Padding(4);
+            this.adminLoginButton.Location = new System.Drawing.Point(12, 128);
             this.adminLoginButton.Name = "adminLoginButton";
-            this.adminLoginButton.Size = new System.Drawing.Size(307, 60);
+            this.adminLoginButton.Size = new System.Drawing.Size(230, 49);
             this.adminLoginButton.TabIndex = 3;
             this.adminLoginButton.Text = "АДМИНИСТРАТОР";
             this.adminLoginButton.UseVisualStyleBackColor = true;
@@ -65,41 +63,39 @@
             // studentLoginButton
             // 
             this.studentLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentLoginButton.Location = new System.Drawing.Point(356, 158);
-            this.studentLoginButton.Margin = new System.Windows.Forms.Padding(4);
+            this.studentLoginButton.Location = new System.Drawing.Point(267, 128);
             this.studentLoginButton.Name = "studentLoginButton";
-            this.studentLoginButton.Size = new System.Drawing.Size(307, 60);
+            this.studentLoginButton.Size = new System.Drawing.Size(230, 49);
             this.studentLoginButton.TabIndex = 4;
             this.studentLoginButton.Text = "СТУДЕНТ";
             this.studentLoginButton.UseVisualStyleBackColor = true;
+            this.studentLoginButton.Click += new System.EventHandler(this.studentLoginButton_Click);
             // 
             // FFpictureBox
             // 
             this.FFpictureBox.Image = global::InfoKioskProject.Properties.Resources.ffuis_logo;
-            this.FFpictureBox.Location = new System.Drawing.Point(529, 16);
-            this.FFpictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.FFpictureBox.Location = new System.Drawing.Point(397, 13);
             this.FFpictureBox.Name = "FFpictureBox";
-            this.FFpictureBox.Size = new System.Drawing.Size(133, 123);
+            this.FFpictureBox.Size = new System.Drawing.Size(100, 100);
             this.FFpictureBox.TabIndex = 1;
             this.FFpictureBox.TabStop = false;
             // 
             // UISpictureBox
             // 
             this.UISpictureBox.Image = global::InfoKioskProject.Properties.Resources.UES_Logo;
-            this.UISpictureBox.Location = new System.Drawing.Point(17, 16);
-            this.UISpictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.UISpictureBox.Location = new System.Drawing.Point(13, 13);
             this.UISpictureBox.Name = "UISpictureBox";
-            this.UISpictureBox.Size = new System.Drawing.Size(133, 123);
+            this.UISpictureBox.Size = new System.Drawing.Size(100, 100);
             this.UISpictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.UISpictureBox.TabIndex = 0;
             this.UISpictureBox.TabStop = false;
             // 
             // welcomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(679, 235);
+            this.ClientSize = new System.Drawing.Size(509, 191);
             this.Controls.Add(this.studentLoginButton);
             this.Controls.Add(this.adminLoginButton);
             this.Controls.Add(this.welcomeLabel);
@@ -107,7 +103,6 @@
             this.Controls.Add(this.UISpictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "welcomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

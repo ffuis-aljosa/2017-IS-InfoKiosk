@@ -28,8 +28,25 @@ namespace InfoKioskProject
 
             Hide();
         }
+        
+        private void studentLoginButton_Click(object sender, EventArgs e)
+        {
+            welcomeForm welcome = new welcomeForm();
 
+            studentLoginForm studentLogin = new studentLoginForm();
+            studentLogin.Show();
+
+            studentLogin.FormClosed += StudentLoginForm_FormClosed;
+
+            Hide();
+        }
+        
         private void AdminLoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Show();
+        }
+
+        private void StudentLoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Show();
         }

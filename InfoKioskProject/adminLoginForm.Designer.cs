@@ -40,58 +40,65 @@
             // 
             this.adminUsernameLabel.AutoSize = true;
             this.adminUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.adminUsernameLabel.Location = new System.Drawing.Point(8, 9);
+            this.adminUsernameLabel.Location = new System.Drawing.Point(6, 7);
+            this.adminUsernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.adminUsernameLabel.Name = "adminUsernameLabel";
-            this.adminUsernameLabel.Size = new System.Drawing.Size(145, 20);
+            this.adminUsernameLabel.Size = new System.Drawing.Size(116, 17);
             this.adminUsernameLabel.TabIndex = 0;
             this.adminUsernameLabel.Text = "Корисничко име";
             // 
             // adminUsernameTextBox
             // 
-            this.adminUsernameTextBox.Location = new System.Drawing.Point(12, 32);
+            this.adminUsernameTextBox.Location = new System.Drawing.Point(9, 26);
+            this.adminUsernameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.adminUsernameTextBox.Name = "adminUsernameTextBox";
-            this.adminUsernameTextBox.Size = new System.Drawing.Size(314, 22);
+            this.adminUsernameTextBox.Size = new System.Drawing.Size(236, 20);
             this.adminUsernameTextBox.TabIndex = 1;
             // 
             // adminPasswordLabel
             // 
             this.adminPasswordLabel.AutoSize = true;
             this.adminPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.adminPasswordLabel.Location = new System.Drawing.Point(8, 74);
+            this.adminPasswordLabel.Location = new System.Drawing.Point(6, 60);
+            this.adminPasswordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.adminPasswordLabel.Name = "adminPasswordLabel";
-            this.adminPasswordLabel.Size = new System.Drawing.Size(79, 20);
+            this.adminPasswordLabel.Size = new System.Drawing.Size(64, 17);
             this.adminPasswordLabel.TabIndex = 2;
             this.adminPasswordLabel.Text = "Лозинка";
             // 
             // adminPasswordTextBox
             // 
-            this.adminPasswordTextBox.Location = new System.Drawing.Point(12, 97);
+            this.adminPasswordTextBox.Location = new System.Drawing.Point(9, 79);
+            this.adminPasswordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.adminPasswordTextBox.Name = "adminPasswordTextBox";
-            this.adminPasswordTextBox.Size = new System.Drawing.Size(314, 22);
+            this.adminPasswordTextBox.PasswordChar = '*';
+            this.adminPasswordTextBox.Size = new System.Drawing.Size(236, 20);
             this.adminPasswordTextBox.TabIndex = 3;
             // 
             // adminLoginButton
             // 
             this.adminLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminLoginButton.Location = new System.Drawing.Point(12, 150);
+            this.adminLoginButton.Location = new System.Drawing.Point(9, 123);
+            this.adminLoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.adminLoginButton.Name = "adminLoginButton";
-            this.adminLoginButton.Size = new System.Drawing.Size(314, 40);
+            this.adminLoginButton.Size = new System.Drawing.Size(236, 32);
             this.adminLoginButton.TabIndex = 4;
             this.adminLoginButton.Text = "ПРИЈАВИ СЕ";
             this.adminLoginButton.UseVisualStyleBackColor = true;
             // 
             // adminLoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(342, 203);
+            this.ClientSize = new System.Drawing.Size(256, 166);
             this.Controls.Add(this.adminLoginButton);
             this.Controls.Add(this.adminPasswordTextBox);
             this.Controls.Add(this.adminPasswordLabel);
             this.Controls.Add(this.adminUsernameTextBox);
             this.Controls.Add(this.adminUsernameLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "adminLoginForm";
