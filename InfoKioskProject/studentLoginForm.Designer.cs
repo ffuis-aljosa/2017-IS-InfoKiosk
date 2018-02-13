@@ -41,9 +41,9 @@
             this.studentUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentUsernameLabel.Location = new System.Drawing.Point(6, 7);
             this.studentUsernameLabel.Name = "studentUsernameLabel";
-            this.studentUsernameLabel.Size = new System.Drawing.Size(114, 16);
+            this.studentUsernameLabel.Size = new System.Drawing.Size(93, 16);
             this.studentUsernameLabel.TabIndex = 0;
-            this.studentUsernameLabel.Text = "Корисничко име";
+            this.studentUsernameLabel.Text = "Број индекса";
             // 
             // studentUsernameTextBox
             // 
