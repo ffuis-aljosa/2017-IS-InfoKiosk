@@ -50,7 +50,7 @@
             // adminUsernameTextBox
             // 
             this.adminUsernameTextBox.Location = new System.Drawing.Point(9, 26);
-            this.adminUsernameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.adminUsernameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.adminUsernameTextBox.Name = "adminUsernameTextBox";
             this.adminUsernameTextBox.Size = new System.Drawing.Size(236, 20);
             this.adminUsernameTextBox.TabIndex = 1;
@@ -69,7 +69,7 @@
             // adminPasswordTextBox
             // 
             this.adminPasswordTextBox.Location = new System.Drawing.Point(9, 79);
-            this.adminPasswordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.adminPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.adminPasswordTextBox.Name = "adminPasswordTextBox";
             this.adminPasswordTextBox.PasswordChar = '*';
             this.adminPasswordTextBox.Size = new System.Drawing.Size(236, 20);
@@ -79,12 +79,13 @@
             // 
             this.adminLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminLoginButton.Location = new System.Drawing.Point(9, 123);
-            this.adminLoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.adminLoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.adminLoginButton.Name = "adminLoginButton";
             this.adminLoginButton.Size = new System.Drawing.Size(236, 32);
             this.adminLoginButton.TabIndex = 4;
             this.adminLoginButton.Text = "ПРИЈАВИ СЕ";
             this.adminLoginButton.UseVisualStyleBackColor = true;
+            this.adminLoginButton.Click += new System.EventHandler(this.adminLoginButton_Click);
             // 
             // adminLoginForm
             // 
@@ -98,7 +99,7 @@
             this.Controls.Add(this.adminUsernameTextBox);
             this.Controls.Add(this.adminUsernameLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "adminLoginForm";
