@@ -56,7 +56,7 @@
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(230, 49);
             this.loginButton.TabIndex = 3;
-            this.loginButton.Text = "ПРИЈАВИ СЕ";
+            this.loginButton.Text = "ПРИЈАВА";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
@@ -86,8 +86,9 @@
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(230, 49);
             this.closeButton.TabIndex = 4;
-            this.closeButton.Text = "ИЗАЂИ";
+            this.closeButton.Text = "ИЗЛАЗ";
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // welcomeForm
             // 
@@ -103,6 +104,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "welcomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ФФУИС - ИНФО КИОСК";
