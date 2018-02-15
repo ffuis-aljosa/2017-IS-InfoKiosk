@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(welcomeForm));
             this.welcomeLabel = new System.Windows.Forms.Label();
-            this.adminLoginButton = new System.Windows.Forms.Button();
-            this.studentLoginButton = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
             this.FFpictureBox = new System.Windows.Forms.PictureBox();
             this.UISpictureBox = new System.Windows.Forms.PictureBox();
+            this.closeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FFpictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UISpictureBox)).BeginInit();
             this.SuspendLayout();
@@ -49,27 +49,16 @@
             this.welcomeLabel.Text = "Добро дошли на Инфо киоск!\r\n\r\nУниверзитет у Источном Сарајеву\r\nФилозофски факулте" +
     "т Пале";
             // 
-            // adminLoginButton
+            // loginButton
             // 
-            this.adminLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminLoginButton.Location = new System.Drawing.Point(12, 128);
-            this.adminLoginButton.Name = "adminLoginButton";
-            this.adminLoginButton.Size = new System.Drawing.Size(230, 49);
-            this.adminLoginButton.TabIndex = 3;
-            this.adminLoginButton.Text = "АДМИНИСТРАТОР";
-            this.adminLoginButton.UseVisualStyleBackColor = true;
-            this.adminLoginButton.Click += new System.EventHandler(this.adminLoginButton_Click);
-            // 
-            // studentLoginButton
-            // 
-            this.studentLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentLoginButton.Location = new System.Drawing.Point(267, 128);
-            this.studentLoginButton.Name = "studentLoginButton";
-            this.studentLoginButton.Size = new System.Drawing.Size(230, 49);
-            this.studentLoginButton.TabIndex = 4;
-            this.studentLoginButton.Text = "СТУДЕНТ";
-            this.studentLoginButton.UseVisualStyleBackColor = true;
-            this.studentLoginButton.Click += new System.EventHandler(this.studentLoginButton_Click);
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.Location = new System.Drawing.Point(12, 128);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(230, 49);
+            this.loginButton.TabIndex = 3;
+            this.loginButton.Text = "ПРИЈАВИ СЕ";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // FFpictureBox
             // 
@@ -90,14 +79,24 @@
             this.UISpictureBox.TabIndex = 0;
             this.UISpictureBox.TabStop = false;
             // 
+            // closeButton
+            // 
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.Location = new System.Drawing.Point(267, 128);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(230, 49);
+            this.closeButton.TabIndex = 4;
+            this.closeButton.Text = "ИЗАЂИ";
+            this.closeButton.UseVisualStyleBackColor = true;
+            // 
             // welcomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(509, 191);
-            this.Controls.Add(this.studentLoginButton);
-            this.Controls.Add(this.adminLoginButton);
+            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.FFpictureBox);
             this.Controls.Add(this.UISpictureBox);
@@ -119,8 +118,8 @@
         private System.Windows.Forms.PictureBox UISpictureBox;
         private System.Windows.Forms.PictureBox FFpictureBox;
         private System.Windows.Forms.Label welcomeLabel;
-        private System.Windows.Forms.Button adminLoginButton;
-        private System.Windows.Forms.Button studentLoginButton;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Button closeButton;
     }
 }
 

@@ -17,38 +17,22 @@ namespace InfoKioskProject
             InitializeComponent();
         }
 
-        private void adminLoginButton_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
             welcomeForm welcome = new welcomeForm();
 
-            adminLoginForm adminLogin = new adminLoginForm();
-            adminLogin.Show();
+            loginForm login = new loginForm();
+            login.Show();
 
-            adminLogin.FormClosed += AdminLoginForm_FormClosed;
+            login.FormClosed += loginForm_FormClosed;
 
             Hide();
         }
         
-        private void studentLoginButton_Click(object sender, EventArgs e)
+        private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            welcomeForm welcome = new welcomeForm();
-
-            studentLoginForm studentLogin = new studentLoginForm();
-            studentLogin.Show();
-
-            studentLogin.FormClosed += StudentLoginForm_FormClosed;
-
-            Hide();
+            Show();
         }
         
-        private void AdminLoginForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Show();
-        }
-
-        private void StudentLoginForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Show();
-        }
     }
 }

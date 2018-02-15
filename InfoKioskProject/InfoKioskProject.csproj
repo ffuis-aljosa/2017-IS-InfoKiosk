@@ -59,21 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminLoginForm.cs">
+    <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminLoginForm.Designer.cs">
-      <DependentUpon>adminLoginForm.cs</DependentUpon>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\AdminRepository.cs" />
     <Compile Include="Database\DbConnection.cs" />
     <Compile Include="Models\Admins.cs" />
-    <Compile Include="studentLoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="studentLoginForm.Designer.cs">
-      <DependentUpon>studentLoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="welcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,11 +76,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="adminLoginForm.resx">
-      <DependentUpon>adminLoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="studentLoginForm.resx">
-      <DependentUpon>studentLoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="welcomeForm.resx">
       <DependentUpon>welcomeForm.cs</DependentUpon>

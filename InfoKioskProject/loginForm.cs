@@ -12,9 +12,9 @@ using InfoKioskProject.Database;
 
 namespace InfoKioskProject
 {
-    public partial class adminLoginForm : Form
+    public partial class loginForm : Form
     {
-        public adminLoginForm()
+        public loginForm()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace InfoKioskProject
 
                 if (AdminRepository.login(admin) != null)
                 {
-                    MessageBox.Show("Успјешно сте се пријавили.", "Пријава",  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Успјешно сте се пријавили.", "Пријава", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     //Console.WriteLine(admin.Password);
 
