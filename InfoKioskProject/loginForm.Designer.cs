@@ -29,82 +29,82 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginForm));
-            this.adminUsernameLabel = new System.Windows.Forms.Label();
-            this.adminUsernameTextBox = new System.Windows.Forms.TextBox();
-            this.adminPasswordLabel = new System.Windows.Forms.Label();
-            this.adminPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.adminLoginButton = new System.Windows.Forms.Button();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.loginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // adminUsernameLabel
+            // usernameLabel
             // 
-            this.adminUsernameLabel.AutoSize = true;
-            this.adminUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.adminUsernameLabel.Location = new System.Drawing.Point(6, 7);
-            this.adminUsernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.adminUsernameLabel.Name = "adminUsernameLabel";
-            this.adminUsernameLabel.Size = new System.Drawing.Size(116, 17);
-            this.adminUsernameLabel.TabIndex = 0;
-            this.adminUsernameLabel.Text = "Корисничко име";
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.usernameLabel.Location = new System.Drawing.Point(6, 7);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(116, 17);
+            this.usernameLabel.TabIndex = 0;
+            this.usernameLabel.Text = "Корисничко име";
             // 
-            // adminUsernameTextBox
+            // usernameTextBox
             // 
-            this.adminUsernameTextBox.Location = new System.Drawing.Point(9, 26);
-            this.adminUsernameTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.adminUsernameTextBox.Name = "adminUsernameTextBox";
-            this.adminUsernameTextBox.Size = new System.Drawing.Size(236, 20);
-            this.adminUsernameTextBox.TabIndex = 1;
+            this.usernameTextBox.Location = new System.Drawing.Point(9, 26);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(236, 20);
+            this.usernameTextBox.TabIndex = 1;
             // 
-            // adminPasswordLabel
+            // passwordLabel
             // 
-            this.adminPasswordLabel.AutoSize = true;
-            this.adminPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.adminPasswordLabel.Location = new System.Drawing.Point(6, 60);
-            this.adminPasswordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.adminPasswordLabel.Name = "adminPasswordLabel";
-            this.adminPasswordLabel.Size = new System.Drawing.Size(64, 17);
-            this.adminPasswordLabel.TabIndex = 2;
-            this.adminPasswordLabel.Text = "Лозинка";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.passwordLabel.Location = new System.Drawing.Point(6, 60);
+            this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(64, 17);
+            this.passwordLabel.TabIndex = 2;
+            this.passwordLabel.Text = "Лозинка";
             // 
-            // adminPasswordTextBox
+            // passwordTextBox
             // 
-            this.adminPasswordTextBox.Location = new System.Drawing.Point(9, 79);
-            this.adminPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.adminPasswordTextBox.Name = "adminPasswordTextBox";
-            this.adminPasswordTextBox.PasswordChar = '*';
-            this.adminPasswordTextBox.Size = new System.Drawing.Size(236, 20);
-            this.adminPasswordTextBox.TabIndex = 3;
+            this.passwordTextBox.Location = new System.Drawing.Point(9, 79);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
+            this.passwordTextBox.Size = new System.Drawing.Size(236, 20);
+            this.passwordTextBox.TabIndex = 3;
             // 
-            // adminLoginButton
+            // loginButton
             // 
-            this.adminLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminLoginButton.Location = new System.Drawing.Point(9, 123);
-            this.adminLoginButton.Margin = new System.Windows.Forms.Padding(2);
-            this.adminLoginButton.Name = "adminLoginButton";
-            this.adminLoginButton.Size = new System.Drawing.Size(236, 32);
-            this.adminLoginButton.TabIndex = 4;
-            this.adminLoginButton.Text = "ПРИЈАВИ СЕ";
-            this.adminLoginButton.UseVisualStyleBackColor = true;
-            this.adminLoginButton.Click += new System.EventHandler(this.adminLoginButton_Click);
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.Location = new System.Drawing.Point(9, 123);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(2);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(236, 32);
+            this.loginButton.TabIndex = 4;
+            this.loginButton.Text = "ПРИЈАВИ СЕ";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // adminLoginForm
+            // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(256, 166);
-            this.Controls.Add(this.adminLoginButton);
-            this.Controls.Add(this.adminPasswordTextBox);
-            this.Controls.Add(this.adminPasswordLabel);
-            this.Controls.Add(this.adminUsernameTextBox);
-            this.Controls.Add(this.adminUsernameLabel);
+            this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.usernameTextBox);
+            this.Controls.Add(this.usernameLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "adminLoginForm";
+            this.Name = "loginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "АДМИНИСТРАТОР - ПРИЈАВА";
+            this.Text = "ИНФО КИОСК - ПРИЈАВА";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,10 +112,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label adminUsernameLabel;
-        private System.Windows.Forms.TextBox adminUsernameTextBox;
-        private System.Windows.Forms.Label adminPasswordLabel;
-        private System.Windows.Forms.TextBox adminPasswordTextBox;
-        private System.Windows.Forms.Button adminLoginButton;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Button loginButton;
     }
 }

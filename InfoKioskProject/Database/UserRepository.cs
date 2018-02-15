@@ -8,29 +8,36 @@ using System.Data.SqlServerCe;
 
 namespace InfoKioskProject.Database
 {
-    class AdminRepository
+    class UserRepository
     {
         private static DbConnection connection = DbConnection.Instance;
 
-        public static Admins login(Admins admin)
+        public static Users login(Users user)
         {
-            string sql = @"SELECT * FROM admins WHERE username = @username AND password = @password";
+            string sql = @"SELECT * FROM users WHERE username = @username AND password = @password";
 
             SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
 
-            SqlCeParameter username = new SqlCeParameter("@username", admin.Username);
+            SqlCeParameter username = new SqlCeParameter("@username", user.Username);
             command.Parameters.Add(username);
 
-            SqlCeParameter password = new SqlCeParameter("@password", admin.Password);
+            SqlCeParameter password = new SqlCeParameter("@password", user.Password);
             command.Parameters.Add(password);
+
+            SqlCeParameter role = new SqlCeParameter("@role", user.Role);
+            command.Parameters.Add(role);
 
             command.Prepare();
 
+            Console.WriteLine(user.Password);
+
             SqlCeDataReader reader = command.ExecuteReader();
+
 
             if (reader.Read())
             {
-                return admin;
+                user.Role = reader["role"].ToString();
+                return user;
             }
 
             return null;

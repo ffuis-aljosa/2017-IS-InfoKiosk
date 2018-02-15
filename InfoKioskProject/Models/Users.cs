@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace InfoKioskProject.Models
 {
-    class Admins
+    class Users
     {
         private string username;
         private string password;
+        private string role;
 
-        public Admins(string username, string password)
+        public Users(string username, string password)
         {
             Username = username;
             Password = password;
@@ -29,8 +30,8 @@ namespace InfoKioskProject.Models
                 if (string.IsNullOrEmpty(value))
                     throw new Exception("Корисничко име не смије бити празно.");
 
-                if (value.Length > 100)
-                    throw new Exception("Корисничко име не смије бити дуже од 100 карактера.");
+                if (value.Length > 32)
+                    throw new Exception("Корисничко име не смије бити дуже од 32 карактера.");
 
                 username = value;
             }
@@ -54,6 +55,23 @@ namespace InfoKioskProject.Models
 
                     password = Convert.ToBase64String(hashedPassword);
                 }
+            }
+        }
+
+        public string  Role
+        {
+            get
+            {
+                return role;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Улога не смије бити празна.");
+                if (value.Length > 8)
+                    throw new Exception("Улога не смије бити дужа од 8 карактера.");
+
+                role = value;
             }
         }
     }

@@ -59,15 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\UserRepository.cs" />
     <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\AdminRepository.cs" />
     <Compile Include="Database\DbConnection.cs" />
-    <Compile Include="Models\Admins.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="welcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +112,7 @@
   <ItemGroup>
     <None Include="Resources\ffuis logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

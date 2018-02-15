@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InfoKioskProject.Models;
 using InfoKioskProject.Database;
+using InfoKioskProject.Models;
 
 namespace InfoKioskProject
 {
@@ -19,24 +20,22 @@ namespace InfoKioskProject
             InitializeComponent();
         }
 
-        private void adminLoginButton_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
+            Users user = new Users(usernameTextBox.Text, passwordTextBox.Text);
+
             try
             {
-                Admins admin = new Admins(adminUsernameTextBox.Text, adminPasswordTextBox.Text);
-
-                if (AdminRepository.login(admin) != null)
+                if (UserRepository.login(user) != null)
                 {
-                    MessageBox.Show("Успјешно сте се пријавили.", "Пријава", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    //Console.WriteLine(admin.Password);
-
-                    /*adminLoginForm adminLogin = new adminLoginForm();
-
-                    ad adminForm = new adminForm();
-                    adminForm.Show();
-
-                    Hide();*/
+                    if (user.Role == "admin")
+                    {
+                        MessageBox.Show("Пријавили сте се као админ.", "Пријава", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пријавили сте се као студент.", "Пријава", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
@@ -47,6 +46,6 @@ namespace InfoKioskProject
             {
                 MessageBox.Show(error.Message);
             }
-        }
+}
     }
 }
