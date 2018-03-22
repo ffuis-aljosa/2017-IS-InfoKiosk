@@ -30,7 +30,12 @@ namespace InfoKioskProject
                 {
                     if (user.Role == "admin")
                     {
-                        MessageBox.Show("Пријавили сте се као админ.", "Пријава", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        adminForm admin = new adminForm();
+                        admin.Show();
+                        
+                        admin.FormClosed += AdminForm_FormClosed;
+
+                        Hide();
                     }
                     else
                     {
@@ -46,6 +51,12 @@ namespace InfoKioskProject
             {
                 MessageBox.Show(error.Message);
             }
-}
+        }
+
+        public void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            welcomeForm welcome = new welcomeForm();
+            welcome.Show();
+        }
     }
 }
