@@ -46,7 +46,7 @@ namespace InfoKioskProject.Models
             set
             {
                 if (value.Length < 6)
-                    throw new Exception("Лозинка мора имати бар 6 карактера.");
+                    throw new Exception("Lozinka mora da ima bar 6 karaktera");
 
                 using (SHA256 sha = new SHA256Managed())
                 {

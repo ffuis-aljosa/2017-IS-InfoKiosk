@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             this.adminTabControl = new System.Windows.Forms.TabControl();
+            this.newUser = new System.Windows.Forms.TabPage();
             this.registration = new System.Windows.Forms.TabPage();
             this.registrationButton = new System.Windows.Forms.Button();
             this.paymentComboBox = new System.Windows.Forms.ComboBox();
@@ -68,24 +69,51 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.addDataLabel = new System.Windows.Forms.Label();
             this.addGrades = new System.Windows.Forms.TabPage();
-            this.exams = new System.Windows.Forms.TabPage();
-            this.documents = new System.Windows.Forms.TabPage();
+            this.repeatPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.addPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.addUsernameTextBox = new System.Windows.Forms.TextBox();
+            this.repeatPasswordLabel = new System.Windows.Forms.Label();
+            this.addPasswordLabel = new System.Windows.Forms.Label();
+            this.addUsernameLabel = new System.Windows.Forms.Label();
+            this.registrationLabel = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.adminTabControl.SuspendLayout();
+            this.newUser.SuspendLayout();
             this.registration.SuspendLayout();
             this.SuspendLayout();
             // 
             // adminTabControl
             // 
+            this.adminTabControl.Controls.Add(this.newUser);
             this.adminTabControl.Controls.Add(this.registration);
             this.adminTabControl.Controls.Add(this.addGrades);
-            this.adminTabControl.Controls.Add(this.exams);
-            this.adminTabControl.Controls.Add(this.documents);
             this.adminTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminTabControl.Location = new System.Drawing.Point(0, 0);
             this.adminTabControl.Name = "adminTabControl";
             this.adminTabControl.SelectedIndex = 0;
             this.adminTabControl.Size = new System.Drawing.Size(569, 391);
             this.adminTabControl.TabIndex = 0;
+            // 
+            // newUser
+            // 
+            this.newUser.Controls.Add(this.label2);
+            this.newUser.Controls.Add(this.label1);
+            this.newUser.Controls.Add(this.button2);
+            this.newUser.Controls.Add(this.registrationLabel);
+            this.newUser.Controls.Add(this.repeatPasswordTextBox);
+            this.newUser.Controls.Add(this.addPasswordTextBox);
+            this.newUser.Controls.Add(this.addUsernameTextBox);
+            this.newUser.Controls.Add(this.repeatPasswordLabel);
+            this.newUser.Controls.Add(this.addPasswordLabel);
+            this.newUser.Controls.Add(this.addUsernameLabel);
+            this.newUser.Location = new System.Drawing.Point(4, 22);
+            this.newUser.Name = "newUser";
+            this.newUser.Size = new System.Drawing.Size(561, 365);
+            this.newUser.TabIndex = 5;
+            this.newUser.Text = "Регистрација корисника";
+            this.newUser.UseVisualStyleBackColor = true;
             // 
             // registration
             // 
@@ -487,23 +515,91 @@
             this.addGrades.Text = "Додавање оцјена";
             this.addGrades.UseVisualStyleBackColor = true;
             // 
-            // exams
+            // repeatPasswordTextBox
             // 
-            this.exams.Location = new System.Drawing.Point(4, 22);
-            this.exams.Name = "exams";
-            this.exams.Size = new System.Drawing.Size(561, 365);
-            this.exams.TabIndex = 3;
-            this.exams.Text = "Испитни рокови";
-            this.exams.UseVisualStyleBackColor = true;
+            this.repeatPasswordTextBox.Location = new System.Drawing.Point(8, 172);
+            this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
+            this.repeatPasswordTextBox.Size = new System.Drawing.Size(250, 20);
+            this.repeatPasswordTextBox.TabIndex = 73;
             // 
-            // documents
+            // addPasswordTextBox
             // 
-            this.documents.Location = new System.Drawing.Point(4, 22);
-            this.documents.Name = "documents";
-            this.documents.Size = new System.Drawing.Size(561, 365);
-            this.documents.TabIndex = 4;
-            this.documents.Text = "Издавање потврда";
-            this.documents.UseVisualStyleBackColor = true;
+            this.addPasswordTextBox.Location = new System.Drawing.Point(8, 132);
+            this.addPasswordTextBox.Name = "addPasswordTextBox";
+            this.addPasswordTextBox.Size = new System.Drawing.Size(250, 20);
+            this.addPasswordTextBox.TabIndex = 71;
+            // 
+            // addUsernameTextBox
+            // 
+            this.addUsernameTextBox.Location = new System.Drawing.Point(8, 92);
+            this.addUsernameTextBox.Name = "addUsernameTextBox";
+            this.addUsernameTextBox.Size = new System.Drawing.Size(250, 20);
+            this.addUsernameTextBox.TabIndex = 69;
+            // 
+            // repeatPasswordLabel
+            // 
+            this.repeatPasswordLabel.AutoSize = true;
+            this.repeatPasswordLabel.Location = new System.Drawing.Point(8, 157);
+            this.repeatPasswordLabel.Name = "repeatPasswordLabel";
+            this.repeatPasswordLabel.Size = new System.Drawing.Size(100, 13);
+            this.repeatPasswordLabel.TabIndex = 72;
+            this.repeatPasswordLabel.Text = "Поновити лозинку";
+            // 
+            // addPasswordLabel
+            // 
+            this.addPasswordLabel.AutoSize = true;
+            this.addPasswordLabel.Location = new System.Drawing.Point(8, 117);
+            this.addPasswordLabel.Name = "addPasswordLabel";
+            this.addPasswordLabel.Size = new System.Drawing.Size(51, 13);
+            this.addPasswordLabel.TabIndex = 70;
+            this.addPasswordLabel.Text = "Лозинка";
+            // 
+            // addUsernameLabel
+            // 
+            this.addUsernameLabel.AutoSize = true;
+            this.addUsernameLabel.Location = new System.Drawing.Point(8, 77);
+            this.addUsernameLabel.Name = "addUsernameLabel";
+            this.addUsernameLabel.Size = new System.Drawing.Size(73, 13);
+            this.addUsernameLabel.TabIndex = 68;
+            this.addUsernameLabel.Text = "Број индекса";
+            // 
+            // registrationLabel
+            // 
+            this.registrationLabel.AutoSize = true;
+            this.registrationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registrationLabel.Location = new System.Drawing.Point(8, 14);
+            this.registrationLabel.Name = "registrationLabel";
+            this.registrationLabel.Size = new System.Drawing.Size(209, 16);
+            this.registrationLabel.TabIndex = 74;
+            this.registrationLabel.Text = "Регистрација новог корисника";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(8, 316);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(250, 30);
+            this.button2.TabIndex = 84;
+            this.button2.Text = "РЕГИСТРУЈ КОРИСНИКА";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(288, 92);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 85;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 217);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(239, 26);
+            this.label2.TabIndex = 86;
+            this.label2.Text = "НАПОМЕНА: Поље \"Број индекса\" мора бити\r\nпопуњено латиницом.";
             // 
             // adminForm
             // 
@@ -515,6 +611,8 @@
             this.Name = "adminForm";
             this.Text = "ИНФО КИОСК - АДМИНИСТРАТОР";
             this.adminTabControl.ResumeLayout(false);
+            this.newUser.ResumeLayout(false);
+            this.newUser.PerformLayout();
             this.registration.ResumeLayout(false);
             this.registration.PerformLayout();
             this.ResumeLayout(false);
@@ -562,7 +660,16 @@
         private System.Windows.Forms.Label firstNameLabel;
         private System.Windows.Forms.Label addDataLabel;
         private System.Windows.Forms.TabPage addGrades;
-        private System.Windows.Forms.TabPage exams;
-        private System.Windows.Forms.TabPage documents;
+        private System.Windows.Forms.TabPage newUser;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label registrationLabel;
+        private System.Windows.Forms.TextBox repeatPasswordTextBox;
+        private System.Windows.Forms.TextBox addPasswordTextBox;
+        private System.Windows.Forms.TextBox addUsernameTextBox;
+        private System.Windows.Forms.Label repeatPasswordLabel;
+        private System.Windows.Forms.Label addPasswordLabel;
+        private System.Windows.Forms.Label addUsernameLabel;
     }
 }

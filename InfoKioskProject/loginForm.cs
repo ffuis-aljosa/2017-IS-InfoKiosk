@@ -28,6 +28,9 @@ namespace InfoKioskProject
             {
                 if (UserRepository.login(user) != null)
                 {
+
+                    Console.WriteLine("proslo");
+
                     if (user.Role == "admin")
                     {
                         adminForm admin = new adminForm();
@@ -40,6 +43,7 @@ namespace InfoKioskProject
                     else
                     {
                         MessageBox.Show("Пријавили сте се као студент.", "Пријава", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // user.Username
                     }
                 }
                 else
@@ -57,6 +61,20 @@ namespace InfoKioskProject
         {
             welcomeForm welcome = new welcomeForm();
             welcome.Show();
+        }
+
+        private void passwordTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // if enter then 
+            // loginButton_Click(object sender, EventArgs e)
+        }
+
+        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyData == Keys.Enter)
+            {
+                loginButton_Click(sender, e);
+            }
         }
     }
 }

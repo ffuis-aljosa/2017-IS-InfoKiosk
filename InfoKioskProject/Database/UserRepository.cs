@@ -14,6 +14,8 @@ namespace InfoKioskProject.Database
 
         public static Users login(Users user)
         {
+            //Console.WriteLine("proslo ovdje");
+
             string sql = @"SELECT * FROM users WHERE username = @username AND password = @password";
 
             SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
