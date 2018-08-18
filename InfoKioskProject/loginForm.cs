@@ -13,16 +13,16 @@ using InfoKioskProject.Models;
 
 namespace InfoKioskProject
 {
-    public partial class loginForm : Form
+    public partial class LoginForm : Form
     {
-        public loginForm()
+        public LoginForm()
         {
             InitializeComponent();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            Users user = new Users(usernameTextBox.Text, passwordTextBox.Text);
+            User user = new User(usernameTextBox.Text, passwordTextBox.Text);
 
             try
             {
@@ -33,7 +33,7 @@ namespace InfoKioskProject
 
                     if (user.Role == "admin")
                     {
-                        adminForm admin = new adminForm();
+                        AdminForm admin = new AdminForm();
                         admin.Show();
                         
                         admin.FormClosed += AdminForm_FormClosed;

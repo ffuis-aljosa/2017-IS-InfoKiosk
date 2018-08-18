@@ -59,21 +59,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminForm.cs">
+    <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminForm.Designer.cs">
-      <DependentUpon>adminForm.cs</DependentUpon>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\UserRepository.cs" />
-    <Compile Include="loginForm.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="loginForm.Designer.cs">
-      <DependentUpon>loginForm.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\DbConnection.cs" />
-    <Compile Include="Models\Users.cs" />
+    <Compile Include="Database\DatabaseConnection.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="welcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,11 +82,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="adminForm.resx">
-      <DependentUpon>adminForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="loginForm.resx">
-      <DependentUpon>loginForm.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="welcomeForm.resx">
       <DependentUpon>welcomeForm.cs</DependentUpon>

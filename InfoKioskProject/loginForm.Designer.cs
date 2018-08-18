@@ -1,6 +1,6 @@
 ﻿namespace InfoKioskProject
 {
-    partial class loginForm
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.usernameLabel = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace InfoKioskProject.Models
 {
-    class Users
+    class User
     {
         private string username;
         private string password;
         private string role;
 
-        public Users(string username, string password)
+        public User(string username, string password)
         {
             Username = username;
             Password = password;
@@ -46,7 +46,7 @@ namespace InfoKioskProject.Models
             set
             {
                 if (value.Length < 6)
-                    throw new Exception("Lozinka mora da ima bar 6 karaktera");
+                    throw new Exception("Лозинка мора имати бар 6 карактера.");
 
                 using (SHA256 sha = new SHA256Managed())
                 {

@@ -7,24 +7,24 @@ using System.Data.SqlServerCe;
 
 namespace InfoKioskProject.Database
 {
-    class DbConnection
+    class DatabaseConnection
     {
         private SqlCeConnection connection;
 
-        private static DbConnection instance;
+        private static DatabaseConnection instance;
 
-        private DbConnection(string connectionString)
+        private DatabaseConnection(string connectionString)
         {
             connection = new SqlCeConnection(connectionString);
             connection.Open();
         }
 
-        public static DbConnection Instance
+        public static DatabaseConnection Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new DbConnection(@"Data Source=..\..\Database.sdf");
+                    instance = new DatabaseConnection(@"Data Source=..\..\InfokioskProjectDatabase.sdf");
 
                 return instance;
             }

@@ -21,7 +21,7 @@ namespace InfoKioskProject
         {
             welcomeForm welcome = new welcomeForm();
 
-            loginForm login = new loginForm();
+            LoginForm login = new LoginForm();
             login.Show();
 
             login.FormClosed += loginForm_FormClosed;

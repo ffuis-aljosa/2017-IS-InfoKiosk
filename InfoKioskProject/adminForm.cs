@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InfoKioskProject
 {
-    public partial class adminForm : Form
+    public partial class AdminForm : Form
     {
-        public adminForm()
+        public AdminForm()
         {
             InitializeComponent();
         }

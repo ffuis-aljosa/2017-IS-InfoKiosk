@@ -10,9 +10,9 @@ namespace InfoKioskProject.Database
 {
     class UserRepository
     {
-        private static DbConnection connection = DbConnection.Instance;
+        private static DatabaseConnection connection = DatabaseConnection.Instance;
 
-        public static Users login(Users user)
+        public static User login(User user)
         {
             //Console.WriteLine("proslo ovdje");
 

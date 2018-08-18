@@ -1,6 +1,6 @@
 ﻿namespace InfoKioskProject
 {
-    partial class adminForm
+    partial class AdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.newUser = new System.Windows.Forms.TabPage();
             this.registration = new System.Windows.Forms.TabPage();
