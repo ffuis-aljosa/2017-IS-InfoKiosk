@@ -73,6 +73,7 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DatabaseConnection.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="welcomeForm.cs">
       <SubType>Form</SubType>
