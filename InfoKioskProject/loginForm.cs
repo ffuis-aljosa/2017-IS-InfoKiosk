@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InfoKioskProject.Models;
 using InfoKioskProject.Database;
-using InfoKioskProject.Models;
 
 namespace InfoKioskProject
 {
@@ -26,24 +25,29 @@ namespace InfoKioskProject
 
             try
             {
-                if (UserRepository.login(user) != null)
+                if (UserRepository.Login(user) != null)
                 {
-
-                    Console.WriteLine("proslo");
-
                     if (user.Role == "admin")
                     {
                         AdminForm admin = new AdminForm();
                         admin.Show();
-                        
+
                         admin.FormClosed += AdminForm_FormClosed;
 
                         Hide();
+
+                        EmptyLoginTextBoxes();
+                    }
+                    else if (user.Role == "student")
+                    {
+                        MessageBox.Show("Улоговали сте се као студент.");
+
+                        EmptyLoginTextBoxes();
                     }
                     else
                     {
-                        MessageBox.Show("Пријавили сте се као студент.", "Пријава", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // user.Username
+                        MessageBox.Show("Корисничко име и/или лозинка нису исправни.", "ГРЕШКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        usernameTextBox.Focus();
                     }
                 }
                 else
@@ -54,6 +58,7 @@ namespace InfoKioskProject
             catch (Exception error)
             {
                 MessageBox.Show(error.Message);
+                usernameTextBox.Focus();
             }
         }
 
@@ -62,19 +67,11 @@ namespace InfoKioskProject
             welcomeForm welcome = new welcomeForm();
             welcome.Show();
         }
-
-        private void passwordTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        
+        private void EmptyLoginTextBoxes()
         {
-            // if enter then 
-            // loginButton_Click(object sender, EventArgs e)
-        }
-
-        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyData == Keys.Enter)
-            {
-                loginButton_Click(sender, e);
-            }
+            usernameTextBox.Text = "";
+            passwordTextBox.Text = "";
         }
     }
 }

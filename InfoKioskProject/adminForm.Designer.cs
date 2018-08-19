@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.newUser = new System.Windows.Forms.TabPage();
+            this.passwordWarningLabel = new System.Windows.Forms.Label();
             this.warningLabel = new System.Windows.Forms.Label();
             this.addUserButton = new System.Windows.Forms.Button();
             this.registrationLabel = new System.Windows.Forms.Label();
@@ -78,7 +79,6 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.addDataLabel = new System.Windows.Forms.Label();
             this.addGrades = new System.Windows.Forms.TabPage();
-            this.passwordWarningLabel = new System.Windows.Forms.Label();
             this.examings = new System.Windows.Forms.TabPage();
             this.database = new System.Windows.Forms.TabPage();
             this.searchButton = new System.Windows.Forms.Button();
@@ -124,6 +124,17 @@
             this.newUser.TabIndex = 5;
             this.newUser.Text = "Регистрација корисника";
             this.newUser.UseVisualStyleBackColor = true;
+            // 
+            // passwordWarningLabel
+            // 
+            this.passwordWarningLabel.AutoSize = true;
+            this.passwordWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.passwordWarningLabel.Location = new System.Drawing.Point(8, 205);
+            this.passwordWarningLabel.Name = "passwordWarningLabel";
+            this.passwordWarningLabel.Size = new System.Drawing.Size(156, 15);
+            this.passwordWarningLabel.TabIndex = 87;
+            this.passwordWarningLabel.Text = "Лозинке се не подударају!";
             // 
             // warningLabel
             // 
@@ -588,17 +599,6 @@
             this.addGrades.Text = "Додавање оцјена";
             this.addGrades.UseVisualStyleBackColor = true;
             // 
-            // passwordWarningLabel
-            // 
-            this.passwordWarningLabel.AutoSize = true;
-            this.passwordWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.passwordWarningLabel.Location = new System.Drawing.Point(8, 205);
-            this.passwordWarningLabel.Name = "passwordWarningLabel";
-            this.passwordWarningLabel.Size = new System.Drawing.Size(156, 15);
-            this.passwordWarningLabel.TabIndex = 87;
-            this.passwordWarningLabel.Text = "Лозинке се не подударају!";
-            // 
             // examings
             // 
             this.examings.Location = new System.Drawing.Point(4, 22);
@@ -668,8 +668,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 391);
             this.Controls.Add(this.adminTabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AdminForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ИНФО КИОСК - АДМИНИСТРАТОР";
             this.adminTabControl.ResumeLayout(false);
             this.newUser.ResumeLayout(false);

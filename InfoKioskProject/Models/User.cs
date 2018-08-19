@@ -30,8 +30,8 @@ namespace InfoKioskProject.Models
                 if (string.IsNullOrEmpty(value))
                     throw new Exception("Корисничко име не смије бити празно.");
 
-                if (value.Length > 32)
-                    throw new Exception("Корисничко име не смије бити дуже од 32 карактера.");
+                if (value.Length > 16)
+                    throw new Exception("Корисничко име не смије бити дуже од 16 карактера.");
 
                 username = value;
             }
