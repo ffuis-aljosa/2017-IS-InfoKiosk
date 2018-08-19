@@ -79,15 +79,25 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.addDataLabel = new System.Windows.Forms.Label();
             this.addGrades = new System.Windows.Forms.TabPage();
-            this.examings = new System.Windows.Forms.TabPage();
+            this.exams = new System.Windows.Forms.TabPage();
             this.database = new System.Windows.Forms.TabPage();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTermsComboBox = new System.Windows.Forms.ComboBox();
             this.searchDatabaseLabel = new System.Windows.Forms.Label();
             this.databaseDataGridView = new System.Windows.Forms.DataGridView();
+            this.activePeriodLabel = new System.Windows.Forms.Label();
+            this.setPeriodLabel = new System.Windows.Forms.Label();
+            this.termComboBox = new System.Windows.Forms.ComboBox();
+            this.termLabel = new System.Windows.Forms.Label();
+            this.periodComboBox = new System.Windows.Forms.ComboBox();
+            this.periodLabel = new System.Windows.Forms.Label();
+            this.startPeriodButton = new System.Windows.Forms.Button();
+            this.endPeriodButton = new System.Windows.Forms.Button();
+            this.warningPeriodLabel = new System.Windows.Forms.Label();
             this.adminTabControl.SuspendLayout();
             this.newUser.SuspendLayout();
             this.newStudent.SuspendLayout();
+            this.exams.SuspendLayout();
             this.database.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +107,7 @@
             this.adminTabControl.Controls.Add(this.newUser);
             this.adminTabControl.Controls.Add(this.newStudent);
             this.adminTabControl.Controls.Add(this.addGrades);
-            this.adminTabControl.Controls.Add(this.examings);
+            this.adminTabControl.Controls.Add(this.exams);
             this.adminTabControl.Controls.Add(this.database);
             this.adminTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminTabControl.Location = new System.Drawing.Point(0, 0);
@@ -599,14 +609,23 @@
             this.addGrades.Text = "Додавање оцјена";
             this.addGrades.UseVisualStyleBackColor = true;
             // 
-            // examings
+            // exams
             // 
-            this.examings.Location = new System.Drawing.Point(4, 22);
-            this.examings.Name = "examings";
-            this.examings.Size = new System.Drawing.Size(561, 365);
-            this.examings.TabIndex = 6;
-            this.examings.Text = "Испитни рокови";
-            this.examings.UseVisualStyleBackColor = true;
+            this.exams.Controls.Add(this.warningPeriodLabel);
+            this.exams.Controls.Add(this.endPeriodButton);
+            this.exams.Controls.Add(this.startPeriodButton);
+            this.exams.Controls.Add(this.termComboBox);
+            this.exams.Controls.Add(this.termLabel);
+            this.exams.Controls.Add(this.periodComboBox);
+            this.exams.Controls.Add(this.periodLabel);
+            this.exams.Controls.Add(this.setPeriodLabel);
+            this.exams.Controls.Add(this.activePeriodLabel);
+            this.exams.Location = new System.Drawing.Point(4, 22);
+            this.exams.Name = "exams";
+            this.exams.Size = new System.Drawing.Size(561, 365);
+            this.exams.TabIndex = 6;
+            this.exams.Text = "Испитни рокови";
+            this.exams.UseVisualStyleBackColor = true;
             // 
             // database
             // 
@@ -662,6 +681,100 @@
             this.databaseDataGridView.Size = new System.Drawing.Size(561, 264);
             this.databaseDataGridView.TabIndex = 6;
             // 
+            // activePeriodLabel
+            // 
+            this.activePeriodLabel.AutoSize = true;
+            this.activePeriodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activePeriodLabel.Location = new System.Drawing.Point(9, 16);
+            this.activePeriodLabel.Name = "activePeriodLabel";
+            this.activePeriodLabel.Size = new System.Drawing.Size(205, 15);
+            this.activePeriodLabel.TabIndex = 0;
+            this.activePeriodLabel.Text = "note about exams period, to be filled";
+            // 
+            // setPeriodLabel
+            // 
+            this.setPeriodLabel.AutoSize = true;
+            this.setPeriodLabel.Location = new System.Drawing.Point(12, 64);
+            this.setPeriodLabel.Name = "setPeriodLabel";
+            this.setPeriodLabel.Size = new System.Drawing.Size(494, 13);
+            this.setPeriodLabel.TabIndex = 1;
+            this.setPeriodLabel.Text = "Да бисте омогућили пријаву испита, одаберите испитни рок и термин, а затим почнит" +
+    "е пријаву.";
+            // 
+            // termComboBox
+            // 
+            this.termComboBox.FormattingEnabled = true;
+            this.termComboBox.Items.AddRange(new object[] {
+            "први",
+            "други"});
+            this.termComboBox.Location = new System.Drawing.Point(12, 213);
+            this.termComboBox.Name = "termComboBox";
+            this.termComboBox.Size = new System.Drawing.Size(250, 21);
+            this.termComboBox.TabIndex = 8;
+            // 
+            // termLabel
+            // 
+            this.termLabel.AutoSize = true;
+            this.termLabel.Location = new System.Drawing.Point(12, 183);
+            this.termLabel.Name = "termLabel";
+            this.termLabel.Size = new System.Drawing.Size(46, 13);
+            this.termLabel.TabIndex = 7;
+            this.termLabel.Text = "Термин";
+            // 
+            // periodComboBox
+            // 
+            this.periodComboBox.FormattingEnabled = true;
+            this.periodComboBox.Items.AddRange(new object[] {
+            "јануарско-фебруарски",
+            "априлски",
+            "јунско-јулски",
+            "септембарски",
+            "октобарски"});
+            this.periodComboBox.Location = new System.Drawing.Point(12, 143);
+            this.periodComboBox.Name = "periodComboBox";
+            this.periodComboBox.Size = new System.Drawing.Size(250, 21);
+            this.periodComboBox.TabIndex = 6;
+            // 
+            // periodLabel
+            // 
+            this.periodLabel.AutoSize = true;
+            this.periodLabel.Location = new System.Drawing.Point(12, 113);
+            this.periodLabel.Name = "periodLabel";
+            this.periodLabel.Size = new System.Drawing.Size(71, 13);
+            this.periodLabel.TabIndex = 5;
+            this.periodLabel.Text = "Испитни рок";
+            // 
+            // startPeriodButton
+            // 
+            this.startPeriodButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startPeriodButton.Location = new System.Drawing.Point(12, 327);
+            this.startPeriodButton.Name = "startPeriodButton";
+            this.startPeriodButton.Size = new System.Drawing.Size(250, 30);
+            this.startPeriodButton.TabIndex = 85;
+            this.startPeriodButton.Text = "ПОЧНИ ПРИЈАВУ";
+            this.startPeriodButton.UseVisualStyleBackColor = true;
+            // 
+            // endPeriodButton
+            // 
+            this.endPeriodButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endPeriodButton.Location = new System.Drawing.Point(303, 327);
+            this.endPeriodButton.Name = "endPeriodButton";
+            this.endPeriodButton.Size = new System.Drawing.Size(250, 30);
+            this.endPeriodButton.TabIndex = 86;
+            this.endPeriodButton.Text = "ЗАВРШИ ПРИЈАВУ";
+            this.endPeriodButton.UseVisualStyleBackColor = true;
+            // 
+            // warningPeriodLabel
+            // 
+            this.warningPeriodLabel.AutoSize = true;
+            this.warningPeriodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.warningPeriodLabel.ForeColor = System.Drawing.Color.Red;
+            this.warningPeriodLabel.Location = new System.Drawing.Point(12, 257);
+            this.warningPeriodLabel.Name = "warningPeriodLabel";
+            this.warningPeriodLabel.Size = new System.Drawing.Size(282, 15);
+            this.warningPeriodLabel.TabIndex = 87;
+            this.warningPeriodLabel.Text = "Морате изабрати испитни рок и термин!";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -680,6 +793,8 @@
             this.newUser.PerformLayout();
             this.newStudent.ResumeLayout(false);
             this.newStudent.PerformLayout();
+            this.exams.ResumeLayout(false);
+            this.exams.PerformLayout();
             this.database.ResumeLayout(false);
             this.database.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataGridView)).EndInit();
@@ -739,11 +854,20 @@
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordWarningLabel;
-        private System.Windows.Forms.TabPage examings;
+        private System.Windows.Forms.TabPage exams;
         private System.Windows.Forms.TabPage database;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.ComboBox searchTermsComboBox;
         private System.Windows.Forms.Label searchDatabaseLabel;
         private System.Windows.Forms.DataGridView databaseDataGridView;
+        private System.Windows.Forms.Label warningPeriodLabel;
+        private System.Windows.Forms.Button endPeriodButton;
+        private System.Windows.Forms.Button startPeriodButton;
+        private System.Windows.Forms.ComboBox termComboBox;
+        private System.Windows.Forms.Label termLabel;
+        private System.Windows.Forms.ComboBox periodComboBox;
+        private System.Windows.Forms.Label periodLabel;
+        private System.Windows.Forms.Label setPeriodLabel;
+        private System.Windows.Forms.Label activePeriodLabel;
     }
 }
