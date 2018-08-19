@@ -60,10 +60,13 @@
             this.studDateOfBirthLabel = new System.Windows.Forms.Label();
             this.profileLabel = new System.Windows.Forms.Label();
             this.gradesDataGridView = new System.Windows.Forms.DataGridView();
+            this.tryingsDataGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.homeTabPage.SuspendLayout();
             this.gradesTabPage.SuspendLayout();
+            this.tryingsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tryingsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -126,6 +129,7 @@
             // 
             // tryingsTabPage
             // 
+            this.tryingsTabPage.Controls.Add(this.tryingsDataGridView);
             this.tryingsTabPage.Location = new System.Drawing.Point(4, 22);
             this.tryingsTabPage.Name = "tryingsTabPage";
             this.tryingsTabPage.Size = new System.Drawing.Size(672, 283);
@@ -404,6 +408,18 @@
             this.gradesDataGridView.Size = new System.Drawing.Size(666, 277);
             this.gradesDataGridView.TabIndex = 0;
             // 
+            // tryingsDataGridView
+            // 
+            this.tryingsDataGridView.AllowUserToAddRows = false;
+            this.tryingsDataGridView.AllowUserToDeleteRows = false;
+            this.tryingsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tryingsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tryingsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.tryingsDataGridView.Name = "tryingsDataGridView";
+            this.tryingsDataGridView.ReadOnly = true;
+            this.tryingsDataGridView.Size = new System.Drawing.Size(672, 283);
+            this.tryingsDataGridView.TabIndex = 0;
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,7 +437,9 @@
             this.homeTabPage.ResumeLayout(false);
             this.homeTabPage.PerformLayout();
             this.gradesTabPage.ResumeLayout(false);
+            this.tryingsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tryingsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -459,5 +477,6 @@
         private System.Windows.Forms.TabPage tryingsTabPage;
         private System.Windows.Forms.TabPage examsTabPage;
         private System.Windows.Forms.DataGridView gradesDataGridView;
+        private System.Windows.Forms.DataGridView tryingsDataGridView;
     }
 }
