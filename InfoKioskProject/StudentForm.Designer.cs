@@ -59,8 +59,11 @@
             this.studIdNumberLabel = new System.Windows.Forms.Label();
             this.studDateOfBirthLabel = new System.Windows.Forms.Label();
             this.profileLabel = new System.Windows.Forms.Label();
+            this.gradesDataGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.homeTabPage.SuspendLayout();
+            this.gradesTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -112,10 +115,11 @@
             // 
             // gradesTabPage
             // 
+            this.gradesTabPage.Controls.Add(this.gradesDataGridView);
             this.gradesTabPage.Location = new System.Drawing.Point(4, 22);
             this.gradesTabPage.Name = "gradesTabPage";
             this.gradesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.gradesTabPage.Size = new System.Drawing.Size(674, 283);
+            this.gradesTabPage.Size = new System.Drawing.Size(672, 283);
             this.gradesTabPage.TabIndex = 1;
             this.gradesTabPage.Text = "Положени испити";
             this.gradesTabPage.UseVisualStyleBackColor = true;
@@ -124,7 +128,7 @@
             // 
             this.tryingsTabPage.Location = new System.Drawing.Point(4, 22);
             this.tryingsTabPage.Name = "tryingsTabPage";
-            this.tryingsTabPage.Size = new System.Drawing.Size(615, 294);
+            this.tryingsTabPage.Size = new System.Drawing.Size(672, 283);
             this.tryingsTabPage.TabIndex = 2;
             this.tryingsTabPage.Text = "Преглед излазака";
             this.tryingsTabPage.UseVisualStyleBackColor = true;
@@ -388,6 +392,18 @@
             this.profileLabel.TabIndex = 25;
             this.profileLabel.Text = "firstName lastName (index)";
             // 
+            // gradesDataGridView
+            // 
+            this.gradesDataGridView.AllowUserToAddRows = false;
+            this.gradesDataGridView.AllowUserToDeleteRows = false;
+            this.gradesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gradesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradesDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.gradesDataGridView.Name = "gradesDataGridView";
+            this.gradesDataGridView.ReadOnly = true;
+            this.gradesDataGridView.Size = new System.Drawing.Size(666, 277);
+            this.gradesDataGridView.TabIndex = 0;
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,6 +420,8 @@
             this.tabControl1.ResumeLayout(false);
             this.homeTabPage.ResumeLayout(false);
             this.homeTabPage.PerformLayout();
+            this.gradesTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -440,5 +458,6 @@
         private System.Windows.Forms.TabPage gradesTabPage;
         private System.Windows.Forms.TabPage tryingsTabPage;
         private System.Windows.Forms.TabPage examsTabPage;
+        private System.Windows.Forms.DataGridView gradesDataGridView;
     }
 }
