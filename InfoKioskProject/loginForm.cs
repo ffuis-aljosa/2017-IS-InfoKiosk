@@ -40,7 +40,14 @@ namespace InfoKioskProject
                     }
                     else if (user.Role == "student")
                     {
-                        MessageBox.Show("Улоговали сте се као студент.");
+                        //catch username here
+
+                        StudentForm student = new StudentForm();
+                        student.Show();
+
+                        student.FormClosed += StudentForm_FormClosed;
+
+                        Hide();
 
                         EmptyLoginTextBoxes();
                     }
@@ -67,7 +74,13 @@ namespace InfoKioskProject
             welcomeForm welcome = new welcomeForm();
             welcome.Show();
         }
-        
+
+        public void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            welcomeForm welcome = new welcomeForm();
+            welcome.Show();
+        }
+
         private void EmptyLoginTextBoxes()
         {
             usernameTextBox.Text = "";
