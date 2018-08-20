@@ -21,10 +21,10 @@ namespace InfoKioskProject
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            User user = new User(usernameTextBox.Text, passwordTextBox.Text);
-
             try
             {
+                User user = new User(usernameTextBox.Text, passwordTextBox.Text);
+
                 if (UserRepository.Login(user) != null)
                 {
                     if (user.Role == "admin")
@@ -59,13 +59,12 @@ namespace InfoKioskProject
                 }
                 else
                 {
-                    throw new Exception("Корисничко име или лозинка нису исправни.");
+                    throw new Exception("Корисничко име и/или лозинка нису исправни.");
                 }
             }
             catch (Exception error)
             {
                 MessageBox.Show(error.Message);
-                usernameTextBox.Focus();
             }
         }
 

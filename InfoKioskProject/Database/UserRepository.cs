@@ -42,5 +42,14 @@ namespace InfoKioskProject.Database
 
             return null;
         }
+
+        public static void AddUser(User user)
+        {
+            string sql = "INSERT INTO users(username, password, role) VALUES " +
+                    "('" + user.Username + "', '" + user.Password + "', '" + user.Role + "')";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.ExecuteNonQuery();
+        }
     }
 }
