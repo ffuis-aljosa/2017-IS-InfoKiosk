@@ -51,5 +51,24 @@ namespace InfoKioskProject.Database
             SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
             command.ExecuteNonQuery();
         }
+
+        public static int GetUserId(string index)
+        {
+            int userID = 0;
+
+            string sql = "SELECT * FROM users WHERE username = '" + index + "';";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+            SqlCeDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                userID = reader.GetInt32(0);
+                return userID;
+            }
+
+            return 0;
+        }
     }
 }

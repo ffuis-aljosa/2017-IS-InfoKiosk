@@ -281,6 +281,7 @@
             this.addStudentButton.TabIndex = 83;
             this.addStudentButton.Text = "РЕГИСТРУЈ СТУДЕНТА";
             this.addStudentButton.UseVisualStyleBackColor = true;
+            this.addStudentButton.Click += new System.EventHandler(this.addStudentButton_Click);
             // 
             // paymentComboBox
             // 
