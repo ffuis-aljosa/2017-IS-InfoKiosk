@@ -171,8 +171,8 @@ namespace InfoKioskProject.Models
                 if (string.IsNullOrEmpty(value))
                     throw new Exception("Адреса не смије бити празна.");
 
-                if (value.Length > 128)
-                    throw new Exception("Адреса не смије бити дужа од 128 карактера.");
+                if (value.Length > 64)
+                    throw new Exception("Адреса не смије бити дужа од 64 карактера.");
 
                 address = value;
             }
