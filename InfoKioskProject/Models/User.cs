@@ -37,8 +37,8 @@ namespace InfoKioskProject.Models
                 if (string.IsNullOrEmpty(value))
                     throw new Exception("Корисничко име (број индекса) не смије бити празно.");
 
-                if (value.Length > 16)
-                    throw new Exception("Корисничко име (број индекса) не смије бити дуже од 16 карактера.");
+                if (value.Length > 8)
+                    throw new Exception("Корисничко име (број индекса) не смије бити дуже од 8 карактера.");
 
                 username = value;
             }
@@ -54,7 +54,10 @@ namespace InfoKioskProject.Models
             {
                 if (value.Length < 6)
                     throw new Exception("Лозинка мора имати бар 6 карактера.");
-                
+
+                if (value.Length > 128)
+                    throw new Exception("Лозинка не смије бити дужа од 128 карактера.");
+
                 using (SHA256 sha = new SHA256Managed())
                 {
                     byte[] passwordBytes = Encoding.UTF8.GetBytes(value);

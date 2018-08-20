@@ -25,21 +25,25 @@ namespace InfoKioskProject
         {
             try
             {
-                if (passwordTextBox.Text == repeatPasswordTextBox.Text)
+                if (AreUserFieldsValid())
                 {
-                    User newUser = new User(usernameTextBox.Text, passwordTextBox.Text, "student");
-                    UserRepository.AddUser(newUser);
+                    if (passwordTextBox.Text == repeatPasswordTextBox.Text)
+                    {
+                        User newUser = new User(usernameTextBox.Text, passwordTextBox.Text, "student");
+                        UserRepository.AddUser(newUser);
 
-                    MessageBox.Show("Корисник успјешно регистрован.", "РЕГИСТРАЦИЈА", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Корисник успјешно регистрован.", "РЕГИСТРАЦИЈА", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    passwordWarningLabel.Hide();
-                    EmptyLoginFields();
-                }
-                else
-                {
-                    passwordWarningLabel.Show();
-                    passwordTextBox.Text = "";
-                    repeatPasswordTextBox.Text = "";
+                        passwordWarningLabel.Hide();
+                        EmptyLoginFields();
+                    }
+                    else
+                    {
+                        passwordWarningLabel.Show();
+                        passwordTextBox.Text = "";
+                        repeatPasswordTextBox.Text = "";
+                        passwordTextBox.Focus();
+                    }
                 }
             }
             catch (Exception error)
@@ -47,13 +51,72 @@ namespace InfoKioskProject
                 MessageBox.Show(error.Message);
             }
         }
+
+        //validate user
+        private bool AreUserFieldsValid()
+        {
+            if (usernameTextBox.Text == "" || passwordTextBox.Text == "" || repeatPasswordTextBox.Text == "")
+            {
+                MessageBox.Show("Сва поља морају бити попуњена.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else if (!IsUsernameValid())
+            {
+                usernameTextBox.Focus();
+                return false;
+            }
+            else if (!IsPasswordValid())
+            {
+                passwordTextBox.Focus();
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private bool IsUsernameValid()
+        {
+            string username = usernameTextBox.Text;
+            string subUsername = username.Substring(0, 2);
+
+            if (username.Length > 8)
+            {
+                MessageBox.Show("Број индекса не смије бити дужи од 32 карактера.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else if (subUsername != "МР" && subUsername != "СЈ" && subUsername != "КЕ" && subUsername != "ИС")
+            {
+                MessageBox.Show("Број индекса не задовољава формат.", "ГРЕШКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private bool IsPasswordValid()
+        {
+            string password = passwordTextBox.Text;
+
+            if (password.Length < 6)
+            {
+                MessageBox.Show("Лозинка мора имати бар 6 карактера.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else if (password.Length > 128)
+            {
+                MessageBox.Show("Лозинка не смије бити дужа од 128 карактера.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+                return true;
+        }
         
         //add new student
         private void addStudentButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (AreFieldsValid())
+                if (AreStudentFieldsValid())
                 {
                     string date = GetDateString();
                     string gender = GetGender();
@@ -131,7 +194,7 @@ namespace InfoKioskProject
         }
 
         //validate student
-        private bool AreFieldsValid()
+        private bool AreStudentFieldsValid()
         {
             int studyProgramID = GetStudyProgramID(studyProgramComboBox.Text);
             int userID = UserRepository.GetUserId(indexTextBox.Text);
