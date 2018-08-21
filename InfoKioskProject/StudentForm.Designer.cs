@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.homeTabPage = new System.Windows.Forms.TabPage();
-            this.gradesTabPage = new System.Windows.Forms.TabPage();
-            this.tryingsTabPage = new System.Windows.Forms.TabPage();
-            this.examsTabPage = new System.Windows.Forms.TabPage();
             this.loadStudyProgramLabel = new System.Windows.Forms.Label();
             this.loadYearOfStudyLabel = new System.Windows.Forms.Label();
             this.loadNumberOfAdmitionsLabel = new System.Windows.Forms.Label();
@@ -58,14 +55,17 @@
             this.studGenderLabel = new System.Windows.Forms.Label();
             this.studIdNumberLabel = new System.Windows.Forms.Label();
             this.studDateOfBirthLabel = new System.Windows.Forms.Label();
-            this.profileLabel = new System.Windows.Forms.Label();
+            this.loadProfileLabel = new System.Windows.Forms.Label();
+            this.gradesTabPage = new System.Windows.Forms.TabPage();
             this.gradesDataGridView = new System.Windows.Forms.DataGridView();
+            this.tryingsTabPage = new System.Windows.Forms.TabPage();
             this.tryingsDataGridView = new System.Windows.Forms.DataGridView();
+            this.examsTabPage = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.homeTabPage.SuspendLayout();
             this.gradesTabPage.SuspendLayout();
-            this.tryingsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).BeginInit();
+            this.tryingsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tryingsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +107,7 @@
             this.homeTabPage.Controls.Add(this.studGenderLabel);
             this.homeTabPage.Controls.Add(this.studIdNumberLabel);
             this.homeTabPage.Controls.Add(this.studDateOfBirthLabel);
-            this.homeTabPage.Controls.Add(this.profileLabel);
+            this.homeTabPage.Controls.Add(this.loadProfileLabel);
             this.homeTabPage.Location = new System.Drawing.Point(4, 22);
             this.homeTabPage.Name = "homeTabPage";
             this.homeTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -115,36 +115,6 @@
             this.homeTabPage.TabIndex = 0;
             this.homeTabPage.Text = "Почетна";
             this.homeTabPage.UseVisualStyleBackColor = true;
-            // 
-            // gradesTabPage
-            // 
-            this.gradesTabPage.Controls.Add(this.gradesDataGridView);
-            this.gradesTabPage.Location = new System.Drawing.Point(4, 22);
-            this.gradesTabPage.Name = "gradesTabPage";
-            this.gradesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.gradesTabPage.Size = new System.Drawing.Size(672, 283);
-            this.gradesTabPage.TabIndex = 1;
-            this.gradesTabPage.Text = "Положени испити";
-            this.gradesTabPage.UseVisualStyleBackColor = true;
-            // 
-            // tryingsTabPage
-            // 
-            this.tryingsTabPage.Controls.Add(this.tryingsDataGridView);
-            this.tryingsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.tryingsTabPage.Name = "tryingsTabPage";
-            this.tryingsTabPage.Size = new System.Drawing.Size(672, 283);
-            this.tryingsTabPage.TabIndex = 2;
-            this.tryingsTabPage.Text = "Преглед излазака";
-            this.tryingsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // examsTabPage
-            // 
-            this.examsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.examsTabPage.Name = "examsTabPage";
-            this.examsTabPage.Size = new System.Drawing.Size(615, 294);
-            this.examsTabPage.TabIndex = 3;
-            this.examsTabPage.Text = "Пријава испита";
-            this.examsTabPage.UseVisualStyleBackColor = true;
             // 
             // loadStudyProgramLabel
             // 
@@ -386,15 +356,26 @@
             this.studDateOfBirthLabel.TabIndex = 26;
             this.studDateOfBirthLabel.Text = "Датум рођења:";
             // 
-            // profileLabel
+            // loadProfileLabel
             // 
-            this.profileLabel.AutoSize = true;
-            this.profileLabel.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileLabel.Location = new System.Drawing.Point(8, 17);
-            this.profileLabel.Name = "profileLabel";
-            this.profileLabel.Size = new System.Drawing.Size(212, 19);
-            this.profileLabel.TabIndex = 25;
-            this.profileLabel.Text = "firstName lastName (index)";
+            this.loadProfileLabel.AutoSize = true;
+            this.loadProfileLabel.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadProfileLabel.Location = new System.Drawing.Point(8, 17);
+            this.loadProfileLabel.Name = "loadProfileLabel";
+            this.loadProfileLabel.Size = new System.Drawing.Size(212, 19);
+            this.loadProfileLabel.TabIndex = 25;
+            this.loadProfileLabel.Text = "firstName lastName (index)";
+            // 
+            // gradesTabPage
+            // 
+            this.gradesTabPage.Controls.Add(this.gradesDataGridView);
+            this.gradesTabPage.Location = new System.Drawing.Point(4, 22);
+            this.gradesTabPage.Name = "gradesTabPage";
+            this.gradesTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.gradesTabPage.Size = new System.Drawing.Size(672, 283);
+            this.gradesTabPage.TabIndex = 1;
+            this.gradesTabPage.Text = "Положени испити";
+            this.gradesTabPage.UseVisualStyleBackColor = true;
             // 
             // gradesDataGridView
             // 
@@ -408,6 +389,16 @@
             this.gradesDataGridView.Size = new System.Drawing.Size(666, 277);
             this.gradesDataGridView.TabIndex = 0;
             // 
+            // tryingsTabPage
+            // 
+            this.tryingsTabPage.Controls.Add(this.tryingsDataGridView);
+            this.tryingsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.tryingsTabPage.Name = "tryingsTabPage";
+            this.tryingsTabPage.Size = new System.Drawing.Size(672, 283);
+            this.tryingsTabPage.TabIndex = 2;
+            this.tryingsTabPage.Text = "Преглед излазака";
+            this.tryingsTabPage.UseVisualStyleBackColor = true;
+            // 
             // tryingsDataGridView
             // 
             this.tryingsDataGridView.AllowUserToAddRows = false;
@@ -419,6 +410,15 @@
             this.tryingsDataGridView.ReadOnly = true;
             this.tryingsDataGridView.Size = new System.Drawing.Size(672, 283);
             this.tryingsDataGridView.TabIndex = 0;
+            // 
+            // examsTabPage
+            // 
+            this.examsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.examsTabPage.Name = "examsTabPage";
+            this.examsTabPage.Size = new System.Drawing.Size(672, 283);
+            this.examsTabPage.TabIndex = 3;
+            this.examsTabPage.Text = "Пријава испита";
+            this.examsTabPage.UseVisualStyleBackColor = true;
             // 
             // StudentForm
             // 
@@ -437,8 +437,8 @@
             this.homeTabPage.ResumeLayout(false);
             this.homeTabPage.PerformLayout();
             this.gradesTabPage.ResumeLayout(false);
-            this.tryingsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).EndInit();
+            this.tryingsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tryingsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -472,7 +472,7 @@
         private System.Windows.Forms.Label studGenderLabel;
         private System.Windows.Forms.Label studIdNumberLabel;
         private System.Windows.Forms.Label studDateOfBirthLabel;
-        private System.Windows.Forms.Label profileLabel;
+        private System.Windows.Forms.Label loadProfileLabel;
         private System.Windows.Forms.TabPage gradesTabPage;
         private System.Windows.Forms.TabPage tryingsTabPage;
         private System.Windows.Forms.TabPage examsTabPage;

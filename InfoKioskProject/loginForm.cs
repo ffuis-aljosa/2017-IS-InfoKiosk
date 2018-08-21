@@ -14,6 +14,9 @@ namespace InfoKioskProject
 {
     public partial class LoginForm : Form
     {
+        public static string username;
+        public static int id;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -40,16 +43,24 @@ namespace InfoKioskProject
                     }
                     else if (user.Role == "student")
                     {
-                        //catch username here
+                        username = usernameTextBox.Text;
+                        id = UserRepository.GetUserId(username);
 
-                        StudentForm student = new StudentForm();
-                        student.Show();
+                        if (!IsStudentRegistered())
+                        {
+                            MessageBox.Show("Студент са унесеним бројем индекса није уписан.", "ГРЕШКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            StudentForm student = new StudentForm();
+                            student.Show();
 
-                        student.FormClosed += StudentForm_FormClosed;
+                            student.FormClosed += StudentForm_FormClosed;
 
-                        Hide();
+                            Hide();
 
-                        EmptyLoginTextBoxes();
+                            EmptyLoginTextBoxes();
+                        }
                     }
                     else
                     {
@@ -78,6 +89,16 @@ namespace InfoKioskProject
         {
             welcomeForm welcome = new welcomeForm();
             welcome.Show();
+        }
+
+        private bool IsStudentRegistered()
+        {
+            int studentId = StudentRepository.GetStudentId(username);
+
+            if (studentId == 0)
+                return false;
+            else
+                return true;
         }
 
         private void EmptyLoginTextBoxes()
