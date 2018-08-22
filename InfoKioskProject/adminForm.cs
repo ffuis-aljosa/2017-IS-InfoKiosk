@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,10 +15,19 @@ namespace InfoKioskProject
 {
     public partial class AdminForm : Form
     {
+        private static DatabaseConnection connection = DatabaseConnection.Instance;
+
         public AdminForm()
         {
             InitializeComponent();
+
+            //add new user
             passwordWarningLabel.Hide();
+
+            //search database
+            secondSearchTermComboBox.Hide();
+            databaseDataGridView.Hide();
+            hideSearchButton.Hide();
         }
 
         //add new user
@@ -550,6 +560,187 @@ namespace InfoKioskProject
             numberOfAdmitionsTextBox.Text = "";
             statusComboBox.Text = "";
             paymentComboBox.Text = "";
+        }
+
+        //search database
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if (secondSearchTermComboBox.Visible.Equals(false))
+            {
+                if (searchTermsComboBox.SelectedIndex.Equals(0))
+                    LoadUsersData();
+                else if (searchTermsComboBox.SelectedIndex.Equals(1))
+                    LoadStudentsData();
+                else if (searchTermsComboBox.SelectedIndex.Equals(2))
+                    LoadProfessorsData();
+                else if (searchTermsComboBox.SelectedIndex.Equals(3))
+                    LoadStudyProgramsData();
+                else if (searchTermsComboBox.SelectedIndex.Equals(4))
+                {
+                    secondSearchTermComboBox.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Морате изабрати услове претраге.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    searchTermsComboBox.Text = "";
+                    searchTermsComboBox.Focus();
+                }
+            } 
+            else
+            {
+                int studyProgramID = GetStudyProgramID(secondSearchTermComboBox.Text);
+
+                if (studyProgramID == 0)
+                {
+                    MessageBox.Show("Морате изабрати услове претраге.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    secondSearchTermComboBox.Text = "";
+                    secondSearchTermComboBox.Focus();
+                }   
+                else
+                {
+                    LoadCoursesData(studyProgramID);
+                    secondSearchTermComboBox.Text = "";
+                    secondSearchTermComboBox.Hide();
+                }
+            }
+        }
+
+        private void LoadUsersData()
+        {
+            string sql = "SELECT id - 1 AS \"" + "РЕДНИ БРОЈ" + "\", username AS \"" + "КОРИСНИЧКО ИМЕ" + "\" FROM users WHERE role = 'student';";
+
+            SqlCeDataAdapter adapter = new SqlCeDataAdapter();
+            adapter = new SqlCeDataAdapter(sql, connection.Connection);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Reset();
+
+            adapter.Fill(dataSet);
+
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+
+            databaseDataGridView.DataSource = dataTable;
+            databaseDataGridView.Show();
+
+            databaseDataGridView.RowHeadersVisible = false;
+            databaseDataGridView.Columns[0].Width = 100;
+            databaseDataGridView.Columns[1].Width = 440;
+        }
+
+        private void LoadStudentsData()
+        {
+            string sql = "SELECT s.first_name AS \"" + "ИМЕ" + "\", s.last_name AS \"" + "ПРЕЗИМЕ" + "\", " +
+                         "s.date_of_birth AS \"" + "ДАТУМ РОЂЕЊА" + "\", s.id_number AS \"" + "ЈМБГ" + "\", s.gender AS \"" + "ПОЛ" + "\"," +
+                         "s.place_of_birth AS \"" + "МЈЕСТО РОЂЕЊА" + "\", s.citizenship  AS \"" + "ДРЖАВЉАНСТВО" + "\"," +
+                         "s.address  AS \"" + "АДРЕСА" + "\", s.telephone AS \"" + "ТЕЛЕФОН" + "\", sp.name AS \"" + "СТУДИЈСКИ ПРОГРАМ" + "\"," +
+                         "u.username AS \"" + "БРОЈ ИНДЕКСА" + "\", s.year_of_study AS \"" + "ГОДИНА СТУДИЈА" + "\", " +
+                         "s.number_of_admitions AS \"" + "БРОЈ УПИСА ГОДИНЕ" + "\", s.status  AS \"" + "СТАТУС" + "\"," +
+                         "s.payment AS \"" + "НАЧИН ФИНАНСИРАЊА" + "\" FROM students AS s JOIN study_programs AS sp " +
+                         "ON sp.id = s.study_program_id JOIN users AS u ON s.user_id = u.id;";
+
+            SqlCeDataAdapter adapter = new SqlCeDataAdapter();
+            adapter = new SqlCeDataAdapter(sql, connection.Connection);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Reset();
+
+            adapter.Fill(dataSet);
+
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+
+            databaseDataGridView.DataSource = dataTable;
+            databaseDataGridView.Show();
+            databaseDataGridView.AutoResizeColumns();
+        }
+
+        private void LoadProfessorsData()
+        {
+            string sql = "SELECT p.title AS \"" + "СТАТУС" + "\", p.title_short AS \"" + "ЗВАЊЕ" + "\"," +
+                         "p.first_name AS \"" + "ИМЕ" + "\", p.last_name AS \"" + "ПРЕЗИМЕ" + "\", " +
+                         "d.name AS \"" + "КАТЕДРА" + "\" FROM professors AS p JOIN departments AS d " +
+                         "ON p.department_id = d.id;";
+
+            SqlCeDataAdapter adapter = new SqlCeDataAdapter();
+            adapter = new SqlCeDataAdapter(sql, connection.Connection);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Reset();
+
+            adapter.Fill(dataSet);
+
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+
+            databaseDataGridView.DataSource = dataTable;
+            databaseDataGridView.Show();
+
+            databaseDataGridView.RowHeadersVisible = false;
+            databaseDataGridView.Columns[0].Width = 120;
+            databaseDataGridView.Columns[1].Width = 70;
+            databaseDataGridView.Columns[2].Width = 100;
+            databaseDataGridView.Columns[3].Width = 100;
+            databaseDataGridView.Columns[4].Width = 170;
+        }
+
+        private void LoadStudyProgramsData()
+        {
+            string sql = "SELECT id AS \"" + "РЕДНИ БРОЈ" + "\", name AS \"" + "НАЗИВ СТУДИЈСКОГ ПРОГРАМА" + "\" FROM study_programs;";
+
+            SqlCeDataAdapter adapter = new SqlCeDataAdapter();
+            adapter = new SqlCeDataAdapter(sql, connection.Connection);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Reset();
+
+            adapter.Fill(dataSet);
+
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+
+            databaseDataGridView.DataSource = dataTable;
+            databaseDataGridView.Show();
+
+            databaseDataGridView.RowHeadersVisible = false;
+            databaseDataGridView.Columns[0].Width = 100;
+            databaseDataGridView.Columns[1].Width = 457;
+        }
+
+        private void LoadCoursesData(int id)
+        {
+            string sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "НАЗИВ ПРРЕДМЕТА" + "\"," +
+                "semester AS \"" + "СЕМЕСТАР" + "\", ects AS \"" + "ЕСПБ" + "\"," +
+                "p.title_short + ' ' + p.first_name + ' ' + p.last_name AS \"" + "ПРОФЕСОР" + "\" " +
+                "FROM courses AS c JOIN professors AS p ON c.professor_id = p.id " +
+                "WHERE c.study_program_id =" + id + ";";
+
+            SqlCeDataAdapter adapter = new SqlCeDataAdapter();
+            adapter = new SqlCeDataAdapter(sql, connection.Connection);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Reset();
+
+            adapter.Fill(dataSet);
+
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+
+            databaseDataGridView.DataSource = dataTable;
+            databaseDataGridView.Show();
+
+            databaseDataGridView.RowHeadersVisible = false;
+            databaseDataGridView.AutoResizeColumns();
+        }
+
+        private void hideSearchButton_Click(object sender, EventArgs e)
+        {
+            secondSearchTermComboBox.Hide();
+            hideSearchButton.Hide();
+        }
+
+        private void isSecondTermComboBoxVisible()
+        {
         }
     }
 }

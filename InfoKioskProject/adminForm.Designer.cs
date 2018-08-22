@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.newUser = new System.Windows.Forms.TabPage();
@@ -94,6 +95,8 @@
             this.searchTermsComboBox = new System.Windows.Forms.ComboBox();
             this.searchDatabaseLabel = new System.Windows.Forms.Label();
             this.databaseDataGridView = new System.Windows.Forms.DataGridView();
+            this.hideSearchButton = new System.Windows.Forms.Button();
+            this.secondSearchTermComboBox = new System.Windows.Forms.ComboBox();
             this.adminTabControl.SuspendLayout();
             this.newUser.SuspendLayout();
             this.newStudent.SuspendLayout();
@@ -727,6 +730,8 @@
             // 
             // database
             // 
+            this.database.Controls.Add(this.hideSearchButton);
+            this.database.Controls.Add(this.secondSearchTermComboBox);
             this.database.Controls.Add(this.searchButton);
             this.database.Controls.Add(this.searchTermsComboBox);
             this.database.Controls.Add(this.searchDatabaseLabel);
@@ -746,6 +751,7 @@
             this.searchButton.TabIndex = 10;
             this.searchButton.Text = "Претрага";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // searchTermsComboBox
             // 
@@ -772,12 +778,44 @@
             // 
             // databaseDataGridView
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.databaseDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.databaseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.databaseDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.databaseDataGridView.Location = new System.Drawing.Point(0, 101);
+            this.databaseDataGridView.Location = new System.Drawing.Point(0, 89);
             this.databaseDataGridView.Name = "databaseDataGridView";
-            this.databaseDataGridView.Size = new System.Drawing.Size(561, 264);
+            this.databaseDataGridView.RowHeadersVisible = false;
+            this.databaseDataGridView.Size = new System.Drawing.Size(561, 276);
             this.databaseDataGridView.TabIndex = 6;
+            // 
+            // hideSearchButton
+            // 
+            this.hideSearchButton.Location = new System.Drawing.Point(366, 49);
+            this.hideSearchButton.Name = "hideSearchButton";
+            this.hideSearchButton.Size = new System.Drawing.Size(21, 21);
+            this.hideSearchButton.TabIndex = 12;
+            this.hideSearchButton.Text = "X";
+            this.hideSearchButton.UseVisualStyleBackColor = true;
+            this.hideSearchButton.Click += new System.EventHandler(this.hideSearchButton_Click);
+            // 
+            // secondSearchTermComboBox
+            // 
+            this.secondSearchTermComboBox.FormattingEnabled = true;
+            this.secondSearchTermComboBox.Items.AddRange(new object[] {
+            "Математика и рачунарство",
+            "Српски језик и књижевност",
+            "Кинески и енглески језик и књижевност",
+            "Историја"});
+            this.secondSearchTermComboBox.Location = new System.Drawing.Point(176, 49);
+            this.secondSearchTermComboBox.Name = "secondSearchTermComboBox";
+            this.secondSearchTermComboBox.Size = new System.Drawing.Size(184, 21);
+            this.secondSearchTermComboBox.TabIndex = 11;
             // 
             // AdminForm
             // 
@@ -873,5 +911,7 @@
         private System.Windows.Forms.Label periodLabel;
         private System.Windows.Forms.Label setPeriodLabel;
         private System.Windows.Forms.Label activePeriodLabel;
+        private System.Windows.Forms.Button hideSearchButton;
+        private System.Windows.Forms.ComboBox secondSearchTermComboBox;
     }
 }
