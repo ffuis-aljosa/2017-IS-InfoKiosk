@@ -24,6 +24,9 @@ namespace InfoKioskProject
             //add new user
             passwordWarningLabel.Hide();
 
+            //exams
+            LoadActiveExamsPeriod();
+
             //search database
             secondSearchTermComboBox.Hide();
             databaseDataGridView.Hide();
@@ -739,8 +742,72 @@ namespace InfoKioskProject
             hideSearchButton.Hide();
         }
 
-        private void isSecondTermComboBoxVisible()
+        //set exams period
+        private void startPeriodButton_Click(object sender, EventArgs e)
         {
+            if (!IsPeriodValid())
+            {
+                MessageBox.Show("Морате изабрати један од понуђених испитних рокова.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                periodComboBox.Focus();
+                periodComboBox.Text = "";
+                termComboBox.Text = "";
+            }
+            else if (!IsTermValid())
+            {
+                MessageBox.Show("Морате изабрати један од понуђених термина.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                termComboBox.Focus();
+                termComboBox.Text = "";
+            }
+            else
+            {
+                string period = periodComboBox.Text;
+                string term = termComboBox.Text;
+
+                Repository.SetExamsPeriod(period, term);
+
+                LoadActiveExamsPeriod();
+            }
         }
+        
+        private void endPeriodButton_Click(object sender, EventArgs e)
+        {
+            Repository.StopExamsPeriod();
+
+            LoadActiveExamsPeriod();
+            periodComboBox.Text = "";
+            termComboBox.Text = "";
+        }
+        
+        private void LoadActiveExamsPeriod()
+        {
+            string activePeriod = Repository.GetActiveExamsPeriod();
+            
+            if (activePeriod == "null")
+                activePeriodLabel.Text = "Тренутно није активан ниједан испитни рок.";
+            else
+                activePeriodLabel.Text = "Тренутно је активан " + activePeriod + " испитни рок.";
+        }
+
+        //validate exam period
+        private bool IsPeriodValid()
+        {
+            string period = periodComboBox.Text;
+
+            if (period == "јануарско-фебруарски" || period == "априлски" || period == "јунско-јулски" || period == "септембарски" || period == "октобарски")
+                return true;
+            else
+                return false;
+        }
+
+        private bool IsTermValid()
+        {
+            string term = termComboBox.Text;
+
+            if (term == "први" || term == "други")
+                return true;
+            else
+                return false;
+        }
+
     }
 }
