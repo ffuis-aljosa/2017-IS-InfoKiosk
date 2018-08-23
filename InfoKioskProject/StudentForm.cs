@@ -17,7 +17,12 @@ namespace InfoKioskProject
         public StudentForm()
         {
             InitializeComponent();
+            
+            //load student
             LoadProfile();
+
+            //exams
+            LoadExamsPage();
         }
 
         //load student profile
@@ -57,6 +62,43 @@ namespace InfoKioskProject
                 return null;
 
             return studyProgram;
+        }
+
+        //exams
+        private void LoadExamsPage()
+        {
+            string activePeriod = Repository.GetActiveExamsPeriod();
+            string activeTerm = Repository.GetActiveExamsTerm();
+
+            if (activePeriod == "null")
+            {
+                noActivePeriodsLabel.Show();
+
+                unfinishedExamsLabel.Hide();
+                unfinishedExamsDataGridView.Hide();
+                activeExamsPeriodLabel.Hide();
+                loadActiveExamsPeriodLabel.Hide();
+                activeTermLabel.Hide();
+                loadActiveTermLabel.Hide();
+                noteLabel.Hide();
+                addExamRequestButton.Hide();
+            }
+            else
+            {
+                noActivePeriodsLabel.Hide();
+
+                unfinishedExamsLabel.Show();
+                unfinishedExamsDataGridView.Show();
+                activeExamsPeriodLabel.Show();
+                loadActiveExamsPeriodLabel.Show();
+                activeTermLabel.Show();
+                loadActiveTermLabel.Show();
+                noteLabel.Show();
+                addExamRequestButton.Show();
+
+                loadActiveExamsPeriodLabel.Text = activePeriod;
+                loadActiveTermLabel.Text = activeTerm;
+            }
         }
     }
 }

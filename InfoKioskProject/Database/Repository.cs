@@ -30,6 +30,25 @@ namespace InfoKioskProject.Database
             return null;
         }
 
+        public static string GetActiveExamsTerm()
+        {
+            string activeTerm;
+
+            string sql = "SELECT term FROM exam_periods;";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+
+            SqlCeDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                activeTerm = reader.GetString(0);
+                return activeTerm;
+            }
+
+            return null;
+        }
+
         public static void SetExamsPeriod(string period, string term)
         {
             string sql_period = "UPDATE exam_periods SET name = '" + period + "' WHERE id = 1;";
