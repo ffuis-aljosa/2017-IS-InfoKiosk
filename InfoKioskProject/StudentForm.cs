@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,12 +15,17 @@ namespace InfoKioskProject
 {
     public partial class StudentForm : Form
     {
+        private static DatabaseConnection connection = DatabaseConnection.Instance;
+
         public StudentForm()
         {
             InitializeComponent();
             
             //load student
             LoadProfile();
+
+            //load grades
+            LoadGrades();
 
             //exams
             LoadExamsPage();
@@ -99,6 +105,36 @@ namespace InfoKioskProject
                 loadActiveExamsPeriodLabel.Text = activePeriod;
                 loadActiveTermLabel.Text = activeTerm;
             }
+        }
+
+        private void LoadGrades()
+        {
+            int studentID = StudentRepository.GetStudentId(LoginForm.username); 
+
+            string sql = "SELECT c.name AS \"" + "ПРЕДМЕТ" + "\", p.title_short + ' ' + p.first_name + ' ' + p.last_name AS \"" + "ПРОФЕСОР" + "\", " +
+                         "g.date AS \"" + "ДАТУМ" + "\", g.value AS \"" + "ОЦЈЕНА" + "\" " +
+                         "FROM grades AS g JOIN courses AS c ON c.id = g.course_id " +
+                         "JOIN professors AS p ON p.id = g.professor_id " +
+                         "WHERE g.student_id = " + studentID + " " +
+                         "ORDER BY g.date ASC;";
+
+            SqlCeDataAdapter adapter = new SqlCeDataAdapter();
+            adapter = new SqlCeDataAdapter(sql, connection.Connection);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Reset();
+
+            adapter.Fill(dataSet);
+
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+
+            gradesDataGridView.DataSource = dataTable;
+            gradesDataGridView.RowHeadersVisible = false;
+            gradesDataGridView.Columns[0].Width = 360;
+            gradesDataGridView.Columns[1].Width = 167;
+            gradesDataGridView.Columns[2].Width = 65;
+            gradesDataGridView.Columns[3].Width = 60;
         }
     }
 }

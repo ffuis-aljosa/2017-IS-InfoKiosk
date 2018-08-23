@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.adminTabControl = new System.Windows.Forms.TabControl();
             this.homeTabPage = new System.Windows.Forms.TabPage();
             this.loadStudyProgramLabel = new System.Windows.Forms.Label();
             this.loadYearOfStudyLabel = new System.Windows.Forms.Label();
@@ -58,39 +58,39 @@
             this.loadProfileLabel = new System.Windows.Forms.Label();
             this.gradesTabPage = new System.Windows.Forms.TabPage();
             this.gradesDataGridView = new System.Windows.Forms.DataGridView();
-            this.tryingsTabPage = new System.Windows.Forms.TabPage();
-            this.tryingsDataGridView = new System.Windows.Forms.DataGridView();
+            this.failsTabPage = new System.Windows.Forms.TabPage();
+            this.failsDataGridView = new System.Windows.Forms.DataGridView();
             this.examsTabPage = new System.Windows.Forms.TabPage();
+            this.addExamRequestButton = new System.Windows.Forms.Button();
+            this.loadActiveTermLabel = new System.Windows.Forms.Label();
+            this.activeTermLabel = new System.Windows.Forms.Label();
+            this.activeExamsPeriodLabel = new System.Windows.Forms.Label();
+            this.loadActiveExamsPeriodLabel = new System.Windows.Forms.Label();
             this.noteLabel = new System.Windows.Forms.Label();
             this.unfinishedExamsDataGridView = new System.Windows.Forms.DataGridView();
             this.unfinishedExamsLabel = new System.Windows.Forms.Label();
             this.noActivePeriodsLabel = new System.Windows.Forms.Label();
-            this.loadActiveExamsPeriodLabel = new System.Windows.Forms.Label();
-            this.activeExamsPeriodLabel = new System.Windows.Forms.Label();
-            this.activeTermLabel = new System.Windows.Forms.Label();
-            this.loadActiveTermLabel = new System.Windows.Forms.Label();
-            this.addExamRequestButton = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.adminTabControl.SuspendLayout();
             this.homeTabPage.SuspendLayout();
             this.gradesTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).BeginInit();
-            this.tryingsTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tryingsDataGridView)).BeginInit();
+            this.failsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.failsDataGridView)).BeginInit();
             this.examsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unfinishedExamsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // adminTabControl
             // 
-            this.tabControl1.Controls.Add(this.homeTabPage);
-            this.tabControl1.Controls.Add(this.gradesTabPage);
-            this.tabControl1.Controls.Add(this.tryingsTabPage);
-            this.tabControl1.Controls.Add(this.examsTabPage);
-            this.tabControl1.Location = new System.Drawing.Point(2, 1);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(680, 309);
-            this.tabControl1.TabIndex = 0;
+            this.adminTabControl.Controls.Add(this.homeTabPage);
+            this.adminTabControl.Controls.Add(this.gradesTabPage);
+            this.adminTabControl.Controls.Add(this.failsTabPage);
+            this.adminTabControl.Controls.Add(this.examsTabPage);
+            this.adminTabControl.Location = new System.Drawing.Point(2, 1);
+            this.adminTabControl.Name = "adminTabControl";
+            this.adminTabControl.SelectedIndex = 0;
+            this.adminTabControl.Size = new System.Drawing.Size(680, 309);
+            this.adminTabControl.TabIndex = 0;
             // 
             // homeTabPage
             // 
@@ -393,34 +393,33 @@
             this.gradesDataGridView.AllowUserToAddRows = false;
             this.gradesDataGridView.AllowUserToDeleteRows = false;
             this.gradesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gradesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradesDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.gradesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.gradesDataGridView.Name = "gradesDataGridView";
             this.gradesDataGridView.ReadOnly = true;
-            this.gradesDataGridView.Size = new System.Drawing.Size(666, 277);
+            this.gradesDataGridView.Size = new System.Drawing.Size(672, 283);
             this.gradesDataGridView.TabIndex = 0;
             // 
-            // tryingsTabPage
+            // failsTabPage
             // 
-            this.tryingsTabPage.Controls.Add(this.tryingsDataGridView);
-            this.tryingsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.tryingsTabPage.Name = "tryingsTabPage";
-            this.tryingsTabPage.Size = new System.Drawing.Size(672, 283);
-            this.tryingsTabPage.TabIndex = 2;
-            this.tryingsTabPage.Text = "Преглед излазака";
-            this.tryingsTabPage.UseVisualStyleBackColor = true;
+            this.failsTabPage.Controls.Add(this.failsDataGridView);
+            this.failsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.failsTabPage.Name = "failsTabPage";
+            this.failsTabPage.Size = new System.Drawing.Size(672, 283);
+            this.failsTabPage.TabIndex = 2;
+            this.failsTabPage.Text = "Преглед излазака";
+            this.failsTabPage.UseVisualStyleBackColor = true;
             // 
-            // tryingsDataGridView
+            // failsDataGridView
             // 
-            this.tryingsDataGridView.AllowUserToAddRows = false;
-            this.tryingsDataGridView.AllowUserToDeleteRows = false;
-            this.tryingsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tryingsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tryingsDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.tryingsDataGridView.Name = "tryingsDataGridView";
-            this.tryingsDataGridView.ReadOnly = true;
-            this.tryingsDataGridView.Size = new System.Drawing.Size(672, 283);
-            this.tryingsDataGridView.TabIndex = 0;
+            this.failsDataGridView.AllowUserToAddRows = false;
+            this.failsDataGridView.AllowUserToDeleteRows = false;
+            this.failsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.failsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.failsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.failsDataGridView.Name = "failsDataGridView";
+            this.failsDataGridView.ReadOnly = true;
+            this.failsDataGridView.Size = new System.Drawing.Size(672, 283);
+            this.failsDataGridView.TabIndex = 0;
             // 
             // examsTabPage
             // 
@@ -439,6 +438,55 @@
             this.examsTabPage.TabIndex = 3;
             this.examsTabPage.Text = "Пријава испита";
             this.examsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // addExamRequestButton
+            // 
+            this.addExamRequestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addExamRequestButton.Location = new System.Drawing.Point(468, 251);
+            this.addExamRequestButton.Name = "addExamRequestButton";
+            this.addExamRequestButton.Size = new System.Drawing.Size(204, 32);
+            this.addExamRequestButton.TabIndex = 9;
+            this.addExamRequestButton.Text = "ПРИЈАВИТИ ИСПИТ";
+            this.addExamRequestButton.UseVisualStyleBackColor = true;
+            // 
+            // loadActiveTermLabel
+            // 
+            this.loadActiveTermLabel.AutoSize = true;
+            this.loadActiveTermLabel.Location = new System.Drawing.Point(524, 48);
+            this.loadActiveTermLabel.Name = "loadActiveTermLabel";
+            this.loadActiveTermLabel.Size = new System.Drawing.Size(59, 13);
+            this.loadActiveTermLabel.TabIndex = 7;
+            this.loadActiveTermLabel.Text = "active term";
+            // 
+            // activeTermLabel
+            // 
+            this.activeTermLabel.AutoSize = true;
+            this.activeTermLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activeTermLabel.Location = new System.Drawing.Point(465, 48);
+            this.activeTermLabel.Name = "activeTermLabel";
+            this.activeTermLabel.Size = new System.Drawing.Size(54, 13);
+            this.activeTermLabel.TabIndex = 6;
+            this.activeTermLabel.Text = "термин:";
+            // 
+            // activeExamsPeriodLabel
+            // 
+            this.activeExamsPeriodLabel.AutoSize = true;
+            this.activeExamsPeriodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activeExamsPeriodLabel.Location = new System.Drawing.Point(465, 5);
+            this.activeExamsPeriodLabel.Name = "activeExamsPeriodLabel";
+            this.activeExamsPeriodLabel.Size = new System.Drawing.Size(110, 15);
+            this.activeExamsPeriodLabel.TabIndex = 5;
+            this.activeExamsPeriodLabel.Text = "ИСПИТНИ РОК:";
+            // 
+            // loadActiveExamsPeriodLabel
+            // 
+            this.loadActiveExamsPeriodLabel.AutoSize = true;
+            this.loadActiveExamsPeriodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadActiveExamsPeriodLabel.Location = new System.Drawing.Point(465, 25);
+            this.loadActiveExamsPeriodLabel.Name = "loadActiveExamsPeriodLabel";
+            this.loadActiveExamsPeriodLabel.Size = new System.Drawing.Size(110, 15);
+            this.loadActiveExamsPeriodLabel.TabIndex = 4;
+            this.loadActiveExamsPeriodLabel.Text = "active exam period";
             // 
             // noteLabel
             // 
@@ -479,61 +527,12 @@
             this.noActivePeriodsLabel.TabIndex = 0;
             this.noActivePeriodsLabel.Text = "Није могуће пријавити испит! Тренутно није активан ниједан испитни рок.";
             // 
-            // loadActiveExamsPeriodLabel
-            // 
-            this.loadActiveExamsPeriodLabel.AutoSize = true;
-            this.loadActiveExamsPeriodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadActiveExamsPeriodLabel.Location = new System.Drawing.Point(465, 25);
-            this.loadActiveExamsPeriodLabel.Name = "loadActiveExamsPeriodLabel";
-            this.loadActiveExamsPeriodLabel.Size = new System.Drawing.Size(110, 15);
-            this.loadActiveExamsPeriodLabel.TabIndex = 4;
-            this.loadActiveExamsPeriodLabel.Text = "active exam period";
-            // 
-            // activeExamsPeriodLabel
-            // 
-            this.activeExamsPeriodLabel.AutoSize = true;
-            this.activeExamsPeriodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activeExamsPeriodLabel.Location = new System.Drawing.Point(465, 5);
-            this.activeExamsPeriodLabel.Name = "activeExamsPeriodLabel";
-            this.activeExamsPeriodLabel.Size = new System.Drawing.Size(110, 15);
-            this.activeExamsPeriodLabel.TabIndex = 5;
-            this.activeExamsPeriodLabel.Text = "ИСПИТНИ РОК:";
-            // 
-            // activeTermLabel
-            // 
-            this.activeTermLabel.AutoSize = true;
-            this.activeTermLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activeTermLabel.Location = new System.Drawing.Point(465, 48);
-            this.activeTermLabel.Name = "activeTermLabel";
-            this.activeTermLabel.Size = new System.Drawing.Size(54, 13);
-            this.activeTermLabel.TabIndex = 6;
-            this.activeTermLabel.Text = "термин:";
-            // 
-            // loadActiveTermLabel
-            // 
-            this.loadActiveTermLabel.AutoSize = true;
-            this.loadActiveTermLabel.Location = new System.Drawing.Point(524, 48);
-            this.loadActiveTermLabel.Name = "loadActiveTermLabel";
-            this.loadActiveTermLabel.Size = new System.Drawing.Size(59, 13);
-            this.loadActiveTermLabel.TabIndex = 7;
-            this.loadActiveTermLabel.Text = "active term";
-            // 
-            // addExamRequestButton
-            // 
-            this.addExamRequestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addExamRequestButton.Location = new System.Drawing.Point(468, 251);
-            this.addExamRequestButton.Name = "addExamRequestButton";
-            this.addExamRequestButton.Size = new System.Drawing.Size(204, 32);
-            this.addExamRequestButton.TabIndex = 9;
-            this.addExamRequestButton.Text = "ПРИЈАВИТИ ИСПИТ";
-            this.addExamRequestButton.UseVisualStyleBackColor = true;
-            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 311);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.adminTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -541,13 +540,13 @@
             this.Name = "StudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ИНФО КИОСК";
-            this.tabControl1.ResumeLayout(false);
+            this.adminTabControl.ResumeLayout(false);
             this.homeTabPage.ResumeLayout(false);
             this.homeTabPage.PerformLayout();
             this.gradesTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).EndInit();
-            this.tryingsTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tryingsDataGridView)).EndInit();
+            this.failsTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.failsDataGridView)).EndInit();
             this.examsTabPage.ResumeLayout(false);
             this.examsTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unfinishedExamsDataGridView)).EndInit();
@@ -557,7 +556,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl adminTabControl;
         private System.Windows.Forms.TabPage homeTabPage;
         private System.Windows.Forms.Label loadStudyProgramLabel;
         private System.Windows.Forms.Label loadYearOfStudyLabel;
@@ -585,10 +584,10 @@
         private System.Windows.Forms.Label studDateOfBirthLabel;
         private System.Windows.Forms.Label loadProfileLabel;
         private System.Windows.Forms.TabPage gradesTabPage;
-        private System.Windows.Forms.TabPage tryingsTabPage;
+        private System.Windows.Forms.TabPage failsTabPage;
         private System.Windows.Forms.TabPage examsTabPage;
         private System.Windows.Forms.DataGridView gradesDataGridView;
-        private System.Windows.Forms.DataGridView tryingsDataGridView;
+        private System.Windows.Forms.DataGridView failsDataGridView;
         private System.Windows.Forms.Label noActivePeriodsLabel;
         private System.Windows.Forms.Label unfinishedExamsLabel;
         private System.Windows.Forms.Label noteLabel;
