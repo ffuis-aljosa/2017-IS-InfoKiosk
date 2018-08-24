@@ -81,5 +81,43 @@ namespace InfoKioskProject.Database
 
             return 0;
         }
+
+        public static int GetStudentStudyProgram(int studentID)
+        {
+            int studyProgramID = 0;
+
+            string sql = "SELECT study_program_id FROM students WHERE id = " + studentID + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+
+            SqlCeDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                studyProgramID = reader.GetInt32(0);
+                return studyProgramID;
+            }
+
+            return 0;
+        }
+
+        public static string GetYearOfStudy(int studentID)
+        {
+            string year; 
+
+            string sql = "SELECT year_of_study FROM students WHERE id = " + studentID + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+
+            SqlCeDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                year = reader.GetString(0);
+                return year;
+            }
+
+            return null;
+        }
     }
 }

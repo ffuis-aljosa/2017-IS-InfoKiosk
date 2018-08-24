@@ -67,7 +67,7 @@ namespace InfoKioskProject
             return studyProgram;
         }
 
-        //exams
+        //grades
         private void LoadGrades()
         {
             int studentID = StudentRepository.GetStudentID(LoginForm.username); 
@@ -98,6 +98,7 @@ namespace InfoKioskProject
             gradesDataGridView.Columns[3].Width = 60;
         }
 
+        //exam attempts
         private void LoadAttempts()
         {
             int studentID = StudentRepository.GetStudentID(LoginForm.username);
@@ -124,6 +125,7 @@ namespace InfoKioskProject
             attemptsDataGridView.Columns[1].Width = 200;
         }
 
+        //exam requests
         private void LoadExamsPage()
         {
             string activePeriod = Repository.GetActiveExamsPeriod();
@@ -170,9 +172,13 @@ namespace InfoKioskProject
         
         private void LoadUnfinishedExams()
         {
-            int student_id = StudentRepository.GetStudentID(LoginForm.username);
+            int studentID = StudentRepository.GetStudentID(LoginForm.username);
+            int studyProgramID = StudentRepository.GetStudentStudyProgram(studentID);
 
-            List<int> indexes = Repository.LoadUnfinishedExams(student_id);
+            int year = GetYearOfStudy(studentID);
+            string semester_range = (((year - 1) * 2) - 1) + ", " + ((year - 1) * 2) + ", " + ((year * 2) - 1) + ", " + (year * 2);
+
+            List<int> indexes = Repository.LoadUnfinishedExams(studentID);
 
             int p = indexes.Count();
             string grade_index = "";
@@ -183,7 +189,8 @@ namespace InfoKioskProject
 
             string sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "ПРЕДМЕТ" + "\" " +
                          "FROM courses " +
-                         "WHERE study_program_id = 1 AND semester IN (3, 4, 5, 6) AND id NOT IN(" + grade_index + ");";
+                         "WHERE study_program_id = " + studyProgramID + " AND semester IN (" + semester_range + ") " +
+                         "AND id NOT IN(" + grade_index + ");";
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
@@ -200,6 +207,23 @@ namespace InfoKioskProject
             unfinishedExamsDataGridView.RowHeadersVisible = false;
             unfinishedExamsDataGridView.Columns[0].Width = 82;
             unfinishedExamsDataGridView.Columns[1].Width = 370;
+        }
+
+        private int GetYearOfStudy(int studentID)
+        {
+            string year = StudentRepository.GetYearOfStudy(studentID);
+            int yearOfStudy = 0;
+
+            if (year == "прва")
+                yearOfStudy = 1;
+            else if (year == "друга")
+                yearOfStudy = 2;
+            else if (year == "трећа")
+                yearOfStudy = 3;
+            else
+                yearOfStudy = 4;
+
+            return yearOfStudy;
         }
         
         private void unfinishedExamsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -218,5 +242,6 @@ namespace InfoKioskProject
                 loadAttemptsLabel.Show();
             }
         }
+        
     }
 }
