@@ -44,7 +44,7 @@ namespace InfoKioskProject
                     else if (user.Role == "student")
                     {
                         username = usernameTextBox.Text;
-                        id = UserRepository.GetUserId(username);
+                        id = UserRepository.GetUserID(username);
 
                         if (!IsStudentRegistered())
                         {
@@ -93,7 +93,7 @@ namespace InfoKioskProject
 
         private bool IsStudentRegistered()
         {
-            int studentId = StudentRepository.GetStudentId(username);
+            int studentId = StudentRepository.GetStudentID(username);
 
             if (studentId == 0)
                 return false;

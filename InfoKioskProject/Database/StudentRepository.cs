@@ -63,7 +63,7 @@ namespace InfoKioskProject.Database
             return null;
         }
 
-        public static int GetStudentId(string index)
+        public static int GetStudentID(string index)
         {
             int studentID = 0;
 

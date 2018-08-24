@@ -134,7 +134,7 @@ namespace InfoKioskProject
                     string date = GetDateString();
                     string gender = GetGender();
                     int studyProgramID = GetStudyProgramID(studyProgramComboBox.Text);
-                    int userID = UserRepository.GetUserId(indexTextBox.Text);
+                    int userID = UserRepository.GetUserID(indexTextBox.Text);
                     int numberOfAdmitions = int.Parse(numberOfAdmitionsTextBox.Text);
 
                     Student newStudent = new Student(firstNameTextBox.Text, lastNameTextBox.Text, date, idNumberTextBox.Text,
@@ -210,7 +210,7 @@ namespace InfoKioskProject
         private bool AreStudentFieldsValid()
         {
             int studyProgramID = GetStudyProgramID(studyProgramComboBox.Text);
-            int userID = UserRepository.GetUserId(indexTextBox.Text);
+            int userID = UserRepository.GetUserID(indexTextBox.Text);
             int numberOfAdmitions = 0;
             int.TryParse(numberOfAdmitionsTextBox.Text, out numberOfAdmitions);
 

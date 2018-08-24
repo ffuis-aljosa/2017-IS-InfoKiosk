@@ -23,10 +23,9 @@ namespace InfoKioskProject
 
             LoadProfile();
             LoadGrades();
-            LoadFails();
-
-            //exams
+            LoadAttempts();
             LoadExamsPage();
+            LoadUnfinishedExams();
         }
 
         //load student profile
@@ -69,45 +68,9 @@ namespace InfoKioskProject
         }
 
         //exams
-        private void LoadExamsPage()
-        {
-            string activePeriod = Repository.GetActiveExamsPeriod();
-            string activeTerm = Repository.GetActiveExamsTerm();
-
-            if (activePeriod == "null")
-            {
-                noActivePeriodsLabel.Show();
-
-                unfinishedExamsLabel.Hide();
-                unfinishedExamsDataGridView.Hide();
-                activeExamsPeriodLabel.Hide();
-                loadActiveExamsPeriodLabel.Hide();
-                activeTermLabel.Hide();
-                loadActiveTermLabel.Hide();
-                noteLabel.Hide();
-                addExamRequestButton.Hide();
-            }
-            else
-            {
-                noActivePeriodsLabel.Hide();
-
-                unfinishedExamsLabel.Show();
-                unfinishedExamsDataGridView.Show();
-                activeExamsPeriodLabel.Show();
-                loadActiveExamsPeriodLabel.Show();
-                activeTermLabel.Show();
-                loadActiveTermLabel.Show();
-                noteLabel.Show();
-                addExamRequestButton.Show();
-
-                loadActiveExamsPeriodLabel.Text = activePeriod;
-                loadActiveTermLabel.Text = activeTerm;
-            }
-        }
-
         private void LoadGrades()
         {
-            int studentID = StudentRepository.GetStudentId(LoginForm.username); 
+            int studentID = StudentRepository.GetStudentID(LoginForm.username); 
 
             string sql = "SELECT c.name AS \"" + "ПРЕДМЕТ" + "\", p.title_short + ' ' + p.first_name + ' ' + p.last_name AS \"" + "ПРОФЕСОР" + "\", " +
                          "g.date AS \"" + "ДАТУМ" + "\", g.value AS \"" + "ОЦЈЕНА" + "\" " +
@@ -135,15 +98,15 @@ namespace InfoKioskProject
             gradesDataGridView.Columns[3].Width = 60;
         }
 
-        private void LoadFails()
+        private void LoadAttempts()
         {
-            int studentID = StudentRepository.GetStudentId(LoginForm.username);
+            int studentID = StudentRepository.GetStudentID(LoginForm.username);
             
             string sql = "SELECT c.name AS \"" + "ПРЕДМЕТ" + "\", COUNT(a.id) AS \"" + "БРОЈ ИЗЛАЗАКА" + "\" " +
                          "FROM attempts AS a JOIN courses AS c ON a.course_id = c.id " +
                          "WHERE a.student_id = " + studentID + " " +
                          "GROUP BY c.name;";
-            
+
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
 
@@ -159,6 +122,101 @@ namespace InfoKioskProject
             attemptsDataGridView.RowHeadersVisible = false;
             attemptsDataGridView.Columns[0].Width = 469;
             attemptsDataGridView.Columns[1].Width = 200;
+        }
+
+        private void LoadExamsPage()
+        {
+            string activePeriod = Repository.GetActiveExamsPeriod();
+            string activeTerm = Repository.GetActiveExamsTerm();
+
+            if (activePeriod == "null")
+            {
+                noActivePeriodsLabel.Show();
+
+                unfinishedExamsLabel.Hide();
+                unfinishedExamsDataGridView.Hide();
+                activeExamsPeriodLabel.Hide();
+                loadActiveExamsPeriodLabel.Hide();
+                activeTermLabel.Hide();
+                loadActiveTermLabel.Hide();
+                noteLabel.Hide();
+                courseCodeLabel.Hide();
+                loadCourseCodeLabel.Hide();
+                attemptsLabel.Hide();
+                loadAttemptsLabel.Hide();
+                addExamRequestButton.Hide();
+            }
+            else
+            {
+                noActivePeriodsLabel.Hide();
+
+                unfinishedExamsLabel.Show();
+                unfinishedExamsDataGridView.Show();
+                activeExamsPeriodLabel.Show();
+                loadActiveExamsPeriodLabel.Show();
+                activeTermLabel.Show();
+                loadActiveTermLabel.Show();
+                noteLabel.Show();
+                courseCodeLabel.Show();
+                loadCourseCodeLabel.Hide();
+                attemptsLabel.Show();
+                loadAttemptsLabel.Hide();
+                addExamRequestButton.Show();
+
+                loadActiveExamsPeriodLabel.Text = activePeriod;
+                loadActiveTermLabel.Text = activeTerm;
+            }
+        }
+        
+        private void LoadUnfinishedExams()
+        {
+            int student_id = StudentRepository.GetStudentID(LoginForm.username);
+
+            List<int> indexes = Repository.LoadUnfinishedExams(student_id);
+
+            int p = indexes.Count();
+            string grade_index = "";
+
+            for (int i = 0; i < p - 1; i++)
+                grade_index += indexes[i] + ", ";
+            grade_index += indexes[p - 1].ToString();
+
+            string sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "ПРЕДМЕТ" + "\" " +
+                         "FROM courses " +
+                         "WHERE study_program_id = 1 AND semester IN (3, 4, 5, 6) AND id NOT IN(" + grade_index + ");";
+
+            SqlCeDataAdapter adapter = new SqlCeDataAdapter();
+            adapter = new SqlCeDataAdapter(sql, connection.Connection);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Reset();
+
+            adapter.Fill(dataSet);
+
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+
+            unfinishedExamsDataGridView.DataSource = dataTable;
+            unfinishedExamsDataGridView.RowHeadersVisible = false;
+            unfinishedExamsDataGridView.Columns[0].Width = 82;
+            unfinishedExamsDataGridView.Columns[1].Width = 370;
+        }
+        
+        private void unfinishedExamsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = this.unfinishedExamsDataGridView.Rows[e.RowIndex];
+
+            if (e.RowIndex >= 0)
+            {
+                int studentID = StudentRepository.GetStudentID(LoginForm.username);
+                string courseCode = row.Cells[0].Value.ToString();
+                int courseID = Repository.GetCourseID(courseCode);
+
+                loadCourseCodeLabel.Text = courseCode;
+                loadCourseCodeLabel.Show();
+                loadAttemptsLabel.Text = Repository.GetAttempts(studentID, courseID).ToString();
+                loadAttemptsLabel.Show();
+            }
         }
     }
 }

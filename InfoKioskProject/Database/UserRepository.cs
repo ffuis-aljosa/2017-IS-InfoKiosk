@@ -52,7 +52,7 @@ namespace InfoKioskProject.Database
             command.ExecuteNonQuery();
         }
 
-        public static int GetUserId(string index)
+        public static int GetUserID(string index)
         {
             int userID = 0;
 

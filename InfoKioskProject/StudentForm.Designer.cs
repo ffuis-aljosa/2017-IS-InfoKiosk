@@ -61,6 +61,10 @@
             this.attemptsTabPage = new System.Windows.Forms.TabPage();
             this.attemptsDataGridView = new System.Windows.Forms.DataGridView();
             this.examsTabPage = new System.Windows.Forms.TabPage();
+            this.loadAttemptsLabel = new System.Windows.Forms.Label();
+            this.attemptsLabel = new System.Windows.Forms.Label();
+            this.loadCourseCodeLabel = new System.Windows.Forms.Label();
+            this.courseCodeLabel = new System.Windows.Forms.Label();
             this.addExamRequestButton = new System.Windows.Forms.Button();
             this.loadActiveTermLabel = new System.Windows.Forms.Label();
             this.activeTermLabel = new System.Windows.Forms.Label();
@@ -423,6 +427,10 @@
             // 
             // examsTabPage
             // 
+            this.examsTabPage.Controls.Add(this.loadAttemptsLabel);
+            this.examsTabPage.Controls.Add(this.attemptsLabel);
+            this.examsTabPage.Controls.Add(this.loadCourseCodeLabel);
+            this.examsTabPage.Controls.Add(this.courseCodeLabel);
             this.examsTabPage.Controls.Add(this.addExamRequestButton);
             this.examsTabPage.Controls.Add(this.loadActiveTermLabel);
             this.examsTabPage.Controls.Add(this.activeTermLabel);
@@ -438,6 +446,44 @@
             this.examsTabPage.TabIndex = 3;
             this.examsTabPage.Text = "Пријава испита";
             this.examsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // loadAttemptsLabel
+            // 
+            this.loadAttemptsLabel.AutoSize = true;
+            this.loadAttemptsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadAttemptsLabel.Location = new System.Drawing.Point(569, 196);
+            this.loadAttemptsLabel.Name = "loadAttemptsLabel";
+            this.loadAttemptsLabel.Size = new System.Drawing.Size(48, 13);
+            this.loadAttemptsLabel.TabIndex = 13;
+            this.loadAttemptsLabel.Text = "number";
+            // 
+            // attemptsLabel
+            // 
+            this.attemptsLabel.AutoSize = true;
+            this.attemptsLabel.Location = new System.Drawing.Point(465, 196);
+            this.attemptsLabel.Name = "attemptsLabel";
+            this.attemptsLabel.Size = new System.Drawing.Size(82, 13);
+            this.attemptsLabel.TabIndex = 12;
+            this.attemptsLabel.Text = "Број излазака:";
+            // 
+            // loadCourseCodeLabel
+            // 
+            this.loadCourseCodeLabel.AutoSize = true;
+            this.loadCourseCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadCourseCodeLabel.Location = new System.Drawing.Point(569, 165);
+            this.loadCourseCodeLabel.Name = "loadCourseCodeLabel";
+            this.loadCourseCodeLabel.Size = new System.Drawing.Size(77, 13);
+            this.loadCourseCodeLabel.TabIndex = 11;
+            this.loadCourseCodeLabel.Text = "course code";
+            // 
+            // courseCodeLabel
+            // 
+            this.courseCodeLabel.AutoSize = true;
+            this.courseCodeLabel.Location = new System.Drawing.Point(465, 165);
+            this.courseCodeLabel.Name = "courseCodeLabel";
+            this.courseCodeLabel.Size = new System.Drawing.Size(97, 13);
+            this.courseCodeLabel.TabIndex = 10;
+            this.courseCodeLabel.Text = "Шифра предмета:";
             // 
             // addExamRequestButton
             // 
@@ -500,11 +546,15 @@
             // 
             // unfinishedExamsDataGridView
             // 
+            this.unfinishedExamsDataGridView.AllowUserToAddRows = false;
+            this.unfinishedExamsDataGridView.AllowUserToDeleteRows = false;
             this.unfinishedExamsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.unfinishedExamsDataGridView.Location = new System.Drawing.Point(0, 23);
             this.unfinishedExamsDataGridView.Name = "unfinishedExamsDataGridView";
+            this.unfinishedExamsDataGridView.ReadOnly = true;
             this.unfinishedExamsDataGridView.Size = new System.Drawing.Size(456, 260);
             this.unfinishedExamsDataGridView.TabIndex = 2;
+            this.unfinishedExamsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.unfinishedExamsDataGridView_CellClick);
             // 
             // unfinishedExamsLabel
             // 
@@ -597,5 +647,9 @@
         private System.Windows.Forms.Label activeTermLabel;
         private System.Windows.Forms.Label activeExamsPeriodLabel;
         private System.Windows.Forms.Button addExamRequestButton;
+        private System.Windows.Forms.Label loadAttemptsLabel;
+        private System.Windows.Forms.Label attemptsLabel;
+        private System.Windows.Forms.Label loadCourseCodeLabel;
+        private System.Windows.Forms.Label courseCodeLabel;
     }
 }

@@ -72,5 +72,64 @@ namespace InfoKioskProject.Database
             SqlCeCommand command_term = new SqlCeCommand(sql_term, connection.Connection);
             command_term.ExecuteNonQuery();
         }
+
+        public static List<int> LoadUnfinishedExams(int student_id)
+        {
+            List<int> index = new List<int>();
+
+            string sql = "SELECT course_id FROM grades WHERE student_id =" + student_id + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            SqlCeDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int id = reader.GetInt32(0);
+
+                index.Add(id);
+            }
+
+            return index;
+        }
+
+        public static int GetAttempts(int studentID, int courseID)
+        {
+            int attempts = 0;
+
+            string sql = "SELECT COUNT(id) FROM attempts WHERE student_id = " + studentID + " AND course_id = " + courseID + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+
+            SqlCeDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                attempts = reader.GetInt32(0);
+                return attempts;
+            }
+
+            return 0;
+        }
+
+        public static int GetCourseID(string courseCode)
+        {
+            int courseID = 0;
+
+            string sql = "SELECT * FROM courses WHERE course_code = '" + courseCode + "';";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+            SqlCeDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                courseID = reader.GetInt32(0);
+                return courseID;
+            }
+
+            return 0;
+        }
+
+
     }
 }
