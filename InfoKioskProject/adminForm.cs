@@ -24,6 +24,12 @@ namespace InfoKioskProject
             //add new user
             passwordWarningLabel.Hide();
 
+            //grades
+            gLoadStudentLabel.Hide();
+            gLoadCourseLabel.Hide();
+            gLoadProfessorLabel.Hide();
+            LoadExamRequests();
+
             //exams
             LoadActiveExamsPeriod();
 
@@ -807,6 +813,34 @@ namespace InfoKioskProject
                 return true;
             else
                 return false;
+        }
+
+        //add grades
+        private void LoadExamRequests()
+        {
+            string sql = "SELECT s.first_name + ' ' + s.last_name AS \"" + "СТУДЕНТ" + "\", " +
+                         "u.username AS \"" + "БРОЈ ИНДЕКСА" + "\", c.name AS \"" + "ПРЕДМЕТ" + "\", " +
+                         "p.title_short + ' ' + p.first_name + ' ' + p.last_name  AS \"" + "РЕДНИ БРОЈ" + "\" " +
+                         "FROM exam_requests AS er JOIN students AS s ON er.student_id = s.id " +
+                         "JOIN users AS u ON u.id = s.user_id " +
+                         "JOIN courses AS c ON er.course_id = c.id " +
+                         "JOIN professors AS p ON c.professor_id = p.id " +
+                         "WHERE er.is_request_done = 0;";
+
+            SqlCeDataAdapter adapter = new SqlCeDataAdapter();
+            adapter = new SqlCeDataAdapter(sql, connection.Connection);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Reset();
+
+            adapter.Fill(dataSet);
+
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+
+            examRequestsDataGridView.DataSource = dataTable;
+            examRequestsDataGridView.RowHeadersVisible = false;
+            examRequestsDataGridView.AutoResizeColumns();
         }
     }
 }

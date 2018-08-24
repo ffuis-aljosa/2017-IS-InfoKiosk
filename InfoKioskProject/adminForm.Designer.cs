@@ -80,7 +80,7 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.addDataLabel = new System.Windows.Forms.Label();
             this.addGrades = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gLoadProfessorLabel = new System.Windows.Forms.Label();
             this.gProfessorLabel = new System.Windows.Forms.Label();
             this.addGradeButton = new System.Windows.Forms.Button();
             this.gGradeTextBox = new System.Windows.Forms.TextBox();
@@ -626,7 +626,7 @@
             // 
             // addGrades
             // 
-            this.addGrades.Controls.Add(this.label1);
+            this.addGrades.Controls.Add(this.gLoadProfessorLabel);
             this.addGrades.Controls.Add(this.gProfessorLabel);
             this.addGrades.Controls.Add(this.addGradeButton);
             this.addGrades.Controls.Add(this.gGradeTextBox);
@@ -649,15 +649,15 @@
             this.addGrades.Text = "Додавање оцјена";
             this.addGrades.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // gLoadProfessorLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(362, 230);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 15);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "title firstName lastName";
+            this.gLoadProfessorLabel.AutoSize = true;
+            this.gLoadProfessorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gLoadProfessorLabel.Location = new System.Drawing.Point(362, 230);
+            this.gLoadProfessorLabel.Name = "gLoadProfessorLabel";
+            this.gLoadProfessorLabel.Size = new System.Drawing.Size(138, 15);
+            this.gLoadProfessorLabel.TabIndex = 65;
+            this.gLoadProfessorLabel.Text = "title firstName lastName";
             // 
             // gProfessorLabel
             // 
@@ -1116,7 +1116,7 @@
         private System.Windows.Forms.Label gDateLabel;
         private System.Windows.Forms.TextBox gGradeTextBox;
         private System.Windows.Forms.Button addGradeButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label gLoadProfessorLabel;
         private System.Windows.Forms.Label gProfessorLabel;
     }
 }
