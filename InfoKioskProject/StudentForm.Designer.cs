@@ -494,6 +494,7 @@
             this.addExamRequestButton.TabIndex = 9;
             this.addExamRequestButton.Text = "ПРИЈАВИТИ ИСПИТ";
             this.addExamRequestButton.UseVisualStyleBackColor = true;
+            this.addExamRequestButton.Click += new System.EventHandler(this.addExamRequestButton_Click);
             // 
             // loadActiveTermLabel
             // 

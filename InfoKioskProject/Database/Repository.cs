@@ -130,6 +130,17 @@ namespace InfoKioskProject.Database
             return 0;
         }
 
+        public static void AddExamRequest(int studentID, int courseID, int value)
+        {
+            string sql = "INSERT INTO exam_requests(student_id, course_id, is_request_done) VALUES " +
+                         "(" + studentID + ", " + courseID + ", " + value + ");";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.ExecuteNonQuery();
+        }
+
+
+
 
     }
 }

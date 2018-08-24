@@ -17,6 +17,8 @@ namespace InfoKioskProject
     {
         private static DatabaseConnection connection = DatabaseConnection.Instance;
 
+        public static int courseID;
+
         public StudentForm()
         {
             InitializeComponent();
@@ -234,7 +236,7 @@ namespace InfoKioskProject
             {
                 int studentID = StudentRepository.GetStudentID(LoginForm.username);
                 string courseCode = row.Cells[0].Value.ToString();
-                int courseID = Repository.GetCourseID(courseCode);
+                courseID = Repository.GetCourseID(courseCode);
 
                 loadCourseCodeLabel.Text = courseCode;
                 loadCourseCodeLabel.Show();
@@ -242,6 +244,14 @@ namespace InfoKioskProject
                 loadAttemptsLabel.Show();
             }
         }
-        
+
+        private void addExamRequestButton_Click(object sender, EventArgs e)
+        {
+            int studentID = StudentRepository.GetStudentID(LoginForm.username);
+
+            Repository.AddExamRequest(studentID, courseID, 0);
+
+            MessageBox.Show("Успјешно сте пријавили испит.", "ПРИЈАВА ИСПИТА", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
