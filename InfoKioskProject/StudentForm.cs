@@ -20,12 +20,10 @@ namespace InfoKioskProject
         public StudentForm()
         {
             InitializeComponent();
-            
-            //load student
-            LoadProfile();
 
-            //load grades
+            LoadProfile();
             LoadGrades();
+            LoadFails();
 
             //exams
             LoadExamsPage();
@@ -135,6 +133,32 @@ namespace InfoKioskProject
             gradesDataGridView.Columns[1].Width = 167;
             gradesDataGridView.Columns[2].Width = 65;
             gradesDataGridView.Columns[3].Width = 60;
+        }
+
+        private void LoadFails()
+        {
+            int studentID = StudentRepository.GetStudentId(LoginForm.username);
+            
+            string sql = "SELECT c.name AS \"" + "ПРЕДМЕТ" + "\", COUNT(f.id) AS \"" + "БРОЈ ИЗЛАЗАКА" + "\" " +
+                         "FROM fails AS f JOIN courses AS c ON f.course_id = c.id " +
+                         "WHERE f.student_id = " + studentID + " " +
+                         "GROUP BY c.name;";
+            
+            SqlCeDataAdapter adapter = new SqlCeDataAdapter();
+            adapter = new SqlCeDataAdapter(sql, connection.Connection);
+
+            DataSet dataSet = new DataSet();
+            dataSet.Reset();
+
+            adapter.Fill(dataSet);
+            
+            DataTable dataTable = new DataTable();
+            dataTable = dataSet.Tables[0];
+
+            failsDataGridView.DataSource = dataTable;
+            failsDataGridView.RowHeadersVisible = false;
+            failsDataGridView.Columns[0].Width = 469;
+            failsDataGridView.Columns[1].Width = 200;
         }
     }
 }
