@@ -58,8 +58,8 @@
             this.loadProfileLabel = new System.Windows.Forms.Label();
             this.gradesTabPage = new System.Windows.Forms.TabPage();
             this.gradesDataGridView = new System.Windows.Forms.DataGridView();
-            this.failsTabPage = new System.Windows.Forms.TabPage();
-            this.failsDataGridView = new System.Windows.Forms.DataGridView();
+            this.attemptsTabPage = new System.Windows.Forms.TabPage();
+            this.attemptsDataGridView = new System.Windows.Forms.DataGridView();
             this.examsTabPage = new System.Windows.Forms.TabPage();
             this.addExamRequestButton = new System.Windows.Forms.Button();
             this.loadActiveTermLabel = new System.Windows.Forms.Label();
@@ -74,8 +74,8 @@
             this.homeTabPage.SuspendLayout();
             this.gradesTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).BeginInit();
-            this.failsTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.failsDataGridView)).BeginInit();
+            this.attemptsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.attemptsDataGridView)).BeginInit();
             this.examsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unfinishedExamsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -84,7 +84,7 @@
             // 
             this.adminTabControl.Controls.Add(this.homeTabPage);
             this.adminTabControl.Controls.Add(this.gradesTabPage);
-            this.adminTabControl.Controls.Add(this.failsTabPage);
+            this.adminTabControl.Controls.Add(this.attemptsTabPage);
             this.adminTabControl.Controls.Add(this.examsTabPage);
             this.adminTabControl.Location = new System.Drawing.Point(2, 1);
             this.adminTabControl.Name = "adminTabControl";
@@ -399,27 +399,27 @@
             this.gradesDataGridView.Size = new System.Drawing.Size(672, 283);
             this.gradesDataGridView.TabIndex = 0;
             // 
-            // failsTabPage
+            // attemptsTabPage
             // 
-            this.failsTabPage.Controls.Add(this.failsDataGridView);
-            this.failsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.failsTabPage.Name = "failsTabPage";
-            this.failsTabPage.Size = new System.Drawing.Size(672, 283);
-            this.failsTabPage.TabIndex = 2;
-            this.failsTabPage.Text = "Преглед излазака";
-            this.failsTabPage.UseVisualStyleBackColor = true;
+            this.attemptsTabPage.Controls.Add(this.attemptsDataGridView);
+            this.attemptsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.attemptsTabPage.Name = "attemptsTabPage";
+            this.attemptsTabPage.Size = new System.Drawing.Size(672, 283);
+            this.attemptsTabPage.TabIndex = 2;
+            this.attemptsTabPage.Text = "Преглед излазака";
+            this.attemptsTabPage.UseVisualStyleBackColor = true;
             // 
-            // failsDataGridView
+            // attemptsDataGridView
             // 
-            this.failsDataGridView.AllowUserToAddRows = false;
-            this.failsDataGridView.AllowUserToDeleteRows = false;
-            this.failsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.failsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.failsDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.failsDataGridView.Name = "failsDataGridView";
-            this.failsDataGridView.ReadOnly = true;
-            this.failsDataGridView.Size = new System.Drawing.Size(672, 283);
-            this.failsDataGridView.TabIndex = 0;
+            this.attemptsDataGridView.AllowUserToAddRows = false;
+            this.attemptsDataGridView.AllowUserToDeleteRows = false;
+            this.attemptsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.attemptsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.attemptsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.attemptsDataGridView.Name = "attemptsDataGridView";
+            this.attemptsDataGridView.ReadOnly = true;
+            this.attemptsDataGridView.Size = new System.Drawing.Size(672, 283);
+            this.attemptsDataGridView.TabIndex = 0;
             // 
             // examsTabPage
             // 
@@ -545,8 +545,8 @@
             this.homeTabPage.PerformLayout();
             this.gradesTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).EndInit();
-            this.failsTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.failsDataGridView)).EndInit();
+            this.attemptsTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.attemptsDataGridView)).EndInit();
             this.examsTabPage.ResumeLayout(false);
             this.examsTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unfinishedExamsDataGridView)).EndInit();
@@ -584,10 +584,10 @@
         private System.Windows.Forms.Label studDateOfBirthLabel;
         private System.Windows.Forms.Label loadProfileLabel;
         private System.Windows.Forms.TabPage gradesTabPage;
-        private System.Windows.Forms.TabPage failsTabPage;
+        private System.Windows.Forms.TabPage attemptsTabPage;
         private System.Windows.Forms.TabPage examsTabPage;
         private System.Windows.Forms.DataGridView gradesDataGridView;
-        private System.Windows.Forms.DataGridView failsDataGridView;
+        private System.Windows.Forms.DataGridView attemptsDataGridView;
         private System.Windows.Forms.Label noActivePeriodsLabel;
         private System.Windows.Forms.Label unfinishedExamsLabel;
         private System.Windows.Forms.Label noteLabel;

@@ -139,9 +139,9 @@ namespace InfoKioskProject
         {
             int studentID = StudentRepository.GetStudentId(LoginForm.username);
             
-            string sql = "SELECT c.name AS \"" + "ПРЕДМЕТ" + "\", COUNT(f.id) AS \"" + "БРОЈ ИЗЛАЗАКА" + "\" " +
-                         "FROM fails AS f JOIN courses AS c ON f.course_id = c.id " +
-                         "WHERE f.student_id = " + studentID + " " +
+            string sql = "SELECT c.name AS \"" + "ПРЕДМЕТ" + "\", COUNT(a.id) AS \"" + "БРОЈ ИЗЛАЗАКА" + "\" " +
+                         "FROM attempts AS a JOIN courses AS c ON a.course_id = c.id " +
+                         "WHERE a.student_id = " + studentID + " " +
                          "GROUP BY c.name;";
             
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
@@ -155,10 +155,10 @@ namespace InfoKioskProject
             DataTable dataTable = new DataTable();
             dataTable = dataSet.Tables[0];
 
-            failsDataGridView.DataSource = dataTable;
-            failsDataGridView.RowHeadersVisible = false;
-            failsDataGridView.Columns[0].Width = 469;
-            failsDataGridView.Columns[1].Width = 200;
+            attemptsDataGridView.DataSource = dataTable;
+            attemptsDataGridView.RowHeadersVisible = false;
+            attemptsDataGridView.Columns[0].Width = 469;
+            attemptsDataGridView.Columns[1].Width = 200;
         }
     }
 }
