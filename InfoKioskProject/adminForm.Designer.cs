@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.newUser = new System.Windows.Forms.TabPage();
@@ -84,9 +85,7 @@
             this.gProfessorLabel = new System.Windows.Forms.Label();
             this.addGradeButton = new System.Windows.Forms.Button();
             this.gGradeTextBox = new System.Windows.Forms.TextBox();
-            this.gMonthComboBox = new System.Windows.Forms.ComboBox();
-            this.gYearTextBox = new System.Windows.Forms.TextBox();
-            this.gDayTextBox = new System.Windows.Forms.TextBox();
+            this.gDateTextBox = new System.Windows.Forms.TextBox();
             this.gDateLabel = new System.Windows.Forms.Label();
             this.gLoadStudentLabel = new System.Windows.Forms.Label();
             this.gLoadCourseLabel = new System.Windows.Forms.Label();
@@ -112,6 +111,7 @@
             this.searchTermsComboBox = new System.Windows.Forms.ComboBox();
             this.searchDatabaseLabel = new System.Windows.Forms.Label();
             this.databaseDataGridView = new System.Windows.Forms.DataGridView();
+            this.dateNoteLabel = new System.Windows.Forms.Label();
             this.adminTabControl.SuspendLayout();
             this.newUser.SuspendLayout();
             this.newStudent.SuspendLayout();
@@ -626,13 +626,12 @@
             // 
             // addGrades
             // 
+            this.addGrades.Controls.Add(this.dateNoteLabel);
             this.addGrades.Controls.Add(this.gLoadProfessorLabel);
             this.addGrades.Controls.Add(this.gProfessorLabel);
             this.addGrades.Controls.Add(this.addGradeButton);
             this.addGrades.Controls.Add(this.gGradeTextBox);
-            this.addGrades.Controls.Add(this.gMonthComboBox);
-            this.addGrades.Controls.Add(this.gYearTextBox);
-            this.addGrades.Controls.Add(this.gDayTextBox);
+            this.addGrades.Controls.Add(this.gDateTextBox);
             this.addGrades.Controls.Add(this.gDateLabel);
             this.addGrades.Controls.Add(this.gLoadStudentLabel);
             this.addGrades.Controls.Add(this.gLoadCourseLabel);
@@ -671,54 +670,28 @@
             // 
             // addGradeButton
             // 
-            this.addGradeButton.Location = new System.Drawing.Point(407, 317);
+            this.addGradeButton.Location = new System.Drawing.Point(403, 305);
             this.addGradeButton.Name = "addGradeButton";
-            this.addGradeButton.Size = new System.Drawing.Size(146, 23);
+            this.addGradeButton.Size = new System.Drawing.Size(150, 35);
             this.addGradeButton.TabIndex = 63;
             this.addGradeButton.Text = "ДОДАЈ ОЦЈЕНУ";
             this.addGradeButton.UseVisualStyleBackColor = true;
+            this.addGradeButton.Click += new System.EventHandler(this.addGradeButton_Click);
             // 
             // gGradeTextBox
             // 
             this.gGradeTextBox.Location = new System.Drawing.Point(81, 290);
             this.gGradeTextBox.Name = "gGradeTextBox";
-            this.gGradeTextBox.Size = new System.Drawing.Size(50, 20);
+            this.gGradeTextBox.Size = new System.Drawing.Size(75, 20);
             this.gGradeTextBox.TabIndex = 62;
             // 
-            // gMonthComboBox
+            // gDateTextBox
             // 
-            this.gMonthComboBox.FormattingEnabled = true;
-            this.gMonthComboBox.Items.AddRange(new object[] {
-            "јануар",
-            "фебруар",
-            "март",
-            "април",
-            "мај",
-            "јун",
-            "јул",
-            "август",
-            "септембар",
-            "октобар",
-            "новембар",
-            "децембар"});
-            this.gMonthComboBox.Location = new System.Drawing.Point(113, 318);
-            this.gMonthComboBox.Name = "gMonthComboBox";
-            this.gMonthComboBox.Size = new System.Drawing.Size(160, 21);
-            this.gMonthComboBox.TabIndex = 60;
-            // 
-            // gYearTextBox
-            // 
-            this.gYearTextBox.Location = new System.Drawing.Point(280, 319);
-            this.gYearTextBox.Name = "gYearTextBox";
-            this.gYearTextBox.Size = new System.Drawing.Size(50, 20);
-            this.gYearTextBox.TabIndex = 61;
-            // 
-            // gDayTextBox
-            // 
-            this.gDayTextBox.Location = new System.Drawing.Point(81, 319);
-            this.gDayTextBox.Name = "gDayTextBox";
-            this.gDayTextBox.Size = new System.Drawing.Size(25, 20);
-            this.gDayTextBox.TabIndex = 59;
+            this.gDateTextBox.Location = new System.Drawing.Point(81, 320);
+            this.gDateTextBox.Name = "gDateTextBox";
+            this.gDateTextBox.Size = new System.Drawing.Size(75, 20);
+            this.gDateTextBox.TabIndex = 59;
+            this.gDateTextBox.Text = " ";
             // 
             // gDateLabel
             // 
@@ -783,10 +756,10 @@
             // addGradeNoteLabel
             // 
             this.addGradeNoteLabel.AutoSize = true;
-            this.addGradeNoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addGradeNoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addGradeNoteLabel.Location = new System.Drawing.Point(7, 180);
             this.addGradeNoteLabel.Name = "addGradeNoteLabel";
-            this.addGradeNoteLabel.Size = new System.Drawing.Size(490, 26);
+            this.addGradeNoteLabel.Size = new System.Drawing.Size(558, 30);
             this.addGradeNoteLabel.TabIndex = 49;
             this.addGradeNoteLabel.Text = "Да бисте унијели оцјену, кликните на пријављени испит, а након учитавања података" +
     " о истом,\r\nунесите оцјену и датум.";
@@ -795,6 +768,14 @@
             // 
             this.examRequestsDataGridView.AllowUserToAddRows = false;
             this.examRequestsDataGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.examRequestsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.examRequestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.examRequestsDataGridView.Location = new System.Drawing.Point(0, 24);
             this.examRequestsDataGridView.Name = "examRequestsDataGridView";
@@ -802,6 +783,7 @@
             this.examRequestsDataGridView.RowHeadersVisible = false;
             this.examRequestsDataGridView.Size = new System.Drawing.Size(561, 150);
             this.examRequestsDataGridView.TabIndex = 48;
+            this.examRequestsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.examRequestsDataGridView_CellClick);
             // 
             // examRequestsLabel
             // 
@@ -955,9 +937,9 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(404, 11);
+            this.searchButton.Location = new System.Drawing.Point(405, 11);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(149, 23);
+            this.searchButton.Size = new System.Drawing.Size(150, 23);
             this.searchButton.TabIndex = 10;
             this.searchButton.Text = "Претрага";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -988,14 +970,14 @@
             // 
             // databaseDataGridView
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.databaseDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.databaseDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.databaseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.databaseDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.databaseDataGridView.Location = new System.Drawing.Point(0, 89);
@@ -1003,6 +985,16 @@
             this.databaseDataGridView.RowHeadersVisible = false;
             this.databaseDataGridView.Size = new System.Drawing.Size(561, 276);
             this.databaseDataGridView.TabIndex = 6;
+            // 
+            // dateNoteLabel
+            // 
+            this.dateNoteLabel.AutoSize = true;
+            this.dateNoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateNoteLabel.Location = new System.Drawing.Point(79, 343);
+            this.dateNoteLabel.Name = "dateNoteLabel";
+            this.dateNoteLabel.Size = new System.Drawing.Size(140, 12);
+            this.dateNoteLabel.TabIndex = 66;
+            this.dateNoteLabel.Text = "(Формат датума: ГГГГ-ММ-ДД)";
             // 
             // AdminForm
             // 
@@ -1110,13 +1102,12 @@
         private System.Windows.Forms.Label addGradeNoteLabel;
         private System.Windows.Forms.DataGridView examRequestsDataGridView;
         private System.Windows.Forms.Label examRequestsLabel;
-        private System.Windows.Forms.ComboBox gMonthComboBox;
-        private System.Windows.Forms.TextBox gYearTextBox;
-        private System.Windows.Forms.TextBox gDayTextBox;
+        private System.Windows.Forms.TextBox gDateTextBox;
         private System.Windows.Forms.Label gDateLabel;
         private System.Windows.Forms.TextBox gGradeTextBox;
         private System.Windows.Forms.Button addGradeButton;
         private System.Windows.Forms.Label gLoadProfessorLabel;
         private System.Windows.Forms.Label gProfessorLabel;
+        private System.Windows.Forms.Label dateNoteLabel;
     }
 }

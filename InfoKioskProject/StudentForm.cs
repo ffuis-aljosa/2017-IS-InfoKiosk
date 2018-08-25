@@ -231,7 +231,7 @@ namespace InfoKioskProject
         private void unfinishedExamsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.unfinishedExamsDataGridView.Rows[e.RowIndex];
-
+            
             if (e.RowIndex >= 0)
             {
                 int studentID = StudentRepository.GetStudentID(LoginForm.username);
@@ -248,10 +248,23 @@ namespace InfoKioskProject
         private void addExamRequestButton_Click(object sender, EventArgs e)
         {
             int studentID = StudentRepository.GetStudentID(LoginForm.username);
+            int examRequestID = Repository.GetExamRequestID(studentID, courseID);
+            
+            if (examRequestID != 0)
+            {
+                MessageBox.Show("Одабрани испити је већ пријављен.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Repository.AddExamRequest(studentID, courseID);
 
-            Repository.AddExamRequest(studentID, courseID, 0);
+                MessageBox.Show("Успјешно сте пријавили испит.", "ПРИЈАВА ИСПИТА", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            MessageBox.Show("Успјешно сте пријавили испит.", "ПРИЈАВА ИСПИТА", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadCourseCodeLabel.Text = "";
+                loadCourseCodeLabel.Hide();
+                loadAttemptsLabel.Text = "";
+                loadAttemptsLabel.Hide();
+            }
         }
     }
 }

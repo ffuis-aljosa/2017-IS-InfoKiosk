@@ -488,9 +488,9 @@
             // addExamRequestButton
             // 
             this.addExamRequestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addExamRequestButton.Location = new System.Drawing.Point(468, 251);
+            this.addExamRequestButton.Location = new System.Drawing.Point(468, 253);
             this.addExamRequestButton.Name = "addExamRequestButton";
-            this.addExamRequestButton.Size = new System.Drawing.Size(204, 32);
+            this.addExamRequestButton.Size = new System.Drawing.Size(204, 30);
             this.addExamRequestButton.TabIndex = 9;
             this.addExamRequestButton.Text = "ПРИЈАВИТИ ИСПИТ";
             this.addExamRequestButton.UseVisualStyleBackColor = true;

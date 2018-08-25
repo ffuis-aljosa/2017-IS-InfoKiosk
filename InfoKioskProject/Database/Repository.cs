@@ -11,6 +11,7 @@ namespace InfoKioskProject.Database
     {
         private static DatabaseConnection connection = DatabaseConnection.Instance;
 
+        //exam periods
         public static string GetActiveExamsPeriod()
         {
             string activePeriod;
@@ -73,6 +74,7 @@ namespace InfoKioskProject.Database
             command_term.ExecuteNonQuery();
         }
 
+        //unfinished exams
         public static List<int> LoadUnfinishedExams(int student_id)
         {
             List<int> index = new List<int>();
@@ -92,6 +94,25 @@ namespace InfoKioskProject.Database
             return index;
         }
 
+        //exam requests
+        public static void AddExamRequest(int studentID, int courseID)
+        {
+            string sql = "INSERT INTO exam_requests(student_id, course_id, is_request_done) VALUES " +
+                         "(" + studentID + ", " + courseID + ", 'false');";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.ExecuteNonQuery();
+        }
+
+        public static void DisableExamRequest(int examRequestID)
+        {
+            string sql = "UPDATE exam_requests SET is_request_done = 'true' WHERE id = " + examRequestID + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.ExecuteNonQuery();
+        }
+
+        //attempts
         public static int GetAttempts(int studentID, int courseID)
         {
             int attempts = 0;
@@ -111,11 +132,71 @@ namespace InfoKioskProject.Database
             return 0;
         }
 
-        public static int GetCourseID(string courseCode)
+        public static void AddAttempt(int studentID, int courseID)
+        {
+            string sql = "INSERT INTO attempts(student_id, course_id) VALUES " +
+                         "(" + studentID + ", " + courseID + ");";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.ExecuteNonQuery();
+        }
+
+        //grades
+        public static void AddGrade(int studentID, int courseID, int professorID, int value, string date)
+        {
+            string sql = "INSERT INTO grades(student_id, course_id, value, date) VALUES " +
+                         "(" + studentID + ", " + courseID + ", " + professorID + ", " + value + ", '" + date + "');";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.ExecuteNonQuery();
+        }
+
+        //get data
+        public static string GetCourseProfessor(string courseName)
+        {
+            string professor;
+
+            string sql = "SELECT p.title_short + ' ' + p.first_name + ' ' + p.last_name AS professor " +
+                         "FROM courses AS c JOIN professors AS p ON c.professor_id = p.id " +
+                         "WHERE c.name = '" + courseName + "';";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+
+            SqlCeDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                professor = reader.GetString(0);
+                return professor;
+            }
+
+            return null;
+        }
+
+        public static int GetIDProfessor(int courseID)
+        {
+            int professorID = 0;
+
+            string sql = "SELECT p.id FROM courses AS c JOIN professors AS p ON p.id = c.professor_id WHERE c.id = " + courseID + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+            SqlCeDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                professorID = reader.GetInt32(0);
+                return professorID;
+            }
+
+            return 0;
+        }
+
+        public static int GetCourseIDByName(string courseName)
         {
             int courseID = 0;
 
-            string sql = "SELECT * FROM courses WHERE course_code = '" + courseCode + "';";
+            string sql = "SELECT id FROM courses WHERE name = '" + courseName + "';";
 
             SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
             command.Prepare();
@@ -130,17 +211,63 @@ namespace InfoKioskProject.Database
             return 0;
         }
 
-        public static void AddExamRequest(int studentID, int courseID, int value)
+        public static int GetProfessorID(string courseName)
         {
-            string sql = "INSERT INTO exam_requests(student_id, course_id, is_request_done) VALUES " +
-                         "(" + studentID + ", " + courseID + ", " + value + ");";
+            int professorID = 0;
+
+            string sql = "SELECT p.id FROM professors AS p JOIN courses AS c ON c.professor_id = p.id " +
+                         "WHERE c.name = '" + courseName + "';";
 
             SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
-            command.ExecuteNonQuery();
+            command.Prepare();
+            SqlCeDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                professorID = reader.GetInt32(0);
+                return professorID;
+            }
+
+            return 0;
         }
 
+        public static int GetCourseID(string courseCode)
+        {
+            int courseID = 0;
 
+            string sql = "SELECT id FROM courses WHERE course_code = '" + courseCode + "';";
 
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+            SqlCeDataReader reader = command.ExecuteReader();
 
+            if (reader.Read())
+            {
+                courseID = reader.GetInt32(0);
+                return courseID;
+            }
+
+            return 0;
+        }
+
+        public static int GetExamRequestID(int studentID, int courseID)
+        {
+            int examRequestID = 0;
+
+            string sql = "SELECT id FROM exam_requests WHERE student_id = " + studentID + " AND course_id = " + courseID + " " +
+                         "AND is_request_done = 'false';";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+            SqlCeDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                examRequestID = reader.GetInt32(0);
+                return examRequestID;
+            }
+
+            return 0;
+        }
     }
 }

@@ -17,6 +17,11 @@ namespace InfoKioskProject
     {
         private static DatabaseConnection connection = DatabaseConnection.Instance;
 
+        public static int studentID;
+        public static int courseID;
+        public static int professorID;
+        public static int examRequstID;
+
         public AdminForm()
         {
             InitializeComponent();
@@ -29,7 +34,7 @@ namespace InfoKioskProject
             gLoadCourseLabel.Hide();
             gLoadProfessorLabel.Hide();
             LoadExamRequests();
-
+            
             //exams
             LoadActiveExamsPeriod();
 
@@ -820,13 +825,13 @@ namespace InfoKioskProject
         {
             string sql = "SELECT s.first_name + ' ' + s.last_name AS \"" + "СТУДЕНТ" + "\", " +
                          "u.username AS \"" + "БРОЈ ИНДЕКСА" + "\", c.name AS \"" + "ПРЕДМЕТ" + "\", " +
-                         "p.title_short + ' ' + p.first_name + ' ' + p.last_name  AS \"" + "РЕДНИ БРОЈ" + "\" " +
+                         "p.title_short + ' ' + p.first_name + ' ' + p.last_name  AS \"" + "ПРОФЕСОР" + "\" " +
                          "FROM exam_requests AS er JOIN students AS s ON er.student_id = s.id " +
                          "JOIN users AS u ON u.id = s.user_id " +
                          "JOIN courses AS c ON er.course_id = c.id " +
                          "JOIN professors AS p ON c.professor_id = p.id " +
-                         "WHERE er.is_request_done = 0;";
-
+                         "WHERE er.is_request_done = 'false';";
+            
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
 
@@ -841,6 +846,83 @@ namespace InfoKioskProject
             examRequestsDataGridView.DataSource = dataTable;
             examRequestsDataGridView.RowHeadersVisible = false;
             examRequestsDataGridView.AutoResizeColumns();
+        }
+
+        private void examRequestsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = this.examRequestsDataGridView.Rows[e.RowIndex];
+
+            if (e.RowIndex >= 0)
+            {
+                string index = row.Cells[1].Value.ToString();
+                string studentShort = StudentRepository.GetStudentShort(index);
+                string courseName = row.Cells[2].Value.ToString();
+                string professor = Repository.GetCourseProfessor(courseName);
+
+                studentID = StudentRepository.GetStudentID(index);
+                courseID = Repository.GetCourseIDByName(courseName);
+                professorID = Repository.GetProfessorID(courseName);
+
+
+                gLoadStudentLabel.Text = studentShort;
+                gLoadStudentLabel.Show();
+                gLoadProfessorLabel.Text = professor;
+                gLoadProfessorLabel.Show();
+                gLoadCourseLabel.Text = courseName;
+                gLoadCourseLabel.Show();
+            }
+        }
+
+        private void addGradeButton_Click(object sender, EventArgs e)
+        {
+            int examRequestID = Repository.GetExamRequestID(studentID, courseID);
+            int professorID = Repository.GetIDProfessor(courseID);
+
+            int grade = 0;
+            int.TryParse(gGradeTextBox.Text, out grade);
+
+            if (!IsGradeValid(grade))
+            {
+                MessageBox.Show("Оцјена није исправна.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                gGradeTextBox.Text = "";
+                gGradeTextBox.Focus();
+            }
+            else
+            {
+                if (grade == 5)
+                {
+                    Repository.AddAttempt(studentID, courseID);
+                    Repository.DisableExamRequest(examRequestID);
+
+                    LoadExamRequests();
+                }
+                else
+                {
+                    try
+                    {
+                        string date = gDateTextBox.Text;
+
+                        Repository.AddAttempt(studentID, courseID);
+                        Repository.AddGrade(studentID, courseID, professorID, grade, date);
+                        Repository.DisableExamRequest(examRequestID);
+                        
+                        LoadExamRequests();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Дошло је до грешке. Провјерите уносене податке.", "ГРЕШКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
+                }
+            }
+        }
+
+        private bool IsGradeValid(int grade)
+        {
+            if (grade > 4 && grade < 11)
+                return true;
+            else
+                return false;
         }
     }
 }

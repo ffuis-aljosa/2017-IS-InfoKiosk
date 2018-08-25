@@ -119,5 +119,45 @@ namespace InfoKioskProject.Database
 
             return null;
         }
+
+        public static string GetStudentShort(string index)
+        {
+            string studentShort;
+
+            string sql = "SELECT s.first_name, s.last_name, u.username FROM students AS s JOIN users AS u ON u.id = s.user_id " +
+                         "WHERE u.username = '" + index + "';";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+
+            SqlCeDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                string firstName = reader.GetString(0);
+                string lastName = reader.GetString(1);
+
+                studentShort = firstName + " " + lastName + " (" + index + ")";
+                return studentShort;
+            }
+
+            return null;
+        }
+
+        public static int ValidateExamRequest(int studentID, int courseID)
+        {
+            string sql = "SELECT * FROM exam_requests WHERE student_id = " + studentID + " AND course_id = " + courseID + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+
+            SqlCeDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                studentID = reader.GetInt32(0);
+                return studentID;
+            }
+
+            return 0;
+        }
     }
 }
