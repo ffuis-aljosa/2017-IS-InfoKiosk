@@ -183,16 +183,27 @@ namespace InfoKioskProject
             List<int> indexes = Repository.LoadUnfinishedExams(studentID);
 
             int p = indexes.Count();
+
             string grade_index = "";
 
             for (int i = 0; i < p - 1; i++)
                 grade_index += indexes[i] + ", ";
             grade_index += indexes[p - 1].ToString();
 
-            string sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "ПРЕДМЕТ" + "\" " +
+            string sql = "";
+
+            if (p == 0)
+            {
+                sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "ПРЕДМЕТ" + "\" " +
+                         "FROM courses WHERE study_program_id = " + studyProgramID + " AND semester IN (" + semester_range + ");";
+            }
+            else
+            {
+                sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "ПРЕДМЕТ" + "\" " +
                          "FROM courses " +
                          "WHERE study_program_id = " + studyProgramID + " AND semester IN (" + semester_range + ") " +
                          "AND id NOT IN(" + grade_index + ");";
+            }
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
@@ -257,9 +268,8 @@ namespace InfoKioskProject
             else
             {
                 Repository.AddExamRequest(studentID, courseID);
-
                 MessageBox.Show("Успјешно сте пријавили испит.", "ПРИЈАВА ИСПИТА", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                
                 loadCourseCodeLabel.Text = "";
                 loadCourseCodeLabel.Hide();
                 loadAttemptsLabel.Text = "";

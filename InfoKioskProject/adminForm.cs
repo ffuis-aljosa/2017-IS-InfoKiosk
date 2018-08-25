@@ -910,13 +910,14 @@ namespace InfoKioskProject
                     }
                     catch
                     {
-                        MessageBox.Show("Дошло је до грешке. Провјерите уносене податке.", "ГРЕШКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Дошло је до грешке. Провјерите унесене податке.", "ГРЕШКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     
                 }
             }
         }
 
+        //validate grade
         private bool IsGradeValid(int grade)
         {
             if (grade > 4 && grade < 11)

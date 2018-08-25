@@ -87,7 +87,6 @@ namespace InfoKioskProject.Database
             while (reader.Read())
             {
                 int id = reader.GetInt32(0);
-
                 index.Add(id);
             }
 
