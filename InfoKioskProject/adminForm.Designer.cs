@@ -81,6 +81,7 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.addDataLabel = new System.Windows.Forms.Label();
             this.addGrades = new System.Windows.Forms.TabPage();
+            this.dateNoteLabel = new System.Windows.Forms.Label();
             this.gLoadProfessorLabel = new System.Windows.Forms.Label();
             this.gProfessorLabel = new System.Windows.Forms.Label();
             this.addGradeButton = new System.Windows.Forms.Button();
@@ -111,7 +112,6 @@
             this.searchTermsComboBox = new System.Windows.Forms.ComboBox();
             this.searchDatabaseLabel = new System.Windows.Forms.Label();
             this.databaseDataGridView = new System.Windows.Forms.DataGridView();
-            this.dateNoteLabel = new System.Windows.Forms.Label();
             this.adminTabControl.SuspendLayout();
             this.newUser.SuspendLayout();
             this.newStudent.SuspendLayout();
@@ -648,6 +648,16 @@
             this.addGrades.Text = "Додавање оцјена";
             this.addGrades.UseVisualStyleBackColor = true;
             // 
+            // dateNoteLabel
+            // 
+            this.dateNoteLabel.AutoSize = true;
+            this.dateNoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateNoteLabel.Location = new System.Drawing.Point(79, 343);
+            this.dateNoteLabel.Name = "dateNoteLabel";
+            this.dateNoteLabel.Size = new System.Drawing.Size(140, 12);
+            this.dateNoteLabel.TabIndex = 6;
+            this.dateNoteLabel.Text = "(Формат датума: ГГГГ-ММ-ДД)";
+            // 
             // gLoadProfessorLabel
             // 
             this.gLoadProfessorLabel.AutoSize = true;
@@ -655,7 +665,7 @@
             this.gLoadProfessorLabel.Location = new System.Drawing.Point(362, 230);
             this.gLoadProfessorLabel.Name = "gLoadProfessorLabel";
             this.gLoadProfessorLabel.Size = new System.Drawing.Size(138, 15);
-            this.gLoadProfessorLabel.TabIndex = 65;
+            this.gLoadProfessorLabel.TabIndex = 7;
             this.gLoadProfessorLabel.Text = "title firstName lastName";
             // 
             // gProfessorLabel
@@ -665,7 +675,7 @@
             this.gProfessorLabel.Location = new System.Drawing.Point(289, 230);
             this.gProfessorLabel.Name = "gProfessorLabel";
             this.gProfessorLabel.Size = new System.Drawing.Size(71, 15);
-            this.gProfessorLabel.TabIndex = 64;
+            this.gProfessorLabel.TabIndex = 7;
             this.gProfessorLabel.Text = "Професор:";
             // 
             // addGradeButton
@@ -673,7 +683,7 @@
             this.addGradeButton.Location = new System.Drawing.Point(403, 305);
             this.addGradeButton.Name = "addGradeButton";
             this.addGradeButton.Size = new System.Drawing.Size(150, 35);
-            this.addGradeButton.TabIndex = 63;
+            this.addGradeButton.TabIndex = 8;
             this.addGradeButton.Text = "ДОДАЈ ОЦЈЕНУ";
             this.addGradeButton.UseVisualStyleBackColor = true;
             this.addGradeButton.Click += new System.EventHandler(this.addGradeButton_Click);
@@ -683,14 +693,14 @@
             this.gGradeTextBox.Location = new System.Drawing.Point(81, 290);
             this.gGradeTextBox.Name = "gGradeTextBox";
             this.gGradeTextBox.Size = new System.Drawing.Size(75, 20);
-            this.gGradeTextBox.TabIndex = 62;
+            this.gGradeTextBox.TabIndex = 5;
             // 
             // gDateTextBox
             // 
             this.gDateTextBox.Location = new System.Drawing.Point(81, 320);
             this.gDateTextBox.Name = "gDateTextBox";
             this.gDateTextBox.Size = new System.Drawing.Size(75, 20);
-            this.gDateTextBox.TabIndex = 59;
+            this.gDateTextBox.TabIndex = 6;
             this.gDateTextBox.Text = " ";
             // 
             // gDateLabel
@@ -700,7 +710,7 @@
             this.gDateLabel.Location = new System.Drawing.Point(7, 320);
             this.gDateLabel.Name = "gDateLabel";
             this.gDateLabel.Size = new System.Drawing.Size(47, 15);
-            this.gDateLabel.TabIndex = 57;
+            this.gDateLabel.TabIndex = 6;
             this.gDateLabel.Text = "Датум:";
             // 
             // gLoadStudentLabel
@@ -710,7 +720,7 @@
             this.gLoadStudentLabel.Location = new System.Drawing.Point(78, 230);
             this.gLoadStudentLabel.Name = "gLoadStudentLabel";
             this.gLoadStudentLabel.Size = new System.Drawing.Size(157, 15);
-            this.gLoadStudentLabel.TabIndex = 56;
+            this.gLoadStudentLabel.TabIndex = 3;
             this.gLoadStudentLabel.Text = "firstName lastName (index)";
             // 
             // gLoadCourseLabel
@@ -720,7 +730,7 @@
             this.gLoadCourseLabel.Location = new System.Drawing.Point(78, 260);
             this.gLoadCourseLabel.Name = "gLoadCourseLabel";
             this.gLoadCourseLabel.Size = new System.Drawing.Size(79, 15);
-            this.gLoadCourseLabel.TabIndex = 55;
+            this.gLoadCourseLabel.TabIndex = 4;
             this.gLoadCourseLabel.Text = "course name";
             // 
             // gStudentLabel
@@ -730,7 +740,7 @@
             this.gStudentLabel.Location = new System.Drawing.Point(7, 230);
             this.gStudentLabel.Name = "gStudentLabel";
             this.gStudentLabel.Size = new System.Drawing.Size(58, 15);
-            this.gStudentLabel.TabIndex = 52;
+            this.gStudentLabel.TabIndex = 3;
             this.gStudentLabel.Text = "Студент:";
             // 
             // gCourseLabel
@@ -740,7 +750,7 @@
             this.gCourseLabel.Location = new System.Drawing.Point(7, 260);
             this.gCourseLabel.Name = "gCourseLabel";
             this.gCourseLabel.Size = new System.Drawing.Size(63, 15);
-            this.gCourseLabel.TabIndex = 51;
+            this.gCourseLabel.TabIndex = 4;
             this.gCourseLabel.Text = "Предмет:";
             // 
             // gGradeLabel
@@ -750,7 +760,7 @@
             this.gGradeLabel.Location = new System.Drawing.Point(7, 290);
             this.gGradeLabel.Name = "gGradeLabel";
             this.gGradeLabel.Size = new System.Drawing.Size(50, 15);
-            this.gGradeLabel.TabIndex = 50;
+            this.gGradeLabel.TabIndex = 5;
             this.gGradeLabel.Text = "Оцјена:";
             // 
             // addGradeNoteLabel
@@ -760,7 +770,7 @@
             this.addGradeNoteLabel.Location = new System.Drawing.Point(7, 180);
             this.addGradeNoteLabel.Name = "addGradeNoteLabel";
             this.addGradeNoteLabel.Size = new System.Drawing.Size(558, 30);
-            this.addGradeNoteLabel.TabIndex = 49;
+            this.addGradeNoteLabel.TabIndex = 2;
             this.addGradeNoteLabel.Text = "Да бисте унијели оцјену, кликните на пријављени испит, а након учитавања података" +
     " о истом,\r\nунесите оцјену и датум.";
             // 
@@ -782,7 +792,7 @@
             this.examRequestsDataGridView.ReadOnly = true;
             this.examRequestsDataGridView.RowHeadersVisible = false;
             this.examRequestsDataGridView.Size = new System.Drawing.Size(561, 150);
-            this.examRequestsDataGridView.TabIndex = 48;
+            this.examRequestsDataGridView.TabIndex = 1;
             this.examRequestsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.examRequestsDataGridView_CellClick);
             // 
             // examRequestsLabel
@@ -792,7 +802,7 @@
             this.examRequestsLabel.Location = new System.Drawing.Point(7, 5);
             this.examRequestsLabel.Name = "examRequestsLabel";
             this.examRequestsLabel.Size = new System.Drawing.Size(183, 16);
-            this.examRequestsLabel.TabIndex = 47;
+            this.examRequestsLabel.TabIndex = 0;
             this.examRequestsLabel.Text = "ПРИЈАВЉЕНИ ИСПИТИ";
             // 
             // exams
@@ -917,7 +927,7 @@
             this.hideSearchButton.Location = new System.Drawing.Point(366, 49);
             this.hideSearchButton.Name = "hideSearchButton";
             this.hideSearchButton.Size = new System.Drawing.Size(21, 21);
-            this.hideSearchButton.TabIndex = 12;
+            this.hideSearchButton.TabIndex = 4;
             this.hideSearchButton.Text = "X";
             this.hideSearchButton.UseVisualStyleBackColor = true;
             this.hideSearchButton.Click += new System.EventHandler(this.hideSearchButton_Click);
@@ -933,14 +943,14 @@
             this.secondSearchTermComboBox.Location = new System.Drawing.Point(176, 49);
             this.secondSearchTermComboBox.Name = "secondSearchTermComboBox";
             this.secondSearchTermComboBox.Size = new System.Drawing.Size(184, 21);
-            this.secondSearchTermComboBox.TabIndex = 11;
+            this.secondSearchTermComboBox.TabIndex = 3;
             // 
             // searchButton
             // 
             this.searchButton.Location = new System.Drawing.Point(405, 11);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(150, 23);
-            this.searchButton.TabIndex = 10;
+            this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Претрага";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
@@ -957,7 +967,7 @@
             this.searchTermsComboBox.Location = new System.Drawing.Point(176, 13);
             this.searchTermsComboBox.Name = "searchTermsComboBox";
             this.searchTermsComboBox.Size = new System.Drawing.Size(184, 21);
-            this.searchTermsComboBox.TabIndex = 8;
+            this.searchTermsComboBox.TabIndex = 1;
             // 
             // searchDatabaseLabel
             // 
@@ -965,7 +975,7 @@
             this.searchDatabaseLabel.Location = new System.Drawing.Point(8, 16);
             this.searchDatabaseLabel.Name = "searchDatabaseLabel";
             this.searchDatabaseLabel.Size = new System.Drawing.Size(152, 13);
-            this.searchDatabaseLabel.TabIndex = 7;
+            this.searchDatabaseLabel.TabIndex = 0;
             this.searchDatabaseLabel.Text = "Претражи базу података за:";
             // 
             // databaseDataGridView
@@ -984,17 +994,7 @@
             this.databaseDataGridView.Name = "databaseDataGridView";
             this.databaseDataGridView.RowHeadersVisible = false;
             this.databaseDataGridView.Size = new System.Drawing.Size(561, 276);
-            this.databaseDataGridView.TabIndex = 6;
-            // 
-            // dateNoteLabel
-            // 
-            this.dateNoteLabel.AutoSize = true;
-            this.dateNoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateNoteLabel.Location = new System.Drawing.Point(79, 343);
-            this.dateNoteLabel.Name = "dateNoteLabel";
-            this.dateNoteLabel.Size = new System.Drawing.Size(140, 12);
-            this.dateNoteLabel.TabIndex = 66;
-            this.dateNoteLabel.Text = "(Формат датума: ГГГГ-ММ-ДД)";
+            this.databaseDataGridView.TabIndex = 5;
             // 
             // AdminForm
             // 

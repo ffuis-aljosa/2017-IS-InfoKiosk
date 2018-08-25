@@ -143,7 +143,7 @@ namespace InfoKioskProject.Database
         //grades
         public static void AddGrade(int studentID, int courseID, int professorID, int value, string date)
         {
-            string sql = "INSERT INTO grades(student_id, course_id, value, date) VALUES " +
+            string sql = "INSERT INTO grades(student_id, course_id, professor_id, value, date) VALUES " +
                          "(" + studentID + ", " + courseID + ", " + professorID + ", " + value + ", '" + date + "');";
 
             SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
