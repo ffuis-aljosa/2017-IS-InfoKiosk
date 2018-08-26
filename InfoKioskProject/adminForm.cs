@@ -630,7 +630,7 @@ namespace InfoKioskProject
 
         private void LoadUsersData()
         {
-            string sql = "SELECT id - 1 AS \"" + "РЕДНИ БРОЈ" + "\", username AS \"" + "КОРИСНИЧКО ИМЕ" + "\" FROM users WHERE role = 'student';";
+            string sql = "SELECT id - 1 AS \"РЕДНИ БРОЈ\", username AS \"КОРИСНИЧКО ИМЕ\" FROM users WHERE role = 'student';";
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
@@ -653,14 +653,13 @@ namespace InfoKioskProject
 
         private void LoadStudentsData()
         {
-            string sql = "SELECT s.first_name AS \"" + "ИМЕ" + "\", s.last_name AS \"" + "ПРЕЗИМЕ" + "\", " +
-                         "s.date_of_birth AS \"" + "ДАТУМ РОЂЕЊА" + "\", s.id_number AS \"" + "ЈМБГ" + "\", s.gender AS \"" + "ПОЛ" + "\"," +
-                         "s.place_of_birth AS \"" + "МЈЕСТО РОЂЕЊА" + "\", s.citizenship  AS \"" + "ДРЖАВЉАНСТВО" + "\"," +
-                         "s.address  AS \"" + "АДРЕСА" + "\", s.telephone AS \"" + "ТЕЛЕФОН" + "\", sp.name AS \"" + "СТУДИЈСКИ ПРОГРАМ" + "\"," +
-                         "u.username AS \"" + "БРОЈ ИНДЕКСА" + "\", s.year_of_study AS \"" + "ГОДИНА СТУДИЈА" + "\", " +
-                         "s.number_of_admitions AS \"" + "БРОЈ УПИСА ГОДИНЕ" + "\", s.status  AS \"" + "СТАТУС" + "\"," +
-                         "s.payment AS \"" + "НАЧИН ФИНАНСИРАЊА" + "\" FROM students AS s JOIN study_programs AS sp " +
-                         "ON sp.id = s.study_program_id JOIN users AS u ON s.user_id = u.id;";
+            string sql = "SELECT s.first_name AS \"ИМЕ\", s.last_name AS \"ПРЕЗИМЕ\", s.date_of_birth AS \"ДАТУМ РОЂЕЊА\", " +
+                         "s.id_number AS \"ЈМБГ\", s.gender AS \"ПОЛ\", s.place_of_birth AS \"МЈЕСТО РОЂЕЊА\", " +
+                         "s.citizenship  AS \"ДРЖАВЉАНСТВО\", s.address  AS \"АДРЕСА\", s.telephone AS \"ТЕЛЕФОН\", " +
+                         "sp.name AS \"СТУДИЈСКИ ПРОГРАМ\", u.username AS \"БРОЈ ИНДЕКСА\", s.year_of_study AS \"ГОДИНА СТУДИЈА\", " +
+                         "s.number_of_admitions AS \"БРОЈ УПИСА ГОДИНЕ\", s.status  AS \"СТАТУС\", s.payment AS \"НАЧИН ФИНАНСИРАЊА\" " +
+                         "FROM students AS s JOIN study_programs AS sp ON sp.id = s.study_program_id " +
+                         "JOIN users AS u ON s.user_id = u.id;";
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
@@ -680,10 +679,9 @@ namespace InfoKioskProject
 
         private void LoadProfessorsData()
         {
-            string sql = "SELECT p.title AS \"" + "СТАТУС" + "\", p.title_short AS \"" + "ЗВАЊЕ" + "\"," +
-                         "p.first_name AS \"" + "ИМЕ" + "\", p.last_name AS \"" + "ПРЕЗИМЕ" + "\", " +
-                         "d.name AS \"" + "КАТЕДРА" + "\" FROM professors AS p JOIN departments AS d " +
-                         "ON p.department_id = d.id;";
+            string sql = "SELECT p.title AS \"СТАТУС\", p.title_short AS \"ЗВАЊЕ\"," +
+                         "p.first_name AS \"ИМЕ\", p.last_name AS \"ПРЕЗИМЕ\", d.name AS \"КАТЕДРА\" " +
+                         "FROM professors AS p JOIN departments AS d ON p.department_id = d.id;";
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
@@ -709,7 +707,7 @@ namespace InfoKioskProject
 
         private void LoadStudyProgramsData()
         {
-            string sql = "SELECT id AS \"" + "РЕДНИ БРОЈ" + "\", name AS \"" + "НАЗИВ СТУДИЈСКОГ ПРОГРАМА" + "\" FROM study_programs;";
+            string sql = "SELECT id AS \"РЕДНИ БРОЈ\", name AS \"НАЗИВ СТУДИЈСКОГ ПРОГРАМА\" FROM study_programs;";
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
@@ -732,11 +730,10 @@ namespace InfoKioskProject
 
         private void LoadCoursesData(int id)
         {
-            string sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "НАЗИВ ПРРЕДМЕТА" + "\"," +
-                "semester AS \"" + "СЕМЕСТАР" + "\", ects AS \"" + "ЕСПБ" + "\"," +
-                "p.title_short + ' ' + p.first_name + ' ' + p.last_name AS \"" + "ПРОФЕСОР" + "\" " +
-                "FROM courses AS c JOIN professors AS p ON c.professor_id = p.id " +
-                "WHERE c.study_program_id =" + id + ";";
+            string sql = "SELECT course_code AS \"ШИФРА\", name AS \"НАЗИВ ПРРЕДМЕТА\", semester AS \"СЕМЕСТАР\", " +
+                         "ects AS \"ЕСПБ\", p.title_short + ' ' + p.first_name + ' ' + p.last_name AS \"ПРОФЕСОР\" " +
+                         "FROM courses AS c JOIN professors AS p ON c.professor_id = p.id " +
+                         "WHERE c.study_program_id =" + id + ";";
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
@@ -832,9 +829,9 @@ namespace InfoKioskProject
         //add grades
         private void LoadExamRequests()
         {
-            string sql = "SELECT s.first_name + ' ' + s.last_name AS \"" + "СТУДЕНТ" + "\", " +
-                         "u.username AS \"" + "БРОЈ ИНДЕКСА" + "\", c.name AS \"" + "ПРЕДМЕТ" + "\", " +
-                         "p.title_short + ' ' + p.first_name + ' ' + p.last_name  AS \"" + "ПРОФЕСОР" + "\" " +
+            string sql = "SELECT s.first_name + ' ' + s.last_name AS \"СТУДЕНТ\", " +
+                         "u.username AS \"БРОЈ ИНДЕКСА\", c.name AS \"ПРЕДМЕТ\", " +
+                         "p.title_short + ' ' + p.first_name + ' ' + p.last_name  AS \"ПРОФЕСОР\" " +
                          "FROM exam_requests AS er JOIN students AS s ON er.student_id = s.id " +
                          "JOIN users AS u ON u.id = s.user_id " +
                          "JOIN courses AS c ON er.course_id = c.id " +

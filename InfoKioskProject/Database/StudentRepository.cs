@@ -142,22 +142,5 @@ namespace InfoKioskProject.Database
 
             return null;
         }
-
-        public static int ValidateExamRequest(int studentID, int courseID)
-        {
-            string sql = "SELECT * FROM exam_requests WHERE student_id = " + studentID + " AND course_id = " + courseID + ";";
-
-            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
-            command.Prepare();
-
-            SqlCeDataReader reader = command.ExecuteReader();
-            if (reader.Read())
-            {
-                studentID = reader.GetInt32(0);
-                return studentID;
-            }
-
-            return 0;
-        }
     }
 }
