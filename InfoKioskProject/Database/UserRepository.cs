@@ -28,9 +28,7 @@ namespace InfoKioskProject.Database
             command.Parameters.Add(role);
 
             command.Prepare();
-
-            Console.WriteLine(user.Password);
-
+            
             SqlCeDataReader reader = command.ExecuteReader();
 
 

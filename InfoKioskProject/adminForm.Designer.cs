@@ -701,7 +701,6 @@
             this.gDateTextBox.Name = "gDateTextBox";
             this.gDateTextBox.Size = new System.Drawing.Size(75, 20);
             this.gDateTextBox.TabIndex = 6;
-            this.gDateTextBox.Text = " ";
             // 
             // gDateLabel
             // 

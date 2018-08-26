@@ -30,9 +30,9 @@ namespace InfoKioskProject
             passwordWarningLabel.Hide();
 
             //grades
-            gLoadStudentLabel.Hide();
-            gLoadCourseLabel.Hide();
-            gLoadProfessorLabel.Hide();
+            gLoadStudentLabel.Text = "";
+            gLoadCourseLabel.Text = "";
+            gLoadProfessorLabel.Text = "";
             LoadExamRequests();
             
             //exams
@@ -576,6 +576,15 @@ namespace InfoKioskProject
             paymentComboBox.Text = "";
         }
 
+        private void EmptyGradeFields()
+        {
+            gLoadStudentLabel.Text = "";
+            gLoadCourseLabel.Text = "";
+            gLoadProfessorLabel.Text = "";
+            gGradeTextBox.Text = "";
+            gDateTextBox.Text = "";
+        }
+
         //search database
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -845,7 +854,12 @@ namespace InfoKioskProject
 
             examRequestsDataGridView.DataSource = dataTable;
             examRequestsDataGridView.RowHeadersVisible = false;
-            examRequestsDataGridView.AutoResizeColumns();
+
+
+            examRequestsDataGridView.Columns[0].Width = 150;
+            examRequestsDataGridView.Columns[1].Width = 100;
+            examRequestsDataGridView.Columns[2].Width = 250;
+            examRequestsDataGridView.Columns[3].Width = 200;
         }
 
         private void examRequestsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -880,11 +894,20 @@ namespace InfoKioskProject
             int grade = 0;
             int.TryParse(gGradeTextBox.Text, out grade);
 
-            if (!IsGradeValid(grade))
+            if (!IsExamRequestSelected())
+            {
+                MessageBox.Show("Морате одабрати један од пријављених испита.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (!IsGradeValid(grade))
             {
                 MessageBox.Show("Оцјена није исправна.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 gGradeTextBox.Text = "";
                 gGradeTextBox.Focus();
+            }
+            else if (string.IsNullOrEmpty(gDateTextBox.Text))
+            {
+                MessageBox.Show("Датум мора бити унесен.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                gDateTextBox.Focus();
             }
             else
             {
@@ -894,6 +917,7 @@ namespace InfoKioskProject
                     Repository.DisableExamRequest(examRequestID);
                     
                     LoadExamRequests();
+                    EmptyGradeFields();
                 }
                 else
                 {
@@ -906,20 +930,28 @@ namespace InfoKioskProject
                         Repository.DisableExamRequest(examRequestID);
                         
                         LoadExamRequests();
+                        EmptyGradeFields();
                     }
                     catch
                     {
                         MessageBox.Show("Дошло је до грешке. Провјерите унесене податке.", "ГРЕШКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
                 }
             }
         }
 
-        //validate grade
+        //validate add grade
         private bool IsGradeValid(int grade)
         {
             if (grade > 4 && grade < 11)
+                return true;
+            else
+                return false;
+        }
+
+        private bool IsExamRequestSelected()
+        {
+            if (gLoadStudentLabel.Text != "" && gLoadCourseLabel.Text != "" && gLoadProfessorLabel.Text != "")
                 return true;
             else
                 return false;
