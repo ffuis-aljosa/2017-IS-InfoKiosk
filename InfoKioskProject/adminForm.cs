@@ -47,11 +47,21 @@ namespace InfoKioskProject
         //add new user
         private void addUserButton_Click(object sender, EventArgs e)
         {
+            int userID = UserRepository.GetUserID(usernameTextBox.Text);
+
             try
             {
                 if (AreUserFieldsValid())
                 {
-                    if (passwordTextBox.Text == repeatPasswordTextBox.Text)
+                    if (userID != 0)
+                    {
+                        MessageBox.Show("Корисничко име је заузето.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        usernameTextBox.Text = "";
+                        usernameTextBox.Focus();
+                        passwordTextBox.Text = "";
+                        repeatPasswordTextBox.Text = "";
+                    }
+                    else if (passwordTextBox.Text == repeatPasswordTextBox.Text)
                     {
                         User newUser = new User(usernameTextBox.Text, passwordTextBox.Text, "student");
                         UserRepository.AddUser(newUser);
@@ -75,7 +85,7 @@ namespace InfoKioskProject
                 MessageBox.Show(error.Message);
             }
         }
-
+        
         //validate user
         private bool AreUserFieldsValid()
         {
@@ -953,5 +963,6 @@ namespace InfoKioskProject
             else
                 return false;
         }
+        
     }
 }

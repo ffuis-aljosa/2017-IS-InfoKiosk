@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.adminTabControl = new System.Windows.Forms.TabControl();
             this.newUser = new System.Windows.Forms.TabPage();
@@ -198,23 +196,23 @@
             // 
             // repeatPasswordTextBox
             // 
-            this.repeatPasswordTextBox.Location = new System.Drawing.Point(8, 172);
+            this.repeatPasswordTextBox.Location = new System.Drawing.Point(8, 170);
             this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
-            this.repeatPasswordTextBox.PasswordChar = '*';
             this.repeatPasswordTextBox.Size = new System.Drawing.Size(250, 20);
             this.repeatPasswordTextBox.TabIndex = 73;
+            this.repeatPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(8, 132);
+            this.passwordTextBox.Location = new System.Drawing.Point(8, 130);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(250, 20);
             this.passwordTextBox.TabIndex = 71;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(8, 92);
+            this.usernameTextBox.Location = new System.Drawing.Point(8, 90);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(250, 20);
             this.usernameTextBox.TabIndex = 69;
@@ -222,7 +220,7 @@
             // repeatPasswordLabel
             // 
             this.repeatPasswordLabel.AutoSize = true;
-            this.repeatPasswordLabel.Location = new System.Drawing.Point(8, 157);
+            this.repeatPasswordLabel.Location = new System.Drawing.Point(8, 155);
             this.repeatPasswordLabel.Name = "repeatPasswordLabel";
             this.repeatPasswordLabel.Size = new System.Drawing.Size(100, 13);
             this.repeatPasswordLabel.TabIndex = 72;
@@ -231,7 +229,7 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(8, 117);
+            this.passwordLabel.Location = new System.Drawing.Point(8, 115);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(51, 13);
             this.passwordLabel.TabIndex = 70;
@@ -240,7 +238,7 @@
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(8, 77);
+            this.usernameLabel.Location = new System.Drawing.Point(8, 75);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(73, 13);
             this.usernameLabel.TabIndex = 68;
@@ -777,22 +775,11 @@
             // 
             this.examRequestsDataGridView.AllowUserToAddRows = false;
             this.examRequestsDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.examRequestsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.examRequestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.examRequestsDataGridView.Location = new System.Drawing.Point(0, 24);
             this.examRequestsDataGridView.Name = "examRequestsDataGridView";
             this.examRequestsDataGridView.ReadOnly = true;
-            this.examRequestsDataGridView.RowHeadersVisible = false;
-            this.examRequestsDataGridView.Size = new System.Drawing.Size(561, 150);
-            this.examRequestsDataGridView.TabIndex = 1;
-            this.examRequestsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.examRequestsDataGridView_CellClick);
+            this.examRequestsDataGridView.Size = new System.Drawing.Size(561, 153);
+            this.examRequestsDataGridView.TabIndex = 9;
             // 
             // examRequestsLabel
             // 
@@ -979,20 +966,9 @@
             // 
             // databaseDataGridView
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.databaseDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.databaseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.databaseDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.databaseDataGridView.Location = new System.Drawing.Point(0, 89);
+            this.databaseDataGridView.Location = new System.Drawing.Point(0, 0);
             this.databaseDataGridView.Name = "databaseDataGridView";
-            this.databaseDataGridView.RowHeadersVisible = false;
-            this.databaseDataGridView.Size = new System.Drawing.Size(561, 276);
+            this.databaseDataGridView.Size = new System.Drawing.Size(240, 150);
             this.databaseDataGridView.TabIndex = 5;
             // 
             // AdminForm
