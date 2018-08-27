@@ -883,7 +883,7 @@ namespace InfoKioskProject
                 studentID = StudentRepository.GetStudentID(index);
                 courseID = Repository.GetCourseIDByName(courseName);
                 professorID = Repository.GetProfessorID(courseName);
-                
+
                 gLoadStudentLabel.Text = studentShort;
                 gLoadStudentLabel.Show();
                 gLoadProfessorLabel.Text = professor;

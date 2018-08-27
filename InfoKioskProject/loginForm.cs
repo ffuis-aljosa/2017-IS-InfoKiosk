@@ -52,8 +52,12 @@ namespace InfoKioskProject
                         }
                         else
                         {
+                            Student newStudent = StudentRepository.LoadStudentProfile(LoginForm.id);
+                            string studentProfile = newStudent.FirstName + " " + newStudent.LastName;
+
                             StudentForm student = new StudentForm();
                             student.Show();
+                            student.Text = "ИНФО КИОСК - " + studentProfile;
 
                             student.FormClosed += StudentForm_FormClosed;
 

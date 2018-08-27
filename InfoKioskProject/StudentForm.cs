@@ -40,7 +40,7 @@ namespace InfoKioskProject
         private void LoadProfile()
         {
             Student student = StudentRepository.LoadStudentProfile(LoginForm.id);
-
+            
             loadProfileLabel.Text = student.FirstName + " " + student.LastName + " (" + LoginForm.username + ")";
 
             loadDateOfBirthLabel.Text = student.DateOfBirth;
@@ -283,7 +283,7 @@ namespace InfoKioskProject
             
             if (examRequestID != 0)
             {
-                MessageBox.Show("Одабрани испити је већ пријављен.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Одабрани испит је већ пријављен.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

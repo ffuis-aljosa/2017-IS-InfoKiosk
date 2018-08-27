@@ -780,6 +780,7 @@
             this.examRequestsDataGridView.ReadOnly = true;
             this.examRequestsDataGridView.Size = new System.Drawing.Size(561, 153);
             this.examRequestsDataGridView.TabIndex = 9;
+            this.examRequestsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.examRequestsDataGridView_CellClick);
             // 
             // examRequestsLabel
             // 
