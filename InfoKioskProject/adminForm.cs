@@ -963,6 +963,5 @@ namespace InfoKioskProject
             else
                 return false;
         }
-        
     }
 }

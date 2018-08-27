@@ -57,8 +57,14 @@
             this.studDateOfBirthLabel = new System.Windows.Forms.Label();
             this.loadProfileLabel = new System.Windows.Forms.Label();
             this.gradesTabPage = new System.Windows.Forms.TabPage();
+            this.loadAverageGradeLabel = new System.Windows.Forms.Label();
+            this.loadTotalExamsLabel = new System.Windows.Forms.Label();
+            this.averageGradeLabel = new System.Windows.Forms.Label();
+            this.totalExamsLabel = new System.Windows.Forms.Label();
+            this.gradesTabLabel = new System.Windows.Forms.Label();
             this.gradesDataGridView = new System.Windows.Forms.DataGridView();
             this.attemptsTabPage = new System.Windows.Forms.TabPage();
+            this.attemptsTabLabel = new System.Windows.Forms.Label();
             this.attemptsDataGridView = new System.Windows.Forms.DataGridView();
             this.examsTabPage = new System.Windows.Forms.TabPage();
             this.loadAttemptsLabel = new System.Windows.Forms.Label();
@@ -383,6 +389,11 @@
             // 
             // gradesTabPage
             // 
+            this.gradesTabPage.Controls.Add(this.loadAverageGradeLabel);
+            this.gradesTabPage.Controls.Add(this.loadTotalExamsLabel);
+            this.gradesTabPage.Controls.Add(this.averageGradeLabel);
+            this.gradesTabPage.Controls.Add(this.totalExamsLabel);
+            this.gradesTabPage.Controls.Add(this.gradesTabLabel);
             this.gradesTabPage.Controls.Add(this.gradesDataGridView);
             this.gradesTabPage.Location = new System.Drawing.Point(4, 22);
             this.gradesTabPage.Name = "gradesTabPage";
@@ -392,19 +403,68 @@
             this.gradesTabPage.Text = "Положени испити";
             this.gradesTabPage.UseVisualStyleBackColor = true;
             // 
+            // loadAverageGradeLabel
+            // 
+            this.loadAverageGradeLabel.AutoSize = true;
+            this.loadAverageGradeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadAverageGradeLabel.Location = new System.Drawing.Point(427, 265);
+            this.loadAverageGradeLabel.Name = "loadAverageGradeLabel";
+            this.loadAverageGradeLabel.Size = new System.Drawing.Size(89, 13);
+            this.loadAverageGradeLabel.TabIndex = 5;
+            this.loadAverageGradeLabel.Text = "average grade";
+            // 
+            // loadTotalExamsLabel
+            // 
+            this.loadTotalExamsLabel.AutoSize = true;
+            this.loadTotalExamsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadTotalExamsLabel.Location = new System.Drawing.Point(149, 265);
+            this.loadTotalExamsLabel.Name = "loadTotalExamsLabel";
+            this.loadTotalExamsLabel.Size = new System.Drawing.Size(86, 13);
+            this.loadTotalExamsLabel.TabIndex = 4;
+            this.loadTotalExamsLabel.Text = "grades/exams";
+            // 
+            // averageGradeLabel
+            // 
+            this.averageGradeLabel.AutoSize = true;
+            this.averageGradeLabel.Location = new System.Drawing.Point(325, 265);
+            this.averageGradeLabel.Name = "averageGradeLabel";
+            this.averageGradeLabel.Size = new System.Drawing.Size(96, 13);
+            this.averageGradeLabel.TabIndex = 3;
+            this.averageGradeLabel.Text = "Просјечна оцјена:";
+            // 
+            // totalExamsLabel
+            // 
+            this.totalExamsLabel.AutoSize = true;
+            this.totalExamsLabel.Location = new System.Drawing.Point(0, 265);
+            this.totalExamsLabel.Name = "totalExamsLabel";
+            this.totalExamsLabel.Size = new System.Drawing.Size(143, 13);
+            this.totalExamsLabel.TabIndex = 2;
+            this.totalExamsLabel.Text = "Укупно положених испита:";
+            // 
+            // gradesTabLabel
+            // 
+            this.gradesTabLabel.AutoSize = true;
+            this.gradesTabLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradesTabLabel.Location = new System.Drawing.Point(7, 5);
+            this.gradesTabLabel.Name = "gradesTabLabel";
+            this.gradesTabLabel.Size = new System.Drawing.Size(252, 16);
+            this.gradesTabLabel.TabIndex = 1;
+            this.gradesTabLabel.Text = "ПРЕГЛЕД ПОЛОЖЕНИХ ИСПИТА";
+            // 
             // gradesDataGridView
             // 
             this.gradesDataGridView.AllowUserToAddRows = false;
             this.gradesDataGridView.AllowUserToDeleteRows = false;
             this.gradesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gradesDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.gradesDataGridView.Location = new System.Drawing.Point(0, 24);
             this.gradesDataGridView.Name = "gradesDataGridView";
             this.gradesDataGridView.ReadOnly = true;
-            this.gradesDataGridView.Size = new System.Drawing.Size(672, 283);
+            this.gradesDataGridView.Size = new System.Drawing.Size(672, 238);
             this.gradesDataGridView.TabIndex = 0;
             // 
             // attemptsTabPage
             // 
+            this.attemptsTabPage.Controls.Add(this.attemptsTabLabel);
             this.attemptsTabPage.Controls.Add(this.attemptsDataGridView);
             this.attemptsTabPage.Location = new System.Drawing.Point(4, 22);
             this.attemptsTabPage.Name = "attemptsTabPage";
@@ -413,16 +473,25 @@
             this.attemptsTabPage.Text = "Преглед излазака";
             this.attemptsTabPage.UseVisualStyleBackColor = true;
             // 
+            // attemptsTabLabel
+            // 
+            this.attemptsTabLabel.AutoSize = true;
+            this.attemptsTabLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attemptsTabLabel.Location = new System.Drawing.Point(7, 5);
+            this.attemptsTabLabel.Name = "attemptsTabLabel";
+            this.attemptsTabLabel.Size = new System.Drawing.Size(259, 16);
+            this.attemptsTabLabel.TabIndex = 2;
+            this.attemptsTabLabel.Text = "ПРЕГЛЕД ИЗЛАЗАКА НА ИСПИТЕ";
+            // 
             // attemptsDataGridView
             // 
             this.attemptsDataGridView.AllowUserToAddRows = false;
             this.attemptsDataGridView.AllowUserToDeleteRows = false;
             this.attemptsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.attemptsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.attemptsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.attemptsDataGridView.Location = new System.Drawing.Point(0, 24);
             this.attemptsDataGridView.Name = "attemptsDataGridView";
             this.attemptsDataGridView.ReadOnly = true;
-            this.attemptsDataGridView.Size = new System.Drawing.Size(672, 283);
+            this.attemptsDataGridView.Size = new System.Drawing.Size(672, 259);
             this.attemptsDataGridView.TabIndex = 0;
             // 
             // examsTabPage
@@ -595,8 +664,10 @@
             this.homeTabPage.ResumeLayout(false);
             this.homeTabPage.PerformLayout();
             this.gradesTabPage.ResumeLayout(false);
+            this.gradesTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradesDataGridView)).EndInit();
             this.attemptsTabPage.ResumeLayout(false);
+            this.attemptsTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.attemptsDataGridView)).EndInit();
             this.examsTabPage.ResumeLayout(false);
             this.examsTabPage.PerformLayout();
@@ -652,5 +723,11 @@
         private System.Windows.Forms.Label attemptsLabel;
         private System.Windows.Forms.Label loadCourseCodeLabel;
         private System.Windows.Forms.Label courseCodeLabel;
+        private System.Windows.Forms.Label gradesTabLabel;
+        private System.Windows.Forms.Label attemptsTabLabel;
+        private System.Windows.Forms.Label averageGradeLabel;
+        private System.Windows.Forms.Label totalExamsLabel;
+        private System.Windows.Forms.Label loadAverageGradeLabel;
+        private System.Windows.Forms.Label loadTotalExamsLabel;
     }
 }

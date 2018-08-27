@@ -24,7 +24,13 @@ namespace InfoKioskProject
             InitializeComponent();
 
             LoadProfile();
+
+            //load grades
             LoadGrades();
+            loadTotalExamsLabel.Text = "";
+            loadAverageGradeLabel.Text = "";
+            LoadExamStatistics();
+
             LoadAttempts();
             LoadExamsPage();
             LoadUnfinishedExams();
@@ -98,6 +104,20 @@ namespace InfoKioskProject
             gradesDataGridView.Columns[1].Width = 167;
             gradesDataGridView.Columns[2].Width = 65;
             gradesDataGridView.Columns[3].Width = 60;
+        }
+
+        private void LoadExamStatistics()
+        {
+            int studentID = StudentRepository.GetStudentID(LoginForm.username);
+            int studyProgramID = StudentRepository.GetStudentStudyProgram(studentID);
+
+            int totalExams = Repository.GetTotalExams(studyProgramID);
+            int totalGrades = Repository.GetTotalGrades(studentID);
+            loadTotalExamsLabel.Text = totalGrades + "/" + totalExams;
+
+            int sumOfGrades = Repository.GetSumOfGrades(studentID);
+            float averageGrade = (float) sumOfGrades / totalGrades;
+            loadAverageGradeLabel.Text = Math.Round(averageGrade, 2).ToString();
         }
 
         //exam attempts

@@ -764,7 +764,7 @@
             // 
             this.addGradeNoteLabel.AutoSize = true;
             this.addGradeNoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addGradeNoteLabel.Location = new System.Drawing.Point(7, 180);
+            this.addGradeNoteLabel.Location = new System.Drawing.Point(5, 180);
             this.addGradeNoteLabel.Name = "addGradeNoteLabel";
             this.addGradeNoteLabel.Size = new System.Drawing.Size(558, 30);
             this.addGradeNoteLabel.TabIndex = 2;
@@ -966,9 +966,9 @@
             // 
             // databaseDataGridView
             // 
-            this.databaseDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.databaseDataGridView.Location = new System.Drawing.Point(0, 95);
             this.databaseDataGridView.Name = "databaseDataGridView";
-            this.databaseDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.databaseDataGridView.Size = new System.Drawing.Size(561, 270);
             this.databaseDataGridView.TabIndex = 5;
             // 
             // AdminForm

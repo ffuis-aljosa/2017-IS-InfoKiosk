@@ -89,7 +89,7 @@ namespace InfoKioskProject.Database
                 int id = reader.GetInt32(0);
                 index.Add(id);
             }
-
+            
             return index;
         }
 
@@ -148,6 +148,63 @@ namespace InfoKioskProject.Database
 
             SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
             command.ExecuteNonQuery();
+        }
+
+        public static int GetTotalExams(int studyProgramID)
+        {
+            int totalExams = 0;
+
+            string sql = "SELECT COUNT(id) FROM courses WHERE study_program_id = " + studyProgramID + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+            SqlCeDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                totalExams = reader.GetInt32(0);
+                return totalExams;
+            }
+
+            return 0;
+        }
+
+        public static int GetTotalGrades(int studentID)
+        {
+            int totalGrades = 0;
+
+            string sql = "SELECT COUNT(id) FROM grades WHERE student_id = " + studentID + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+            SqlCeDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                totalGrades = reader.GetInt32(0);
+                return totalGrades;
+            }
+
+            return 0;
+        }
+
+        public static int GetSumOfGrades(int studentID)
+        {
+            int sum = 0;
+
+            string sql = "SELECT SUM(value) FROM grades WHERE student_id = " + studentID + ";";
+
+            SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
+            command.Prepare();
+            SqlCeDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                sum = reader.GetInt32(0);
+                return sum;
+            }
+
+            return 0;
         }
 
         //get data
