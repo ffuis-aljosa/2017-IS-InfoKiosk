@@ -182,6 +182,7 @@ namespace InfoKioskProject.Database
             if (reader.Read())
             {
                 totalGrades = reader.GetInt32(0);
+
                 return totalGrades;
             }
 
@@ -199,7 +200,11 @@ namespace InfoKioskProject.Database
             SqlCeDataReader reader = command.ExecuteReader();
 
             if (reader.Read())
-            {
+            {   
+                if (reader.IsDBNull(0))
+                {
+                    return 0;
+                }
                 sum = reader.GetInt32(0);
                 return sum;
             }

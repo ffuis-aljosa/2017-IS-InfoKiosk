@@ -871,10 +871,9 @@ namespace InfoKioskProject
 
         private void examRequestsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.examRequestsDataGridView.Rows[e.RowIndex];
-
             if (e.RowIndex >= 0)
             {
+                DataGridViewRow row = this.examRequestsDataGridView.Rows[e.RowIndex];
                 string index = row.Cells[1].Value.ToString();
                 string studentShort = StudentRepository.GetStudentShort(index);
                 string courseName = row.Cells[2].Value.ToString();

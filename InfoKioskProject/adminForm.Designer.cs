@@ -775,6 +775,7 @@
             // 
             this.examRequestsDataGridView.AllowUserToAddRows = false;
             this.examRequestsDataGridView.AllowUserToDeleteRows = false;
+            this.examRequestsDataGridView.AllowUserToResizeRows = false;
             this.examRequestsDataGridView.Location = new System.Drawing.Point(0, 24);
             this.examRequestsDataGridView.Name = "examRequestsDataGridView";
             this.examRequestsDataGridView.ReadOnly = true;
@@ -967,8 +968,12 @@
             // 
             // databaseDataGridView
             // 
+            this.databaseDataGridView.AllowUserToAddRows = false;
+            this.databaseDataGridView.AllowUserToDeleteRows = false;
+            this.databaseDataGridView.AllowUserToResizeRows = false;
             this.databaseDataGridView.Location = new System.Drawing.Point(0, 95);
             this.databaseDataGridView.Name = "databaseDataGridView";
+            this.databaseDataGridView.ReadOnly = true;
             this.databaseDataGridView.Size = new System.Drawing.Size(561, 270);
             this.databaseDataGridView.TabIndex = 5;
             // 

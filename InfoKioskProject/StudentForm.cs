@@ -32,7 +32,9 @@ namespace InfoKioskProject
             LoadExamStatistics();
 
             LoadAttempts();
+            
             LoadExamsPage();
+            
             LoadUnfinishedExams();
         }
 
@@ -110,13 +112,14 @@ namespace InfoKioskProject
         {
             int studentID = StudentRepository.GetStudentID(LoginForm.username);
             int studyProgramID = StudentRepository.GetStudentStudyProgram(studentID);
-
+            
             int totalExams = Repository.GetTotalExams(studyProgramID);
             int totalGrades = Repository.GetTotalGrades(studentID);
             loadTotalExamsLabel.Text = totalGrades + "/" + totalExams;
-
+            
             int sumOfGrades = Repository.GetSumOfGrades(studentID);
-            float averageGrade = (float) sumOfGrades / totalGrades;
+            
+            float averageGrade = (totalGrades > 0) ? (float) sumOfGrades / totalGrades : 0;
             loadAverageGradeLabel.Text = Math.Round(averageGrade, 2).ToString();
         }
 
@@ -199,19 +202,13 @@ namespace InfoKioskProject
 
             int year = GetYearOfStudy(studentID);
             string semester_range = (((year - 1) * 2) - 1) + ", " + ((year - 1) * 2) + ", " + ((year * 2) - 1) + ", " + (year * 2);
-
             List<int> indexes = Repository.LoadUnfinishedExams(studentID);
-
+            
             int p = indexes.Count();
 
             string grade_index = "";
-
-            for (int i = 0; i < p - 1; i++)
-                grade_index += indexes[i] + ", ";
-            grade_index += indexes[p - 1].ToString();
-
+            
             string sql = "";
-
             if (p == 0)
             {
                 sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "ПРЕДМЕТ" + "\" " +
@@ -219,6 +216,10 @@ namespace InfoKioskProject
             }
             else
             {
+                for (int i = 0; i < p - 1; i++)
+                    grade_index += indexes[i] + ", ";
+                grade_index += indexes[p - 1].ToString();
+
                 sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "ПРЕДМЕТ" + "\" " +
                          "FROM courses " +
                          "WHERE study_program_id = " + studyProgramID + " AND semester IN (" + semester_range + ") " +
@@ -261,10 +262,9 @@ namespace InfoKioskProject
         
         private void unfinishedExamsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.unfinishedExamsDataGridView.Rows[e.RowIndex];
-            
             if (e.RowIndex >= 0)
             {
+                DataGridViewRow row = this.unfinishedExamsDataGridView.Rows[e.RowIndex];
                 int studentID = StudentRepository.GetStudentID(LoginForm.username);
                 string courseCode = row.Cells[0].Value.ToString();
                 courseID = Repository.GetCourseID(courseCode);

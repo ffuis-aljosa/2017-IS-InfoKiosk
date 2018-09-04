@@ -455,6 +455,7 @@
             // 
             this.gradesDataGridView.AllowUserToAddRows = false;
             this.gradesDataGridView.AllowUserToDeleteRows = false;
+            this.gradesDataGridView.AllowUserToResizeRows = false;
             this.gradesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gradesDataGridView.Location = new System.Drawing.Point(0, 24);
             this.gradesDataGridView.Name = "gradesDataGridView";
@@ -487,6 +488,7 @@
             // 
             this.attemptsDataGridView.AllowUserToAddRows = false;
             this.attemptsDataGridView.AllowUserToDeleteRows = false;
+            this.attemptsDataGridView.AllowUserToResizeRows = false;
             this.attemptsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.attemptsDataGridView.Location = new System.Drawing.Point(0, 24);
             this.attemptsDataGridView.Name = "attemptsDataGridView";
@@ -618,6 +620,7 @@
             // 
             this.unfinishedExamsDataGridView.AllowUserToAddRows = false;
             this.unfinishedExamsDataGridView.AllowUserToDeleteRows = false;
+            this.unfinishedExamsDataGridView.AllowUserToResizeRows = false;
             this.unfinishedExamsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.unfinishedExamsDataGridView.Location = new System.Drawing.Point(0, 23);
             this.unfinishedExamsDataGridView.Name = "unfinishedExamsDataGridView";
