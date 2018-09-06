@@ -82,8 +82,8 @@ namespace InfoKioskProject
         {
             int studentID = StudentRepository.GetStudentID(LoginForm.username); 
 
-            string sql = "SELECT c.name AS \"" + "ПРЕДМЕТ" + "\", p.title_short + ' ' + p.first_name + ' ' + p.last_name AS \"" + "ПРОФЕСОР" + "\", " +
-                         "g.date AS \"" + "ДАТУМ" + "\", g.value AS \"" + "ОЦЈЕНА" + "\" " +
+            string sql = "SELECT c.name AS \"ПРЕДМЕТ\", p.title_short + ' ' + p.first_name + ' ' + p.last_name AS \"ПРОФЕСОР\", " +
+                         "g.date AS \"ДАТУМ\", g.value AS \"ОЦЈЕНА\" " +
                          "FROM grades AS g JOIN courses AS c ON c.id = g.course_id " +
                          "JOIN professors AS p ON p.id = g.professor_id " +
                          "WHERE g.student_id = " + studentID + " " +
@@ -128,7 +128,7 @@ namespace InfoKioskProject
         {
             int studentID = StudentRepository.GetStudentID(LoginForm.username);
             
-            string sql = "SELECT c.name AS \"" + "ПРЕДМЕТ" + "\", COUNT(a.id) AS \"" + "БРОЈ ИЗЛАЗАКА" + "\" " +
+            string sql = "SELECT c.name AS \"ПРЕДМЕТ\", COUNT(a.id) AS \"БРОЈ ИЗЛАЗАКА\" " +
                          "FROM attempts AS a JOIN courses AS c ON a.course_id = c.id " +
                          "WHERE a.student_id = " + studentID + " " +
                          "GROUP BY c.name;";
