@@ -115,11 +115,11 @@ namespace InfoKioskProject
             
             int totalExams = Repository.GetTotalExams(studyProgramID);
             int totalGrades = Repository.GetTotalGrades(studentID);
+
             loadTotalExamsLabel.Text = totalGrades + "/" + totalExams;
-            
+
             int sumOfGrades = Repository.GetSumOfGrades(studentID);
-            
-            float averageGrade = (totalGrades > 0) ? (float) sumOfGrades / totalGrades : 0;
+            float averageGrade = (totalGrades > 0) ? (float)sumOfGrades / totalGrades : 0;
             loadAverageGradeLabel.Text = Math.Round(averageGrade, 2).ToString();
         }
 

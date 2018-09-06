@@ -115,7 +115,7 @@ namespace InfoKioskProject
 
             if (username.Length > 8)
             {
-                MessageBox.Show("Број индекса не смије бити дужи од 32 карактера.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Број индекса не смије бити дужи од 8 карактера.", "УПОЗОРЕЊЕ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             else if (subUsername != "МР" && subUsername != "СЈ" && subUsername != "КЕ" && subUsername != "ИС")
@@ -640,7 +640,9 @@ namespace InfoKioskProject
 
         private void LoadUsersData()
         {
-            string sql = "SELECT id - 1 AS \"РЕДНИ БРОЈ\", username AS \"КОРИСНИЧКО ИМЕ\" FROM users WHERE role = 'student';";
+            string sql = "SELECT u.username AS \"КОРИСНИЧКО ИМЕ\", s.first_name + ' ' + s.last_name AS \"СТУДЕНТ\" " +
+                         "FROM users AS u JOIN students AS s ON s.user_id = u.id " +
+                         "WHERE role = 'student';";
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
@@ -657,8 +659,8 @@ namespace InfoKioskProject
             databaseDataGridView.Show();
 
             databaseDataGridView.RowHeadersVisible = false;
-            databaseDataGridView.Columns[0].Width = 100;
-            databaseDataGridView.Columns[1].Width = 440;
+            databaseDataGridView.Columns[0].Width = 200;
+            databaseDataGridView.Columns[1].Width = 340;
         }
 
         private void LoadStudentsData()
