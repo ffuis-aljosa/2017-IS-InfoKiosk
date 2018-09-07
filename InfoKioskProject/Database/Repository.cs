@@ -79,7 +79,7 @@ namespace InfoKioskProject.Database
         {
             List<int> index = new List<int>();
 
-            string sql = "SELECT course_id FROM grades WHERE student_id =" + student_id + ";";
+            string sql = "SELECT course_id FROM grades WHERE student_id = " + student_id + ";";
 
             SqlCeCommand command = new SqlCeCommand(sql, connection.Connection);
             SqlCeDataReader reader = command.ExecuteReader();

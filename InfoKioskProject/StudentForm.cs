@@ -102,6 +102,7 @@ namespace InfoKioskProject
 
             gradesDataGridView.DataSource = dataTable;
             gradesDataGridView.RowHeadersVisible = false;
+
             gradesDataGridView.Columns[0].Width = 360;
             gradesDataGridView.Columns[1].Width = 167;
             gradesDataGridView.Columns[2].Width = 65;
@@ -146,6 +147,7 @@ namespace InfoKioskProject
 
             attemptsDataGridView.DataSource = dataTable;
             attemptsDataGridView.RowHeadersVisible = false;
+
             attemptsDataGridView.Columns[0].Width = 469;
             attemptsDataGridView.Columns[1].Width = 200;
         }
@@ -202,6 +204,7 @@ namespace InfoKioskProject
 
             int year = GetYearOfStudy(studentID);
             string semester_range = (((year - 1) * 2) - 1) + ", " + ((year - 1) * 2) + ", " + ((year * 2) - 1) + ", " + (year * 2);
+
             List<int> indexes = Repository.LoadUnfinishedExams(studentID);
             
             int p = indexes.Count();
@@ -209,10 +212,11 @@ namespace InfoKioskProject
             string grade_index = "";
             
             string sql = "";
+
             if (p == 0)
             {
                 sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "ПРЕДМЕТ" + "\" " +
-                         "FROM courses WHERE study_program_id = " + studyProgramID + " AND semester IN (" + semester_range + ");";
+                      "FROM courses WHERE study_program_id = " + studyProgramID + " AND semester IN (" + semester_range + ");";
             }
             else
             {
@@ -220,10 +224,9 @@ namespace InfoKioskProject
                     grade_index += indexes[i] + ", ";
                 grade_index += indexes[p - 1].ToString();
 
-                sql = "SELECT course_code AS \"" + "ШИФРА" + "\", name AS \"" + "ПРЕДМЕТ" + "\" " +
-                         "FROM courses " +
-                         "WHERE study_program_id = " + studyProgramID + " AND semester IN (" + semester_range + ") " +
-                         "AND id NOT IN(" + grade_index + ");";
+                sql = "SELECT course_code AS \"ШИФРА\", name AS \"ПРЕДМЕТ\" FROM courses " +
+                      "WHERE study_program_id = " + studyProgramID + " AND semester IN (" + semester_range + ") " +
+                      "AND id NOT IN(" + grade_index + ");";
             }
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
@@ -239,6 +242,7 @@ namespace InfoKioskProject
 
             unfinishedExamsDataGridView.DataSource = dataTable;
             unfinishedExamsDataGridView.RowHeadersVisible = false;
+
             unfinishedExamsDataGridView.Columns[0].Width = 82;
             unfinishedExamsDataGridView.Columns[1].Width = 370;
         }
@@ -268,7 +272,7 @@ namespace InfoKioskProject
                 int studentID = StudentRepository.GetStudentID(LoginForm.username);
                 string courseCode = row.Cells[0].Value.ToString();
                 courseID = Repository.GetCourseID(courseCode);
-
+                
                 loadCourseCodeLabel.Text = courseCode;
                 loadCourseCodeLabel.Show();
                 loadAttemptsLabel.Text = Repository.GetAttempts(studentID, courseID).ToString();

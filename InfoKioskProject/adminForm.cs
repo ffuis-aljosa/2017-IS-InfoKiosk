@@ -611,6 +611,7 @@ namespace InfoKioskProject
                 else if (searchTermsComboBox.SelectedIndex.Equals(4))
                 {
                     secondSearchTermComboBox.Show();
+                    hideSearchButton.Show();
                 }
                 else
                 {
@@ -634,6 +635,7 @@ namespace InfoKioskProject
                     LoadCoursesData(studyProgramID);
                     secondSearchTermComboBox.Text = "";
                     secondSearchTermComboBox.Hide();
+                    hideSearchButton.Hide();
                 }
             }
         }
@@ -745,7 +747,7 @@ namespace InfoKioskProject
             string sql = "SELECT course_code AS \"ШИФРА\", name AS \"НАЗИВ ПРРЕДМЕТА\", semester AS \"СЕМЕСТАР\", " +
                          "ects AS \"ЕСПБ\", p.title_short + ' ' + p.first_name + ' ' + p.last_name AS \"ПРОФЕСОР\" " +
                          "FROM courses AS c JOIN professors AS p ON c.professor_id = p.id " +
-                         "WHERE c.study_program_id =" + id + ";";
+                         "WHERE c.study_program_id = " + id + ";";
 
             SqlCeDataAdapter adapter = new SqlCeDataAdapter();
             adapter = new SqlCeDataAdapter(sql, connection.Connection);
@@ -863,8 +865,7 @@ namespace InfoKioskProject
 
             examRequestsDataGridView.DataSource = dataTable;
             examRequestsDataGridView.RowHeadersVisible = false;
-
-
+            
             examRequestsDataGridView.Columns[0].Width = 150;
             examRequestsDataGridView.Columns[1].Width = 100;
             examRequestsDataGridView.Columns[2].Width = 250;
